@@ -5,4 +5,8 @@ Paste this URL into the link:
 https://github.com/Khromage/PixelForge/tree/main/Pixel%20Forgery
 
 
-Now open this folder in Visual Studio to edit!
+Now extract the folder from the downloaded zip file.
+
+Next, go through the folder and find "Form1.resx", right-click it, go to Properties, and click unblock on the bottom of the pop-up.
+
+Once unblocked, you can now open the "Pixel Forgery" folder and run the program.
