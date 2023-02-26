@@ -1,0 +1,8 @@
+Go to this link:
+https://download-directory.github.io/
+
+Paste this URL into the link:
+https://github.com/Khromage/PixelForge/tree/main/Pixel%20Forgery
+
+
+Now open this folder in Visual Studio to edit!
