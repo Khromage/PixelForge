@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Linq;
 using System.Text;
@@ -24,65 +25,53 @@ namespace Pixel_Forgery
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
         }
 
-        private void toolStrip1_ItemClicked_1(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
+        // Brush Tool Button
         private void toolStripButton1_Click(object sender, EventArgs e) // brush button in tool menu
         {
-/*
-            Random r = new Random();
-            for (int x = 1; x < 500; x++)
-            {
-                BMP.SetPixel(x, r.Next(500), Color.Black);
-
-            }
-            panel1.BackgroundImage = BMP;
-*/
+            // Switch the tool type to Brush Tool
+            tool = new BrushTool();
+            Console.WriteLine("Brush Tool Selected");
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        // Eraser Tool Button
+        private void toolStripButton2_Click(object sender, EventArgs e)
         {
-
-        }
-
-        
-        private void paintOnCanvas(int x, int y)
-        {
-            Graphics gfx = Graphics.FromImage(pictureBox1.Image);
-            gfx.FillEllipse(new SolidBrush(Color.Black), x - 5, y - 5, 10, 10);
-            pictureBox1.Refresh();
+            // Switch the tool type to Eraser Tool
+            tool = new EraserTool();
+            Console.WriteLine("Eraser Tool Selected");
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             // update drawing status
-            isDrawing = true;
-
-            paintOnCanvas(e.X, e.Y);
+            tool.isDrawing = true;
+            tool.startX = e.X;
+            tool.startY = e.Y;
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            if(isDrawing == true)
+            if(tool.isDrawing == true)
             {
-                paintOnCanvas(e.X, e.Y);
+                tool.useTool(sender, e, pictureBox1);
             }
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             // update drawing status
-            isDrawing = false;
+            tool.isDrawing = false;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
