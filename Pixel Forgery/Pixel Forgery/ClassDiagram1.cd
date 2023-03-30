@@ -3,12 +3,12 @@
   <Class Name="Pixel_Forgery.PixelForgeryGUI">
     <Position X="0.5" Y="1.5" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>BQAAIAEAACAAwAACIMGAAGgCAACAAAAAAAQAAABAAAA=</HashCode>
+      <HashCode>BQAAICEAACAAwAgCIMGAAGgCAACAAAAAAAQAAABAAAA=</HashCode>
       <FileName>Form1.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Pixel_Forgery.PixelForgeryTool">
-    <Position X="4.25" Y="1.75" Width="2" />
+    <Position X="4.25" Y="1.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAgABAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Tool.cs</FileName>
@@ -29,9 +29,9 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Pixel_Forgery.FileExplorerDialog">
-    <Position X="9.25" Y="2" Width="1.5" />
+    <Position X="4.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>FileExplorerDialog.cs</FileName>
     </TypeIdentifier>
   </Class>

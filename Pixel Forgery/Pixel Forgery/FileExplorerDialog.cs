@@ -30,7 +30,10 @@ namespace Pixel_Forgery
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                pictureBox.Image = System.Drawing.Image.FromFile(ofd.FileName);
+                System.Drawing.Image image = System.Drawing.Image.FromFile(ofd.FileName);
+                pictureBox.Width = image.Width;
+                pictureBox.Height = image.Height;
+                pictureBox.Image = image;
                 pictureBox.Refresh();
             }
         }
