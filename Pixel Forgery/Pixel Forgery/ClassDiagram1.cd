@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Pixel_Forgery.PixelForge">
+  <Class Name="Pixel_Forgery.PixelForgeryGUI">
     <Position X="0.5" Y="1.5" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>BQAAIAEAACAAwAACIMCAAGACAACAAAAAAAQAAABAAAA=</HashCode>
+      <HashCode>BQAAIAEAACAAwAACIMGAAGgCAACAAAAAAAQAAABAAAA=</HashCode>
       <FileName>Form1.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -24,8 +24,15 @@
   <Class Name="Pixel_Forgery.EraserTool">
     <Position X="7" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
       <FileName>EraserTool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pixel_Forgery.FileExplorerDialog">
+    <Position X="9.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FileExplorerDialog.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

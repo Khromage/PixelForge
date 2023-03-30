@@ -16,7 +16,7 @@ namespace Pixel_Forgery
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PixelForge());
+            Application.Run(new PixelForgeryGUI());
             return;
         }
     }

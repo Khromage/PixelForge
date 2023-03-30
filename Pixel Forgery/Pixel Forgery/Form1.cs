@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,12 +14,19 @@ using System.Windows.Forms;
 
 namespace Pixel_Forgery
 {
-    public partial class PixelForge : Form
+    public partial class PixelForgeryGUI : Form
     {
-        public PixelForge()
+        public PixelForgeryGUI()
         {
             InitializeComponent();
             BMP = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            for(int x = 0; x < pictureBox1.Width; x++)
+            {
+                for(int y = 0; y < pictureBox1.Height; y++)
+                {
+                    BMP.SetPixel(x, y, Color.White);
+                }
+            }
             pictureBox1.Image = BMP;
             pictureBox1.BackColor = Color.White;
         }
@@ -27,8 +35,18 @@ namespace Pixel_Forgery
         {
         }
 
+        // Save File Button
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            FileExplorerDialog fd = new FileExplorerDialog();
+            fd.saveFile(this.pictureBox1);
+        }
+
+        // Load File Button
+        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FileExplorerDialog fd = new FileExplorerDialog();
+            fd.loadFile(this.pictureBox1);
         }
 
         // Brush Tool Button
@@ -67,6 +85,7 @@ namespace Pixel_Forgery
         {
             // update drawing status
             tool.isDrawing = false;
+            BMP = (Bitmap)pictureBox1.Image;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
