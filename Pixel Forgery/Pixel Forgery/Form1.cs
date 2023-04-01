@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 
 namespace Pixel_Forgery
@@ -19,16 +20,17 @@ namespace Pixel_Forgery
         public PixelForgeryGUI()
         {
             InitializeComponent();
-            BMP = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            for(int x = 0; x < pictureBox1.Width; x++)
+            changes = new Changes();
+            BMP = new Bitmap(pictureBox.Width, pictureBox.Height);
+            pictureBox.Image = BMP;
+            pictureBox.BackColor = Color.White;
+
+            using (Graphics g = Graphics.FromImage(BMP))
             {
-                for(int y = 0; y < pictureBox1.Height; y++)
-                {
-                    BMP.SetPixel(x, y, Color.White);
-                }
+                Rectangle bg = new Rectangle(0, 0, BMP.Width, BMP.Height);
+                g.FillRectangle(Brushes.White, bg);
             }
-            pictureBox1.Image = BMP;
-            pictureBox1.BackColor = Color.White;
+            changes.makeChange(pictureBox);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -36,59 +38,69 @@ namespace Pixel_Forgery
         }
 
         // Save File Button
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        private void saveButton_Click(object sender, EventArgs e)
         {
             FileExplorerDialog fd = new FileExplorerDialog();
-            fd.saveFile(this.pictureBox1);
+            fd.saveFile(this.pictureBox);
         }
 
         // Load File Button
-        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
+        private void loadButton_Click(object sender, EventArgs e)
         {
             FileExplorerDialog fd = new FileExplorerDialog();
-            fd.loadFile(this.pictureBox1);
+            fd.loadFile(this.pictureBox);
+        }
+
+        // Undo Changes Button
+        private void undoButton_Click(object sender, EventArgs e)
+        {
+            changes.undoChange(pictureBox);
+        }
+
+        // Redo Changes Button
+        private void redoButton_Click(object sender, EventArgs e)
+        {
+            changes.redoChange(pictureBox);
         }
 
         // Brush Tool Button
-        private void toolStripButton1_Click(object sender, EventArgs e) // brush button in tool menu
+        private void brushButton_Click(object sender, EventArgs e)
         {
             // Switch the tool type to Brush Tool
             tool = new BrushTool();
-            Console.WriteLine("Brush Tool Selected");
         }
 
         // Eraser Tool Button
-        private void toolStripButton2_Click(object sender, EventArgs e)
+        private void eraserButton_Click(object sender, EventArgs e)
         {
             // Switch the tool type to Eraser Tool
             tool = new EraserTool();
-            Console.WriteLine("Eraser Tool Selected");
         }
 
-        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        private void pictureBox_MouseDown(object sender, MouseEventArgs e)
         {
-            // update drawing status
+            // Update drawing status
             tool.isDrawing = true;
             tool.startX = e.X;
             tool.startY = e.Y;
         }
 
-        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        private void pictureBox_MouseMove(object sender, MouseEventArgs e)
         {
             if(tool.isDrawing == true)
             {
-                tool.useTool(sender, e, pictureBox1);
+                tool.useTool(sender, e, pictureBox);
             }
         }
 
-        private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
+        private void pictureBox_MouseUp(object sender, MouseEventArgs e)
         {
-            // update drawing status
+            // Update drawing status
             tool.isDrawing = false;
-            BMP = (Bitmap)pictureBox1.Image;
+            changes.makeChange(pictureBox);
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void pictureBox_Click(object sender, EventArgs e)
         {
 
         }
