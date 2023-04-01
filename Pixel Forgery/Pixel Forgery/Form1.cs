@@ -42,6 +42,8 @@ namespace Pixel_Forgery
         {
             FileExplorerDialog fd = new FileExplorerDialog();
             fd.saveFile(this.pictureBox);
+            changes.clearStacks();
+            changes.makeChange(pictureBox);
         }
 
         // Open File Button
@@ -49,6 +51,8 @@ namespace Pixel_Forgery
         {
             FileExplorerDialog fd = new FileExplorerDialog();
             fd.loadFile(this.pictureBox);
+            changes.clearStacks();
+            changes.makeChange(pictureBox);
         }
 
         // Undo Changes Button
@@ -111,11 +115,15 @@ namespace Pixel_Forgery
             {
                 FileExplorerDialog fd = new FileExplorerDialog();
                 fd.saveFile(this.pictureBox);
+                changes.clearStacks();
+                changes.makeChange(pictureBox);
             }
             else if (e.KeyCode == Keys.O && (e.Control)) // Ctrl+O for Open
             {
                 FileExplorerDialog fd = new FileExplorerDialog();
                 fd.loadFile(this.pictureBox);
+                changes.clearStacks();
+                changes.makeChange(pictureBox);
             }
             else if (e.KeyCode == Keys.Z && (e.Control)) // Ctrl+Z for Undo
             {
