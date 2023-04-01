@@ -1,0 +1,31 @@
+How to get the code from github to Visual Studio:
+
+STEP 1: Open Visual Studio
+
+STEP 2: Click "Clone a Repository"
+
+STEP 3: Inside of the main PixelForge branch, click the bright green "<> Code" button
+
+STEP 4: Copy the link that you get from the button
+
+STEP 5: Paste the link into Visual Studio
+
+
+
+How to commit changes from Visual Studio to github:
+
+STEP 1: Click "Git" at the menu bar
+
+STEP 2: Click "Commit or Stash" in the drop down
+
+STEP 3: Click "Commit All" in the git changes tab
+
+STEP 4: Click the "Push" button in the tab (it is an upward arrow with an underscore)
+
+
+
+How to get most recent changes from github to Visual Studio:
+
+STEP 1: Click "Git" at the menu bar
+
+STEP 2: Click "Pull" in the drop down
