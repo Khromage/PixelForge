@@ -67,5 +67,12 @@ namespace Pixel_Forgery
             System.Drawing.Image current = (System.Drawing.Image)img.Clone();
             pictureBox.Image = current;
         }
+
+        // Clear the stacks (after saving, loading, or creating new images)
+        public void clearStacks()
+        {
+            undoStack.Clear();
+            redoStack.Clear();
+        }
     }
 }

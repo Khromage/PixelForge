@@ -36,7 +36,7 @@ namespace Pixel_Forgery
             this.menuBar = new System.Windows.Forms.MenuStrip();
             this.fileButton = new System.Windows.Forms.ToolStripMenuItem();
             this.saveButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.openButton = new System.Windows.Forms.ToolStripMenuItem();
             this.editButton = new System.Windows.Forms.ToolStripMenuItem();
             this.undoButton = new System.Windows.Forms.ToolStripMenuItem();
             this.redoButton = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,7 +64,7 @@ namespace Pixel_Forgery
             // 
             this.fileButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.saveButton,
-            this.loadButton});
+            this.openButton});
             this.fileButton.Name = "fileButton";
             this.fileButton.Size = new System.Drawing.Size(37, 20);
             this.fileButton.Text = "File";
@@ -72,16 +72,18 @@ namespace Pixel_Forgery
             // saveButton
             // 
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(100, 22);
+            this.saveButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.saveButton.Size = new System.Drawing.Size(180, 22);
             this.saveButton.Text = "Save";
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
-            // loadButton
+            // openButton
             // 
-            this.loadButton.Name = "loadButton";
-            this.loadButton.Size = new System.Drawing.Size(100, 22);
-            this.loadButton.Text = "Load";
-            this.loadButton.Click += new System.EventHandler(this.loadButton_Click);
+            this.openButton.Name = "openButton";
+            this.openButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.openButton.Size = new System.Drawing.Size(180, 22);
+            this.openButton.Text = "Open";
+            this.openButton.Click += new System.EventHandler(this.openButton_Click);
             // 
             // editButton
             // 
@@ -95,14 +97,18 @@ namespace Pixel_Forgery
             // undoButton
             // 
             this.undoButton.Name = "undoButton";
-            this.undoButton.Size = new System.Drawing.Size(103, 22);
+            this.undoButton.ShortcutKeyDisplayString = "";
+            this.undoButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
+            this.undoButton.Size = new System.Drawing.Size(180, 22);
             this.undoButton.Text = "Undo";
             this.undoButton.Click += new System.EventHandler(this.undoButton_Click);
             // 
             // redoButton
             // 
             this.redoButton.Name = "redoButton";
-            this.redoButton.Size = new System.Drawing.Size(103, 22);
+            this.redoButton.ShortcutKeyDisplayString = "";
+            this.redoButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
+            this.redoButton.Size = new System.Drawing.Size(180, 22);
             this.redoButton.Text = "Redo";
             this.redoButton.Click += new System.EventHandler(this.redoButton_Click);
             // 
@@ -171,6 +177,7 @@ namespace Pixel_Forgery
             this.Name = "PixelForgeryGUI";
             this.Text = "Pixel Forge";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PixelForgeryGUI_KeyDown);
             this.menuBar.ResumeLayout(false);
             this.menuBar.PerformLayout();
             this.toolBar.ResumeLayout(false);
@@ -185,7 +192,7 @@ namespace Pixel_Forgery
         private System.Windows.Forms.MenuStrip menuBar;
         private System.Windows.Forms.ToolStripMenuItem fileButton;
         private System.Windows.Forms.ToolStripMenuItem saveButton;
-        private System.Windows.Forms.ToolStripMenuItem loadButton;
+        private System.Windows.Forms.ToolStripMenuItem openButton;
         private System.Windows.Forms.ToolStripMenuItem editButton;
         private System.Windows.Forms.ToolStripMenuItem undoButton;
         private System.Windows.Forms.ToolStripMenuItem redoButton;

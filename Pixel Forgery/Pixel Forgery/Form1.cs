@@ -44,8 +44,8 @@ namespace Pixel_Forgery
             fd.saveFile(this.pictureBox);
         }
 
-        // Load File Button
-        private void loadButton_Click(object sender, EventArgs e)
+        // Open File Button
+        private void openButton_Click(object sender, EventArgs e)
         {
             FileExplorerDialog fd = new FileExplorerDialog();
             fd.loadFile(this.pictureBox);
@@ -102,7 +102,29 @@ namespace Pixel_Forgery
 
         private void pictureBox_Click(object sender, EventArgs e)
         {
-
+        }
+        
+        // Keyboard Shortcuts
+        private void PixelForgeryGUI_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.S && (e.Control)) // Ctrl+S for Save
+            {
+                FileExplorerDialog fd = new FileExplorerDialog();
+                fd.saveFile(this.pictureBox);
+            }
+            else if (e.KeyCode == Keys.O && (e.Control)) // Ctrl+O for Open
+            {
+                FileExplorerDialog fd = new FileExplorerDialog();
+                fd.loadFile(this.pictureBox);
+            }
+            else if (e.KeyCode == Keys.Z && (e.Control)) // Ctrl+Z for Undo
+            {
+                changes.undoChange(pictureBox);
+            }
+            else if (e.KeyCode == Keys.Y && (e.Control)) // Ctrl+Y for Redo
+            {
+                changes.redoChange(pictureBox);
+            }
         }
     }
 }
