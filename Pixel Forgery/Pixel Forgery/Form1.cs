@@ -17,6 +17,9 @@ namespace Pixel_Forgery
 {
     public partial class PixelForgeryGUI : Form
     {
+        private BrushTool brushTool = null;
+        private EraserTool eraserTool = null;
+
         public PixelForgeryGUI()
         {
             InitializeComponent();
@@ -71,14 +74,22 @@ namespace Pixel_Forgery
         private void brushButton_Click(object sender, EventArgs e)
         {
             // Switch the tool type to Brush Tool
-            tool = new BrushTool();
+            //tool = new BrushTool();
+
+            if (brushTool == null)
+                brushTool = new BrushTool();
+            tool = brushTool;
         }
 
         // Eraser Tool Button
         private void eraserButton_Click(object sender, EventArgs e)
         {
             // Switch the tool type to Eraser Tool
-            tool = new EraserTool();
+            //tool = new EraserTool();
+
+            if (eraserTool == null)
+                eraserTool = new EraserTool();
+            tool = eraserTool;
         }
 
         private void pictureBox_MouseDown(object sender, MouseEventArgs e)
@@ -133,6 +144,66 @@ namespace Pixel_Forgery
             {
                 changes.redoChange(pictureBox);
             }
+        }
+
+        /// <summary>
+        /// Populates the brush-size text box with the current brush size
+        /// </summary>
+        private void brushSizeToolStripMenuItem_MouseHover(object sender, EventArgs e)
+        {
+            brushSizeTextBox.Text = brushTool.BrushWidth.ToString();
+        }
+
+        /// <summary>
+        /// Populates the eraser-size text box with the current eraser size
+        /// </summary>
+        private void eraserSizeToolStripMenuItem_MouseHover(object sender, EventArgs e)
+        {
+            eraserSizeTextBox.Text = eraserTool.EraserWidth.ToString();
+        }
+
+        /// <summary>
+        /// Processes brush size changes. If an invalid value is input the brush size is
+        /// set back to the default size of 5
+        /// </summary>
+        private void brushSizeTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string s = brushSizeTextBox.Text;
+
+            if (float.TryParse(s, out float width) && width > 0)
+                brushTool.BrushWidth = width;
+            else
+                brushTool.BrushWidth = 5;
+        }
+
+        /// <summary>
+        /// Processes eraser size changes. If an invalid value is input the eraser size is
+        /// set back to the default size of 20
+        /// </summary>
+        private void eraserSizeTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string s = eraserSizeTextBox.Text;
+
+            if (float.TryParse(s, out float width) && width > 0)
+                eraserTool.EraserWidth = width;
+            else
+                eraserTool.EraserWidth = 20;
+        }
+
+        /// <summary>
+        /// Clears the brush-size text box when the user clicks inside the text box
+        /// </summary>
+        private void brushSizeTextBox_Click(object sender, EventArgs e)
+        {
+            brushSizeTextBox.Clear();
+        }
+
+        /// <summary>
+        /// Clears the eraser-size text box when the user clicks inside the text box
+        /// </summary>
+        private void eraserSizeTextBox_Click(object sender, EventArgs e)
+        {
+            eraserSizeTextBox.Clear();
         }
     }
 }

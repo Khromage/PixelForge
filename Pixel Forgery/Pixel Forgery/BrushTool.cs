@@ -11,11 +11,24 @@ namespace Pixel_Forgery
 {
     public class BrushTool : PixelForgeryTool
     {
+        // Create the pen object only once. This makes it easier to 
+        // edit the pen width and color
+        private Pen p = new Pen(Color.Black, 5);
+
+        /// <summary>
+        /// Property variable for setting & getting the 
+        /// brush pen width
+        /// </summary>
+        public float BrushWidth
+        {
+            set { p.Width = value; }
+            get { return p.Width; }
+        }
+
         public override void useTool(object sender, MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
         {
             Graphics g = Graphics.FromImage(pictureBox1.Image);
             g.SmoothingMode = SmoothingMode.HighQuality;
-            Pen p = new Pen(Color.Black, 5);
             p.StartCap = System.Drawing.Drawing2D.LineCap.Round;
             p.EndCap = System.Drawing.Drawing2D.LineCap.Round;
             Point point1 = new Point(startX, startY);
