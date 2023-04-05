@@ -31,3 +31,13 @@ C:\Users\jreye\Source\Repos\PixelForge\Pixel Forgery\Pixel Forgery\obj\Debug\Pix
 C:\Users\jreye\Source\Repos\PixelForge\Pixel Forgery\Pixel Forgery\obj\Debug\Pixel Forgery.exe
 C:\Users\jreye\Source\Repos\PixelForge\Pixel Forgery\Pixel Forgery\obj\Debug\Pixel Forgery.pdb
 C:\Users\jreye\Source\Repos\PixelForge\Pixel Forgery\Pixel Forgery\obj\Debug\Pixel_Forgery.PixelForgeryGUI.resources
+C:\Users\taylo\Source\Repos\PixelForge\Pixel Forgery\Pixel Forgery\bin\Debug\Pixel Forgery.exe.config
+C:\Users\taylo\Source\Repos\PixelForge\Pixel Forgery\Pixel Forgery\bin\Debug\Pixel Forgery.exe
+C:\Users\taylo\Source\Repos\PixelForge\Pixel Forgery\Pixel Forgery\bin\Debug\Pixel Forgery.pdb
+C:\Users\taylo\Source\Repos\PixelForge\Pixel Forgery\Pixel Forgery\obj\Debug\Pixel Forgery.csproj.AssemblyReference.cache
+C:\Users\taylo\Source\Repos\PixelForge\Pixel Forgery\Pixel Forgery\obj\Debug\Pixel_Forgery.PixelForgeryGUI.resources
+C:\Users\taylo\Source\Repos\PixelForge\Pixel Forgery\Pixel Forgery\obj\Debug\Pixel_Forgery.Properties.Resources.resources
+C:\Users\taylo\Source\Repos\PixelForge\Pixel Forgery\Pixel Forgery\obj\Debug\Pixel Forgery.csproj.GenerateResource.cache
+C:\Users\taylo\Source\Repos\PixelForge\Pixel Forgery\Pixel Forgery\obj\Debug\Pixel Forgery.csproj.CoreCompileInputs.cache
+C:\Users\taylo\Source\Repos\PixelForge\Pixel Forgery\Pixel Forgery\obj\Debug\Pixel Forgery.exe
+C:\Users\taylo\Source\Repos\PixelForge\Pixel Forgery\Pixel Forgery\obj\Debug\Pixel Forgery.pdb

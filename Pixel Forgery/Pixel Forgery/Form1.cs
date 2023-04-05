@@ -19,6 +19,7 @@ namespace Pixel_Forgery
     {
         private BrushTool brushTool = null;
         private EraserTool eraserTool = null;
+        private ShapeTool shapeTool = null;
 
         public PixelForgeryGUI()
         {
@@ -104,6 +105,8 @@ namespace Pixel_Forgery
         {
             if(tool.isDrawing == true)
             {
+                tool.endX = e.X;
+                tool.endY = e.Y;
                 tool.useTool(sender, e, pictureBox);
             }
         }
@@ -112,6 +115,8 @@ namespace Pixel_Forgery
         {
             // Update drawing status
             tool.isDrawing = false;
+            tool.endX = e.X;
+            tool.endY = e.Y;
             changes.makeChange(pictureBox);
         }
 
@@ -204,6 +209,13 @@ namespace Pixel_Forgery
         private void eraserSizeTextBox_Click(object sender, EventArgs e)
         {
             eraserSizeTextBox.Clear();
+        }
+
+        private void rectangleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(shapeTool == null)
+                shapeTool = new ShapeTool();
+            tool = shapeTool;
         }
     }
 }

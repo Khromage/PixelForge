@@ -10,8 +10,14 @@ namespace Pixel_Forgery
     {
         public int startX;
         public int startY;
+        public int endX;
+        public int endY;
         public Boolean isDrawing = false;
         public virtual void useTool(object sender, MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
+        {
+        }
+
+        public virtual void paintSupport(Object sender, PaintEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
         {
         }
     }
