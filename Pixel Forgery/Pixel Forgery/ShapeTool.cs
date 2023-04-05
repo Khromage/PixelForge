@@ -40,7 +40,7 @@ namespace Pixel_Forgery
             r.X = Math.Min(locationXY.X, locationX1Y1.X);
             r.Y = Math.Min(locationXY.Y, locationX1Y1.Y);
             r.Width = Math.Abs(locationXY.X - locationX1Y1.X);
-            r.Height = Math.Abs(locationXY.Y - locationXY.Y);
+            r.Height = Math.Abs(locationXY.Y - locationX1Y1.Y);
             return r;
         }
     }
