@@ -220,8 +220,11 @@ namespace Pixel_Forgery
 
         private void colorTool_Click(object sender, EventArgs e)
         {
-            ColorTool ct = new ColorTool();
-            ct.selectColor();
+            ColorDialog cd = new ColorDialog();
+            if (cd.ShowDialog() == DialogResult.OK)
+            {
+                tool.currentColor = cd.Color;
+            }
         }
     }
 }

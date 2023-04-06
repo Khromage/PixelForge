@@ -3,14 +3,14 @@
   <Class Name="Pixel_Forgery.PixelForgeryGUI">
     <Position X="0.5" Y="1.5" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AIQAAAIBASgAiYFIUpCIAIAmACoIAIAEBCQAwhQASSA=</HashCode>
+      <HashCode>AIQAAAIBASgAiYFIUpCIAMAmACoIAIAkBCQAwhQASSA=</HashCode>
       <FileName>Form1.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Pixel_Forgery.PixelForgeryTool">
     <Position X="4.25" Y="1.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAMoABAAAAAAAAAgAAAAAEAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAMoABAAAAAAgAAgAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Tool.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -40,13 +40,6 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAgAIAAAAAAAAAAAACAAAoAAAAAABACAAAAAA=</HashCode>
       <FileName>Changes.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Pixel_Forgery.ColorTool">
-    <Position X="10.25" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
-      <FileName>ColorTool.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

@@ -33,9 +33,11 @@ namespace Pixel_Forgery
             p.EndCap = System.Drawing.Drawing2D.LineCap.Round;
             Point point1 = new Point(startX, startY);
             Point point2 = new Point(e.X, e.Y);
+
+            p.Color = currentColor;
+
             if (isDrawing == true)
             {
-                p.Color = currentColor;
                 g.DrawLine(p, point1, point2);
                 startX = e.X;
                 startY = e.Y;
