@@ -22,6 +22,7 @@ namespace Pixel_Forgery
              This code isn't drawing like it should, in a seperate test environment, this code works
              */
             Graphics g = Graphics.FromImage(pictureBox1.Image);
+            p.Color = currentColor;
             if (isDrawing == true)
             {
                 g.DrawRectangle(p, GetRectangle());
