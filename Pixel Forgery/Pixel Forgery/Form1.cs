@@ -108,6 +108,7 @@ namespace Pixel_Forgery
                 tool.endX = e.X;
                 tool.endY = e.Y;
                 tool.useTool(sender, e, pictureBox);
+                Refresh();
             }
         }
 
