@@ -11,22 +11,18 @@ namespace Pixel_Forgery
 {
     public class ShapeTool : PixelForgeryTool
     {
-        Pen p = new Pen(Color.Black, 20);
         Rectangle r;
         Point locationX1Y1;
         Point locationXY;
+        Color shapeColor;
 
         public override void useTool(object sender, MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
         {
-            /*
-             This code isn't drawing like it should, in a seperate test environment, this code works
-             */
             Graphics g = Graphics.FromImage(pictureBox1.Image);
             p.Color = currentColor;
             if (isDrawing == true)
             {
-                g.DrawRectangle(p, GetRectangle());
-                Console.WriteLine("rectangle");
+                 g.DrawRectangle(Pens.Black, GetRectangle());
             }
             pictureBox1.Refresh();
         }
@@ -37,7 +33,8 @@ namespace Pixel_Forgery
             locationXY.Y = startY;
             locationX1Y1.X = endX;
             locationX1Y1.Y = endY;
-            r = new Rectangle();
+            if(r == null)
+                r = new Rectangle();
             r.X = Math.Min(locationXY.X, locationX1Y1.X);
             r.Y = Math.Min(locationXY.Y, locationX1Y1.Y);
             r.Width = Math.Abs(locationXY.X - locationX1Y1.X);
