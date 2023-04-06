@@ -218,5 +218,14 @@ namespace Pixel_Forgery
                 shapeTool = new ShapeTool();
             tool = shapeTool;
         }
+
+        private void colorTool_Click(object sender, EventArgs e)
+        {
+            ColorDialog cd = new ColorDialog();
+            if (cd.ShowDialog() == DialogResult.OK)
+            {
+                tool.currentColor = cd.Color;
+            }
+        }
     }
 }

@@ -50,6 +50,7 @@ namespace Pixel_Forgery
             this.shapeToolDropDown = new System.Windows.Forms.ToolStripDropDownButton();
             this.rectangleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.menuBar.SuspendLayout();
             this.toolBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -128,7 +129,8 @@ namespace Pixel_Forgery
             this.toolBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.brushButton,
             this.eraserButton,
-            this.shapeToolDropDown});
+            this.shapeToolDropDown,
+            this.toolStripButton1});
             this.toolBar.Location = new System.Drawing.Point(0, 24);
             this.toolBar.Name = "toolBar";
             this.toolBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -213,7 +215,7 @@ namespace Pixel_Forgery
             // rectangleToolStripMenuItem
             // 
             this.rectangleToolStripMenuItem.Name = "rectangleToolStripMenuItem";
-            this.rectangleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rectangleToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.rectangleToolStripMenuItem.Text = "Rectangle";
             this.rectangleToolStripMenuItem.Click += new System.EventHandler(this.rectangleToolStripMenuItem_Click);
             // 
@@ -229,6 +231,16 @@ namespace Pixel_Forgery
             this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
             this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
             this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseUp);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(24, 47);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.colorTool_Click);
             // 
             // PixelForgeryGUI
             // 
@@ -281,6 +293,7 @@ namespace Pixel_Forgery
         private System.Windows.Forms.ToolStripTextBox eraserSizeTextBox;
         private System.Windows.Forms.ToolStripDropDownButton shapeToolDropDown;
         private System.Windows.Forms.ToolStripMenuItem rectangleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }
 
