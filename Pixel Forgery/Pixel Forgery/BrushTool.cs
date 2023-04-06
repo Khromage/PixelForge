@@ -35,6 +35,7 @@ namespace Pixel_Forgery
             Point point2 = new Point(e.X, e.Y);
             if (isDrawing == true)
             {
+                p.Color = currentColor;
                 g.DrawLine(p, point1, point2);
                 startX = e.X;
                 startY = e.Y;

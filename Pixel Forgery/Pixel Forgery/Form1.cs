@@ -217,5 +217,11 @@ namespace Pixel_Forgery
                 shapeTool = new ShapeTool();
             tool = shapeTool;
         }
+
+        private void colorTool_Click(object sender, EventArgs e)
+        {
+            ColorTool ct = new ColorTool();
+            ct.selectColor();
+        }
     }
 }

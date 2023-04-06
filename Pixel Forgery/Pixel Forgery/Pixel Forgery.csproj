@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="BrushTool.cs" />
     <Compile Include="Changes.cs" />
+    <Compile Include="ColorTool.cs" />
     <Compile Include="ShapeTool.cs" />
     <Compile Include="EraserTool.cs" />
     <Compile Include="FileExplorerDialog.cs" />
