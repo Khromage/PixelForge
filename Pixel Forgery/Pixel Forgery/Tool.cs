@@ -14,8 +14,14 @@ namespace Pixel_Forgery
         public int endX;
         public int endY;
         public Boolean isDrawing = false;
-        public Color currentColor = Color.Black;
-        public Pen p = new Pen(currentColor, 5);
+        public Pen p = new Pen(Color.Black, 5);
+
+        public Color currentColor 
+        {
+            set { p.Color = value; }
+            get { return p.Color; }
+        }
+
         public virtual void useTool(object sender, MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
         {
         }
