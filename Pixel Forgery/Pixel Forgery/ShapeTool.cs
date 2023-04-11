@@ -14,19 +14,17 @@ namespace Pixel_Forgery
         Rectangle r;
         Point locationX1Y1;
         Point locationXY;
-        Pen p = new Pen(Color.Black, 5);
-
-
 
         public override void useTool(object sender, MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
         {
-            p.Color = currentColor;
             Graphics g = Graphics.FromImage(pictureBox1.Image);
+            p.Color = currentColor;
             if (isDrawing == true)
             {
-                g.DrawRectangle(this.p, GetRectangle());
+                 g.DrawRectangle(Pens.Black, GetRectangle());
             }
             pictureBox1.Refresh();
+            g.Dispose();
         }
 
         private Rectangle GetRectangle()
@@ -35,13 +33,13 @@ namespace Pixel_Forgery
             locationXY.Y = startY;
             locationX1Y1.X = endX;
             locationX1Y1.Y = endY;
-            if(r == null)
+            if(this.r == null)
                 r = new Rectangle();
-            r.X = Math.Min(locationXY.X, locationX1Y1.X);
-            r.Y = Math.Min(locationXY.Y, locationX1Y1.Y);
-            r.Width = Math.Abs(locationXY.X - locationX1Y1.X);
-            r.Height = Math.Abs(locationXY.Y - locationX1Y1.Y);
-            return r;
+            this.r.X = Math.Min(locationXY.X, locationX1Y1.X);
+            this.r.Y = Math.Min(locationXY.Y, locationX1Y1.Y);
+            this.r.Width = Math.Abs(locationXY.X - locationX1Y1.X);
+            this.r.Height = Math.Abs(locationXY.Y - locationX1Y1.Y);
+            return this.r;
         }
     }
 }
