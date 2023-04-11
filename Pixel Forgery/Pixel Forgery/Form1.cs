@@ -28,6 +28,8 @@ namespace Pixel_Forgery
             BMP = new Bitmap(pictureBox.Width, pictureBox.Height);
             pictureBox.Image = BMP;
             pictureBox.BackColor = Color.White;
+            toolStripButton1.BackColor = Color.Black;
+
 
             using (Graphics g = Graphics.FromImage(BMP))
             {
@@ -35,6 +37,7 @@ namespace Pixel_Forgery
                 g.FillRectangle(Brushes.White, bg);
             }
             changes.makeChange(pictureBox);
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -225,6 +228,7 @@ namespace Pixel_Forgery
             if (cd.ShowDialog() == DialogResult.OK)
             {
                 tool.currentColor = cd.Color;
+                toolStripButton1.BackColor = cd.Color;
             }
         }
     }

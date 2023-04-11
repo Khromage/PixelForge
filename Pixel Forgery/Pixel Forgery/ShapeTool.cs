@@ -18,6 +18,7 @@ namespace Pixel_Forgery
         public override void useTool(object sender, MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
         {
             Graphics g = Graphics.FromImage(pictureBox1.Image);
+            p.Color = currentColor;
             if (isDrawing == true)
             {
                  g.DrawRectangle(Pens.Black, GetRectangle());
