@@ -17,9 +17,9 @@ namespace Pixel_Forgery
 {
     public partial class PixelForgeryGUI : Form
     {
-        private BrushTool brushTool = null;
-        private EraserTool eraserTool = null;
-        private ShapeTool shapeTool = null;
+        private BrushTool brushTool = new BrushTool();
+        private EraserTool eraserTool = new EraserTool();
+        private ShapeTool shapeTool = new ShapeTool();
 
         public PixelForgeryGUI()
         {
@@ -78,10 +78,6 @@ namespace Pixel_Forgery
         private void brushButton_Click(object sender, EventArgs e)
         {
             // Switch the tool type to Brush Tool
-            //tool = new BrushTool();
-
-            if (brushTool == null)
-                brushTool = new BrushTool();
             tool = brushTool;
         }
 
@@ -89,10 +85,6 @@ namespace Pixel_Forgery
         private void eraserButton_Click(object sender, EventArgs e)
         {
             // Switch the tool type to Eraser Tool
-            //tool = new EraserTool();
-
-            if (eraserTool == null)
-                eraserTool = new EraserTool();
             tool = eraserTool;
         }
 
@@ -217,8 +209,6 @@ namespace Pixel_Forgery
 
         private void rectangleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(shapeTool == null)
-                shapeTool = new ShapeTool();
             tool = shapeTool;
         }
 
@@ -228,6 +218,8 @@ namespace Pixel_Forgery
             if (cd.ShowDialog() == DialogResult.OK)
             {
                 tool.currentColor = cd.Color;
+                shapeTool.currentColor = cd.Color;
+                brushTool.currentColor = cd.Color;
                 toolStripButton1.BackColor = cd.Color;
             }
         }
