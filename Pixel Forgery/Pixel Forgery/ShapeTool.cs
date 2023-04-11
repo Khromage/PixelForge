@@ -19,10 +19,7 @@ namespace Pixel_Forgery
         {
             Graphics g = Graphics.FromImage(pictureBox1.Image);
             p.Color = currentColor;
-            if (isDrawing == true)
-            {
-                 g.DrawRectangle(p, GetRectangle());
-            }
+            g.DrawRectangle(p, GetRectangle());
             pictureBox1.Refresh();
             g.Dispose();
         }

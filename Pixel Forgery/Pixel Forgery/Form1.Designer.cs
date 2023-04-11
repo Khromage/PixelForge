@@ -51,6 +51,7 @@ namespace Pixel_Forgery
             this.rectangleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.fillButton = new System.Windows.Forms.ToolStripButton();
             this.menuBar.SuspendLayout();
             this.toolBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -64,8 +65,8 @@ namespace Pixel_Forgery
             this.editButton});
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
-            this.menuBar.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuBar.Size = new System.Drawing.Size(1471, 30);
+            this.menuBar.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuBar.Size = new System.Drawing.Size(1103, 24);
             this.menuBar.TabIndex = 3;
             this.menuBar.Text = "menuStrip1";
             // 
@@ -75,14 +76,14 @@ namespace Pixel_Forgery
             this.saveButton,
             this.openButton});
             this.fileButton.Name = "fileButton";
-            this.fileButton.Size = new System.Drawing.Size(46, 26);
+            this.fileButton.Size = new System.Drawing.Size(37, 20);
             this.fileButton.Text = "File";
             // 
             // saveButton
             // 
             this.saveButton.Name = "saveButton";
             this.saveButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveButton.Size = new System.Drawing.Size(181, 26);
+            this.saveButton.Size = new System.Drawing.Size(146, 22);
             this.saveButton.Text = "Save";
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
@@ -90,7 +91,7 @@ namespace Pixel_Forgery
             // 
             this.openButton.Name = "openButton";
             this.openButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openButton.Size = new System.Drawing.Size(181, 26);
+            this.openButton.Size = new System.Drawing.Size(146, 22);
             this.openButton.Text = "Open";
             this.openButton.Click += new System.EventHandler(this.openButton_Click);
             // 
@@ -100,7 +101,7 @@ namespace Pixel_Forgery
             this.undoButton,
             this.redoButton});
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(49, 26);
+            this.editButton.Size = new System.Drawing.Size(39, 20);
             this.editButton.Text = "Edit";
             // 
             // undoButton
@@ -108,7 +109,7 @@ namespace Pixel_Forgery
             this.undoButton.Name = "undoButton";
             this.undoButton.ShortcutKeyDisplayString = "";
             this.undoButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoButton.Size = new System.Drawing.Size(179, 26);
+            this.undoButton.Size = new System.Drawing.Size(144, 22);
             this.undoButton.Text = "Undo";
             this.undoButton.Click += new System.EventHandler(this.undoButton_Click);
             // 
@@ -117,7 +118,7 @@ namespace Pixel_Forgery
             this.redoButton.Name = "redoButton";
             this.redoButton.ShortcutKeyDisplayString = "";
             this.redoButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.redoButton.Size = new System.Drawing.Size(179, 26);
+            this.redoButton.Size = new System.Drawing.Size(144, 22);
             this.redoButton.Text = "Redo";
             this.redoButton.Click += new System.EventHandler(this.redoButton_Click);
             // 
@@ -130,11 +131,12 @@ namespace Pixel_Forgery
             this.brushButton,
             this.eraserButton,
             this.shapeToolDropDown,
+            this.fillButton,
             this.toolStripButton1});
-            this.toolBar.Location = new System.Drawing.Point(0, 30);
+            this.toolBar.Location = new System.Drawing.Point(0, 24);
             this.toolBar.Name = "toolBar";
             this.toolBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolBar.Size = new System.Drawing.Size(1471, 62);
+            this.toolBar.Size = new System.Drawing.Size(1103, 50);
             this.toolBar.TabIndex = 4;
             this.toolBar.Text = "toolStrip1";
             // 
@@ -148,6 +150,7 @@ namespace Pixel_Forgery
             this.brushButton.Image = ((System.Drawing.Image)(resources.GetObject("brushButton.Image")));
             this.brushButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.brushButton.Name = "brushButton";
+            this.brushButton.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.brushButton.Size = new System.Drawing.Size(45, 45);
             this.brushButton.Text = "Brush Tool";
             this.brushButton.Click += new System.EventHandler(this.brushButton_Click);
@@ -158,7 +161,7 @@ namespace Pixel_Forgery
             this.brushSizeTextBox});
             this.sizeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.sizeToolStripMenuItem.Name = "sizeToolStripMenuItem";
-            this.sizeToolStripMenuItem.Size = new System.Drawing.Size(176, 26);
+            this.sizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sizeToolStripMenuItem.Text = "Change Size";
             this.sizeToolStripMenuItem.MouseHover += new System.EventHandler(this.brushSizeToolStripMenuItem_MouseHover);
             // 
@@ -166,7 +169,7 @@ namespace Pixel_Forgery
             // 
             this.brushSizeTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.brushSizeTextBox.Name = "brushSizeTextBox";
-            this.brushSizeTextBox.Size = new System.Drawing.Size(100, 27);
+            this.brushSizeTextBox.Size = new System.Drawing.Size(100, 23);
             this.brushSizeTextBox.Click += new System.EventHandler(this.brushSizeTextBox_Click);
             this.brushSizeTextBox.TextChanged += new System.EventHandler(this.brushSizeTextBox_TextChanged);
             // 
@@ -179,7 +182,7 @@ namespace Pixel_Forgery
             this.eraserButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.eraserButton.Name = "eraserButton";
             this.eraserButton.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.eraserButton.Size = new System.Drawing.Size(59, 59);
+            this.eraserButton.Size = new System.Drawing.Size(58, 47);
             this.eraserButton.Text = "Eraser Tool";
             this.eraserButton.Click += new System.EventHandler(this.eraserButton_Click);
             // 
@@ -188,7 +191,7 @@ namespace Pixel_Forgery
             this.changeSizeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.eraserSizeTextBox});
             this.changeSizeToolStripMenuItem.Name = "changeSizeToolStripMenuItem";
-            this.changeSizeToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
+            this.changeSizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.changeSizeToolStripMenuItem.Text = "Change Size";
             this.changeSizeToolStripMenuItem.MouseHover += new System.EventHandler(this.eraserSizeToolStripMenuItem_MouseHover);
             // 
@@ -196,7 +199,7 @@ namespace Pixel_Forgery
             // 
             this.eraserSizeTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.eraserSizeTextBox.Name = "eraserSizeTextBox";
-            this.eraserSizeTextBox.Size = new System.Drawing.Size(100, 27);
+            this.eraserSizeTextBox.Size = new System.Drawing.Size(100, 23);
             this.eraserSizeTextBox.Click += new System.EventHandler(this.eraserSizeTextBox_Click);
             this.eraserSizeTextBox.TextChanged += new System.EventHandler(this.eraserSizeTextBox_TextChanged);
             // 
@@ -209,13 +212,13 @@ namespace Pixel_Forgery
             this.shapeToolDropDown.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.shapeToolDropDown.Name = "shapeToolDropDown";
             this.shapeToolDropDown.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.shapeToolDropDown.Size = new System.Drawing.Size(59, 59);
+            this.shapeToolDropDown.Size = new System.Drawing.Size(58, 47);
             this.shapeToolDropDown.Text = "Shape Tool";
             // 
             // rectangleToolStripMenuItem
             // 
             this.rectangleToolStripMenuItem.Name = "rectangleToolStripMenuItem";
-            this.rectangleToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
+            this.rectangleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.rectangleToolStripMenuItem.Text = "Rectangle";
             this.rectangleToolStripMenuItem.Click += new System.EventHandler(this.rectangleToolStripMenuItem_Click);
             // 
@@ -233,10 +236,9 @@ namespace Pixel_Forgery
             // pictureBox
             // 
             this.pictureBox.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.pictureBox.Location = new System.Drawing.Point(16, 110);
-            this.pictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox.Location = new System.Drawing.Point(12, 89);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(1440, 886);
+            this.pictureBox.Size = new System.Drawing.Size(1080, 720);
             this.pictureBox.TabIndex = 5;
             this.pictureBox.TabStop = false;
             this.pictureBox.Click += new System.EventHandler(this.pictureBox_Click);
@@ -244,20 +246,31 @@ namespace Pixel_Forgery
             this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
             this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseUp);
             // 
+            // fillButton
+            // 
+            this.fillButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.fillButton.Image = ((System.Drawing.Image)(resources.GetObject("fillButton.Image")));
+            this.fillButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.fillButton.Name = "fillButton";
+            this.fillButton.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.fillButton.Size = new System.Drawing.Size(44, 47);
+            this.fillButton.Text = "toolStripButton2";
+            this.fillButton.ToolTipText = "Fill Tool";
+            this.fillButton.Click += new System.EventHandler(this.fillButton_Click);
+            // 
             // PixelForgeryGUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.ClientSize = new System.Drawing.Size(1471, 1009);
+            this.ClientSize = new System.Drawing.Size(1103, 820);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.toolBar);
             this.Controls.Add(this.menuBar);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.MainMenuStrip = this.menuBar;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MinimumSize = new System.Drawing.Size(1434, 873);
+            this.MinimumSize = new System.Drawing.Size(1080, 717);
             this.Name = "PixelForgeryGUI";
             this.Text = "Pixel Forge";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -298,6 +311,7 @@ namespace Pixel_Forgery
         private System.Windows.Forms.ToolStripDropDownButton shapeToolDropDown;
         private System.Windows.Forms.ToolStripMenuItem rectangleToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton fillButton;
     }
 }
 

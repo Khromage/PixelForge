@@ -20,6 +20,7 @@ namespace Pixel_Forgery
         private BrushTool brushTool = new BrushTool();
         private EraserTool eraserTool = new EraserTool();
         private ShapeTool shapeTool = new ShapeTool();
+        private FillTool fillTool = new FillTool();
 
         public PixelForgeryGUI()
         {
@@ -29,7 +30,7 @@ namespace Pixel_Forgery
             pictureBox.Image = BMP;
             pictureBox.BackColor = Color.White;
             toolStripButton1.BackColor = Color.Black;
-
+            tool = brushTool;
 
             using (Graphics g = Graphics.FromImage(BMP))
             {
@@ -94,15 +95,17 @@ namespace Pixel_Forgery
             tool.isDrawing = true;
             tool.startX = e.X;
             tool.startY = e.Y;
+
+            if(tool == fillTool) tool.useTool(sender, e, pictureBox);
         }
 
         private void pictureBox_MouseMove(object sender, MouseEventArgs e)
         {
-            if(tool.isDrawing == true)
+            if (tool.isDrawing == true)
             {
                 tool.endX = e.X;
                 tool.endY = e.Y;
-                tool.useTool(sender, e, pictureBox);
+                if (tool == brushTool || tool == eraserTool) tool.useTool(sender, e, pictureBox);
                 Refresh();
             }
         }
@@ -113,6 +116,8 @@ namespace Pixel_Forgery
             tool.isDrawing = false;
             tool.endX = e.X;
             tool.endY = e.Y;
+            if(tool == shapeTool) tool.useTool(sender, e, pictureBox);
+
             changes.makeChange(pictureBox);
         }
 
@@ -220,8 +225,14 @@ namespace Pixel_Forgery
                 tool.currentColor = cd.Color;
                 shapeTool.currentColor = cd.Color;
                 brushTool.currentColor = cd.Color;
+                fillTool.currentColor = cd.Color;
                 toolStripButton1.BackColor = cd.Color;
             }
+        }
+
+        private void fillButton_Click(object sender, EventArgs e)
+        {
+            tool = fillTool;
         }
     }
 }
