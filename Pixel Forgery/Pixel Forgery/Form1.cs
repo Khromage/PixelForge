@@ -20,6 +20,8 @@ namespace Pixel_Forgery
         private BrushTool brushTool = null;
         private EraserTool eraserTool = null;
         private ShapeTool shapeTool = null;
+        public ColorDialog cd = new ColorDialog();
+
 
         public PixelForgeryGUI()
         {
@@ -218,13 +220,12 @@ namespace Pixel_Forgery
         private void rectangleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if(shapeTool == null)
-                shapeTool = new ShapeTool();
+            shapeTool = new ShapeTool();
             tool = shapeTool;
         }
 
         private void colorTool_Click(object sender, EventArgs e)
         {
-            ColorDialog cd = new ColorDialog();
             if (cd.ShowDialog() == DialogResult.OK)
             {
                 tool.currentColor = cd.Color;

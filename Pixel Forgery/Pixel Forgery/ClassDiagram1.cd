@@ -3,19 +3,19 @@
   <Class Name="Pixel_Forgery.PixelForgeryGUI">
     <Position X="0.5" Y="1.5" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AIQAAAIBASgAiYFIUpCIAMAmACoIAIAkBCQAwhQASSA=</HashCode>
+      <HashCode>AIQAAAIBASgAiYFIUpCIAMAmACoIAIAkBCQAwhQISSA=</HashCode>
       <FileName>Form1.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Pixel_Forgery.PixelForgeryTool">
-    <Position X="4.25" Y="1.5" Width="2" />
+    <Position X="9.25" Y="1.25" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAMoABAAAAAAgAAgAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAMgABAAAAAAgAAgAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Tool.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Pixel_Forgery.BrushTool">
-    <Position X="7" Y="1.5" Width="1.5" />
+    <Position X="9.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAEAAAAAAAAA=</HashCode>
       <FileName>BrushTool.cs</FileName>
@@ -40,6 +40,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAgAIAAAAAAAAAAAACAAAoAAAAAABACAAAAAA=</HashCode>
       <FileName>Changes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pixel_Forgery.ShapeTool">
+    <Position X="12" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAIAAAAAAAAAAAIAAAAAAgAAAAAAABAAAAAAA=</HashCode>
+      <FileName>ShapeTool.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
