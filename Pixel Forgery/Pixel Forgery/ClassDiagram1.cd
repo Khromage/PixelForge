@@ -10,7 +10,7 @@
   <Class Name="Pixel_Forgery.PixelForgeryTool">
     <Position X="4.25" Y="1.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAMoABAAAAAAgAAgAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAMgABAAAAAAgAAgAAAAAEAAAAAAAAA=</HashCode>
       <FileName>Tool.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -40,6 +40,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAgAIAAAAAAAAAAAACAAAoAAAAAABACAAAAAA=</HashCode>
       <FileName>Changes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pixel_Forgery.ShapeTool">
+    <Position X="9.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAIAAAAAAAAAAAIAAAAAAgAAAAAAABAAAAAAA=</HashCode>
+      <FileName>ShapeTool.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

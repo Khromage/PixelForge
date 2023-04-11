@@ -21,7 +21,7 @@ namespace Pixel_Forgery
             p.Color = currentColor;
             if (isDrawing == true)
             {
-                 g.DrawRectangle(Pens.Black, GetRectangle());
+                 g.DrawRectangle(p, GetRectangle());
             }
             pictureBox1.Refresh();
             g.Dispose();
