@@ -37,7 +37,7 @@ namespace Pixel_Forgery
                 Rectangle bg = new Rectangle(0, 0, BMP.Width, BMP.Height);
                 g.FillRectangle(Brushes.White, bg);
             }
-            changes.makeChange(pictureBox);
+            changes.addChange(pictureBox);
 
         }
 
@@ -51,7 +51,7 @@ namespace Pixel_Forgery
             FileExplorerDialog fd = new FileExplorerDialog();
             fd.saveFile(this.pictureBox);
             changes.clearStacks();
-            changes.makeChange(pictureBox);
+            changes.addChange(pictureBox);
         }
 
         // Open File Button
@@ -60,7 +60,7 @@ namespace Pixel_Forgery
             FileExplorerDialog fd = new FileExplorerDialog();
             fd.loadFile(this.pictureBox);
             changes.clearStacks();
-            changes.makeChange(pictureBox);
+            changes.addChange(pictureBox);
         }
 
         // Undo Changes Button
@@ -106,8 +106,8 @@ namespace Pixel_Forgery
                 tool.endX = e.X;
                 tool.endY = e.Y;
                 if (tool == brushTool || tool == eraserTool) tool.useTool(sender, e, pictureBox);
-                Refresh();
             }
+            pictureBox.Refresh();
         }
 
         private void pictureBox_MouseUp(object sender, MouseEventArgs e)
@@ -118,7 +118,7 @@ namespace Pixel_Forgery
             tool.endY = e.Y;
             if(tool == shapeTool) tool.useTool(sender, e, pictureBox);
 
-            changes.makeChange(pictureBox);
+            changes.addChange(pictureBox);
         }
 
         private void pictureBox_Click(object sender, EventArgs e)
@@ -133,14 +133,14 @@ namespace Pixel_Forgery
                 FileExplorerDialog fd = new FileExplorerDialog();
                 fd.saveFile(this.pictureBox);
                 changes.clearStacks();
-                changes.makeChange(pictureBox);
+                changes.addChange(pictureBox);
             }
             else if (e.KeyCode == Keys.O && (e.Control)) // Ctrl+O for Open
             {
                 FileExplorerDialog fd = new FileExplorerDialog();
                 fd.loadFile(this.pictureBox);
                 changes.clearStacks();
-                changes.makeChange(pictureBox);
+                changes.addChange(pictureBox);
             }
             else if (e.KeyCode == Keys.Z && (e.Control)) // Ctrl+Z for Undo
             {
@@ -233,6 +233,14 @@ namespace Pixel_Forgery
         private void fillButton_Click(object sender, EventArgs e)
         {
             tool = fillTool;
+        }
+
+        private void pictureBox_Paint(object sender, PaintEventArgs e)
+        {
+            if(tool.isDrawing && tool == shapeTool)
+            {
+                tool.drawOutline(sender, e);
+            }
         }
     }
 }

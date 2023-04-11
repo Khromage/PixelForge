@@ -25,5 +25,9 @@ namespace Pixel_Forgery
         public virtual void useTool(object sender, MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
         {
         }
+
+        public virtual void drawOutline(object sender, PaintEventArgs e) 
+        {
+        }
     }
 }

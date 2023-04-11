@@ -19,7 +19,7 @@ namespace Pixel_Forgery
         }
 
         // Add a new item to undo stack
-        public void makeChange(System.Windows.Forms.PictureBox pictureBox)
+        public void addChange(System.Windows.Forms.PictureBox pictureBox)
         {
             System.Drawing.Image curr = (System.Drawing.Image)pictureBox.Image.Clone();
             undoStack.AddLast(curr);

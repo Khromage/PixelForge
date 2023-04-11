@@ -49,9 +49,9 @@ namespace Pixel_Forgery
             this.eraserSizeTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.shapeToolDropDown = new System.Windows.Forms.ToolStripDropDownButton();
             this.rectangleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fillButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.fillButton = new System.Windows.Forms.ToolStripButton();
             this.menuBar.SuspendLayout();
             this.toolBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -161,7 +161,7 @@ namespace Pixel_Forgery
             this.brushSizeTextBox});
             this.sizeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.sizeToolStripMenuItem.Name = "sizeToolStripMenuItem";
-            this.sizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sizeToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.sizeToolStripMenuItem.Text = "Change Size";
             this.sizeToolStripMenuItem.MouseHover += new System.EventHandler(this.brushSizeToolStripMenuItem_MouseHover);
             // 
@@ -191,7 +191,7 @@ namespace Pixel_Forgery
             this.changeSizeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.eraserSizeTextBox});
             this.changeSizeToolStripMenuItem.Name = "changeSizeToolStripMenuItem";
-            this.changeSizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.changeSizeToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.changeSizeToolStripMenuItem.Text = "Change Size";
             this.changeSizeToolStripMenuItem.MouseHover += new System.EventHandler(this.eraserSizeToolStripMenuItem_MouseHover);
             // 
@@ -218,9 +218,21 @@ namespace Pixel_Forgery
             // rectangleToolStripMenuItem
             // 
             this.rectangleToolStripMenuItem.Name = "rectangleToolStripMenuItem";
-            this.rectangleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rectangleToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.rectangleToolStripMenuItem.Text = "Rectangle";
             this.rectangleToolStripMenuItem.Click += new System.EventHandler(this.rectangleToolStripMenuItem_Click);
+            // 
+            // fillButton
+            // 
+            this.fillButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.fillButton.Image = ((System.Drawing.Image)(resources.GetObject("fillButton.Image")));
+            this.fillButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.fillButton.Name = "fillButton";
+            this.fillButton.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.fillButton.Size = new System.Drawing.Size(44, 47);
+            this.fillButton.Text = "toolStripButton2";
+            this.fillButton.ToolTipText = "Fill Tool";
+            this.fillButton.Click += new System.EventHandler(this.fillButton_Click);
             // 
             // toolStripButton1
             // 
@@ -242,21 +254,10 @@ namespace Pixel_Forgery
             this.pictureBox.TabIndex = 5;
             this.pictureBox.TabStop = false;
             this.pictureBox.Click += new System.EventHandler(this.pictureBox_Click);
+            this.pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);
             this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
             this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
             this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseUp);
-            // 
-            // fillButton
-            // 
-            this.fillButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.fillButton.Image = ((System.Drawing.Image)(resources.GetObject("fillButton.Image")));
-            this.fillButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.fillButton.Name = "fillButton";
-            this.fillButton.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.fillButton.Size = new System.Drawing.Size(44, 47);
-            this.fillButton.Text = "toolStripButton2";
-            this.fillButton.ToolTipText = "Fill Tool";
-            this.fillButton.Click += new System.EventHandler(this.fillButton_Click);
             // 
             // PixelForgeryGUI
             // 

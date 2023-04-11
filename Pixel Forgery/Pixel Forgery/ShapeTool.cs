@@ -24,6 +24,13 @@ namespace Pixel_Forgery
             g.Dispose();
         }
 
+        public override void drawOutline(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            g.DrawRectangle(p, GetRectangle());
+            // Don't do g.Dispose for this one; it removes the PaintEvent's graphics object which leads to an error
+        }
+
         private Rectangle GetRectangle()
         {
             locationXY.X = startX;
