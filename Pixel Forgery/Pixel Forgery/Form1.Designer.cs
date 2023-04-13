@@ -51,9 +51,12 @@ namespace Pixel_Forgery
             this.rectangleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fillButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.PickedColorDisplay = new System.Windows.Forms.ToolStripTextBox();
             this.menuBar.SuspendLayout();
             this.toolBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -136,7 +139,9 @@ namespace Pixel_Forgery
             this.eraserButton,
             this.shapeToolDropDown,
             this.fillButton,
-            this.toolStripButton1});
+            this.toolStripButton1,
+            this.toolStripButton2,
+            this.PickedColorDisplay});
             this.toolBar.Location = new System.Drawing.Point(0, 24);
             this.toolBar.Name = "toolBar";
             this.toolBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -249,6 +254,17 @@ namespace Pixel_Forgery
             this.toolStripButton1.Size = new System.Drawing.Size(25, 25);
             this.toolStripButton1.Click += new System.EventHandler(this.colorTool_Click);
             // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.AutoSize = false;
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(50, 50);
+            this.toolStripButton2.Text = "toolStripButton2";
+            this.toolStripButton2.Click += new System.EventHandler(this.ColorPickerButton_Click);
+            // 
             // pictureBox
             // 
             this.pictureBox.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -285,6 +301,13 @@ namespace Pixel_Forgery
             this.panel1.Padding = new System.Windows.Forms.Padding(20);
             this.panel1.Size = new System.Drawing.Size(961, 638);
             this.panel1.TabIndex = 7;
+            // 
+            // PickedColorDisplay
+            // 
+            this.PickedColorDisplay.AutoSize = false;
+            this.PickedColorDisplay.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.PickedColorDisplay.Name = "PickedColorDisplay";
+            this.PickedColorDisplay.Size = new System.Drawing.Size(25, 25);
             // 
             // PixelForgeryGUI
             // 
@@ -344,6 +367,9 @@ namespace Pixel_Forgery
         private System.Windows.Forms.ToolStripButton fillButton;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.ToolStripTextBox PickedColorDisplay;
     }
 }
 

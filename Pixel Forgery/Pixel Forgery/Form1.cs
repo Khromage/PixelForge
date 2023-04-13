@@ -21,6 +21,8 @@ namespace Pixel_Forgery
         private EraserTool eraserTool = new EraserTool();
         private ShapeTool shapeTool = new ShapeTool();
         private FillTool fillTool = new FillTool();
+        private ColorPickerTool colorPickerTool = new ColorPickerTool();
+        
 
         public PixelForgeryGUI()
         {
@@ -97,6 +99,7 @@ namespace Pixel_Forgery
             tool.startY = e.Y;
 
             if(tool == fillTool) tool.useTool(sender, e, pictureBox);
+            if (tool == colorPickerTool) tool.currentColor = BMP.GetPixel(e.X, e.Y);
         }
 
         private void pictureBox_MouseMove(object sender, MouseEventArgs e)
@@ -107,6 +110,12 @@ namespace Pixel_Forgery
                 tool.endY = e.Y;
                 if (tool == brushTool || tool == eraserTool) tool.useTool(sender, e, pictureBox);
             }
+
+            if(tool == colorPickerTool)
+            {
+                PickedColorDisplay.BackColor = BMP.GetPixel(e.X, e.Y);
+            }
+
             pictureBox.Refresh();
         }
 
@@ -242,5 +251,11 @@ namespace Pixel_Forgery
                 tool.drawOutline(sender, e);
             }
         }
+
+        private void ColorPickerButton_Click(object sender, EventArgs e)
+        {
+            tool = colorPickerTool;
+        }
+
     }
 }
