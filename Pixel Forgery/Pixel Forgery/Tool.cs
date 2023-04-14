@@ -13,6 +13,7 @@ namespace Pixel_Forgery
         public int startY;
         public int endX;
         public int endY;
+        public int typeOfTool;
         public Boolean isDrawing = false;
         public Pen p = new Pen(Color.Black, 5);
 
@@ -27,6 +28,11 @@ namespace Pixel_Forgery
         }
 
         public virtual void drawOutline(object sender, PaintEventArgs e) 
+        {
+        }
+
+        //for polygon draw
+        public virtual void points(object sender, List<Point> points)
         {
         }
     }
