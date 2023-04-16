@@ -17,6 +17,9 @@ namespace Pixel_Forgery
 {
     public partial class PixelForgeryGUI : Form
     {
+        private Bitmap BMP;
+        private Changes changes;
+        private PixelForgeryTool tool = new BrushTool();
         private BrushTool brushTool = new BrushTool();
         private EraserTool eraserTool = new EraserTool();
         private ShapeTool shapeTool = new ShapeTool();
@@ -30,7 +33,7 @@ namespace Pixel_Forgery
             BMP = new Bitmap(pictureBox.Width, pictureBox.Height);
             pictureBox.Image = BMP;
             pictureBox.BackColor = Color.White;
-            toolStripButton1.BackColor = Color.Black;
+            colorChangeButton.BackColor = Color.Black;
             tool = brushTool;
 
             using (Graphics g = Graphics.FromImage(BMP))
@@ -269,7 +272,7 @@ namespace Pixel_Forgery
                 shapeTool.currentColor = cd.Color;
                 brushTool.currentColor = cd.Color;
                 fillTool.currentColor = cd.Color;
-                toolStripButton1.BackColor = cd.Color;
+                colorChangeButton.BackColor = cd.Color;
             }
         }
 
