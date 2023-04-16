@@ -17,12 +17,14 @@ namespace Pixel_Forgery
 {
     public partial class PixelForgeryGUI : Form
     {
+        private Bitmap BMP;
+        private Changes changes;
+        private PixelForgeryTool tool = new BrushTool();
         private BrushTool brushTool = new BrushTool();
         private EraserTool eraserTool = new EraserTool();
         private ShapeTool shapeTool = new ShapeTool();
         private FillTool fillTool = new FillTool();
-        private ColorPickerTool colorPickerTool = new ColorPickerTool();
-        
+        private List<Point> points = new List<Point>();
 
         public PixelForgeryGUI()
         {
@@ -31,7 +33,7 @@ namespace Pixel_Forgery
             BMP = new Bitmap(pictureBox.Width, pictureBox.Height);
             pictureBox.Image = BMP;
             pictureBox.BackColor = Color.White;
-            toolStripButton1.BackColor = Color.Black;
+            colorChangeButton.BackColor = Color.Black;
             tool = brushTool;
 
             using (Graphics g = Graphics.FromImage(BMP))
@@ -61,7 +63,6 @@ namespace Pixel_Forgery
         {
             FileExplorerDialog fd = new FileExplorerDialog();
             fd.loadFile(this.pictureBox);
-            BMP = (Bitmap)pictureBox.Image;
             changes.clearStacks();
             changes.addChange(pictureBox);
         }
@@ -95,40 +96,67 @@ namespace Pixel_Forgery
         private void pictureBox_MouseDown(object sender, MouseEventArgs e)
         {
             // Update drawing status
-            tool.isDrawing = true;
-            tool.startX = e.X;
-            tool.startY = e.Y;
-
-            if(tool == fillTool || tool == colorPickerTool) tool.useTool(sender, e, pictureBox);
+            
+            switch (e.Button)
+            {
+                case MouseButtons.Left:
+                    tool.isDrawing = true;
+                    tool.startX = e.X;
+                    tool.startY = e.Y;
+                    if (tool == fillTool) tool.useTool(sender, e, pictureBox);
+                    if (tool == shapeTool && tool.typeOfTool == 3) tool.points(sender, points);
+                    break;
+                case MouseButtons.Right:
+                    tool.isDrawing = true;
+                    points.Add(e.Location);
+                    break;
+                default:
+                    Console.WriteLine("uhhhh... Eto..... Bleg?");
+                    break;
+            }
+            
         }
 
         private void pictureBox_MouseMove(object sender, MouseEventArgs e)
         {
-            if (tool.isDrawing == true)
+            switch (e.Button)
             {
-                tool.endX = e.X;
-                tool.endY = e.Y;
-                if (tool == brushTool || tool == eraserTool) tool.useTool(sender, e, pictureBox);
-            }
+                case MouseButtons.Left:
+                    if (tool.isDrawing == true)
+                    {
+                        tool.endX = e.X;
+                        tool.endY = e.Y;
+                        if (tool == brushTool || tool == eraserTool) tool.useTool(sender, e, pictureBox);
+                    }
+                    break;
+                case MouseButtons.Right:
 
-            if(tool == colorPickerTool)
-            {
-                PickedColorDisplay.BackColor = BMP.GetPixel(e.X, e.Y);
+                    break;
+                default:
+                    break;
             }
-
             pictureBox.Refresh();
         }
 
         private void pictureBox_MouseUp(object sender, MouseEventArgs e)
         {
             // Update drawing status
-            tool.isDrawing = false;
-            tool.endX = e.X;
-            tool.endY = e.Y;
-            if(tool == shapeTool) tool.useTool(sender, e, pictureBox);
+            switch (e.Button)
+            {
+                case MouseButtons.Left:
+                    tool.isDrawing = false;
+                    tool.endX = e.X;
+                    tool.endY = e.Y;
+                    if (tool == shapeTool) tool.useTool(sender, e, pictureBox);
 
-            changes.addChange(pictureBox);
-            BMP = (Bitmap)pictureBox.Image;
+                    changes.addChange(pictureBox);
+                    break;
+                case MouseButtons.Right:
+
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void pictureBox_Click(object sender, EventArgs e)
@@ -225,6 +253,7 @@ namespace Pixel_Forgery
         private void rectangleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tool = shapeTool;
+            tool.typeOfTool = 1;
         }
 
         private void colorTool_Click(object sender, EventArgs e)
@@ -236,7 +265,7 @@ namespace Pixel_Forgery
                 shapeTool.currentColor = cd.Color;
                 brushTool.currentColor = cd.Color;
                 fillTool.currentColor = cd.Color;
-                toolStripButton1.BackColor = cd.Color;
+                colorChangeButton.BackColor = cd.Color;
             }
         }
 
@@ -253,10 +282,16 @@ namespace Pixel_Forgery
             }
         }
 
-        private void ColorPickerButton_Click(object sender, EventArgs e)
+        private void ellipseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            tool = colorPickerTool;
+            tool = shapeTool;
+            tool.typeOfTool = 2;
         }
 
+        private void polygonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tool = shapeTool;
+            tool.typeOfTool = 3;
+        }
     }
 }
