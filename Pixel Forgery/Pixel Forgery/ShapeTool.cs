@@ -15,6 +15,7 @@ namespace Pixel_Forgery
         List<Point> pointsInTool = new List<Point>();
         Point locationX1Y1;
         Point locationXY;
+        int i = 0;
 
         public override void useTool(object sender, MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
         {
@@ -30,6 +31,19 @@ namespace Pixel_Forgery
                     break;
                 case 3:
                     g.DrawPolygon(p, pointsInTool.ToArray());
+                    break;
+                case 4:
+                    g.DrawLine(p, pointsInTool[i], pointsInTool[i+1]);
+                    i++;
+                    break;
+                case 5:
+                    //g.DrawArc(p, GetRectangle(), /*insert two angles*/);
+                    break;
+                case 6:
+                    //g.DrawPie(p, GetRectangle, /*inset two angles*/);
+                    break;
+                case 7:
+                    //g.DrawPath(p, /*insert path*/);
                     break;
                 default:
                     g.DrawRectangle(p, GetRectangle());
@@ -52,6 +66,18 @@ namespace Pixel_Forgery
                     break;
                 case 3:
                     g.DrawPolygon(p, pointsInTool.ToArray());
+                    break;
+                case 4:
+                    g.DrawLine(p, pointsInTool[0], pointsInTool[1]);
+                    break;
+                case 5:
+                    //g.DrawArc(p, GetRectangle(), /*insert two angles*/);
+                    break;
+                case 6:
+                    //g.DrawPie(p, GetRectangle, /*inset two angles*/);
+                    break;
+                case 7:
+                    //g.DrawPath(p, /*insert path*/);
                     break;
                 default:
                     g.DrawRectangle(p, GetRectangle());
