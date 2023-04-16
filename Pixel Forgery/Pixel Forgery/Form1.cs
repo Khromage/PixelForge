@@ -23,6 +23,7 @@ namespace Pixel_Forgery
         private BrushTool brushTool = new BrushTool();
         private EraserTool eraserTool = new EraserTool();
         private ShapeTool shapeTool = new ShapeTool();
+        private ColorPickerTool colorPickerTool = new ColorPickerTool();
         private FillTool fillTool = new FillTool();
         private List<Point> points = new List<Point>();
 
@@ -63,6 +64,7 @@ namespace Pixel_Forgery
         {
             FileExplorerDialog fd = new FileExplorerDialog();
             fd.loadFile(this.pictureBox);
+            BMP = (Bitmap)pictureBox.Image;
             changes.clearStacks();
             changes.addChange(pictureBox);
         }
@@ -105,6 +107,14 @@ namespace Pixel_Forgery
                     tool.startY = e.Y;
                     if (tool == fillTool) tool.useTool(sender, e, pictureBox);
                     if (tool == shapeTool && tool.typeOfTool == 3) tool.points(sender, points);
+                    if (tool == colorPickerTool)
+                    {
+                        tool.currentColor = tool.pickedColor;
+                        shapeTool.currentColor = tool.pickedColor;
+                        brushTool.currentColor = tool.pickedColor;
+                        fillTool.currentColor = tool.pickedColor;
+                        colorChangeButton.BackColor = tool.pickedColor;
+                    }
                     break;
                 case MouseButtons.Right:
                     tool.isDrawing = true;
@@ -119,6 +129,11 @@ namespace Pixel_Forgery
 
         private void pictureBox_MouseMove(object sender, MouseEventArgs e)
         {
+            if(tool == colorPickerTool)
+            {
+                tool.pickedColor = BMP.GetPixel(e.X, e.Y);
+                pickedcolordisplay.BackColor = tool.pickedColor;
+            }
             switch (e.Button)
             {
                 case MouseButtons.Left:
@@ -292,6 +307,12 @@ namespace Pixel_Forgery
         {
             tool = shapeTool;
             tool.typeOfTool = 3;
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            tool = colorPickerTool;
+            pickedcolordisplay.BackColor = tool.pickedColor;
         }
     }
 }

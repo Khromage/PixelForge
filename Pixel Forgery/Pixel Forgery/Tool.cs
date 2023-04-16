@@ -22,6 +22,7 @@ namespace Pixel_Forgery
             set { p.Color = value; }
             get { return p.Color; }
         }
+        public Color pickedColor;
 
         public virtual void useTool(object sender, MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
         {
