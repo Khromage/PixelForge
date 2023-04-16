@@ -99,17 +99,5 @@
   <ItemGroup>
     <None Include="Resources\hexagon.png" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\diagonal-line.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\arc.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pie-chart.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\route.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
