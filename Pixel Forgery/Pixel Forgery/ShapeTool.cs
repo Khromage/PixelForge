@@ -32,19 +32,6 @@ namespace Pixel_Forgery
                 case 3:
                     g.DrawPolygon(p, pointsInTool.ToArray());
                     break;
-                case 4:
-                    g.DrawLine(p, pointsInTool[i], pointsInTool[i+1]);
-                    i++;
-                    break;
-                case 5:
-                    //g.DrawArc(p, GetRectangle(), /*insert two angles*/);
-                    break;
-                case 6:
-                    //g.DrawPie(p, GetRectangle, /*inset two angles*/);
-                    break;
-                case 7:
-                    //g.DrawPath(p, /*insert path*/);
-                    break;
                 default:
                     g.DrawRectangle(p, GetRectangle());
                     break;
@@ -66,18 +53,6 @@ namespace Pixel_Forgery
                     break;
                 case 3:
                     g.DrawPolygon(p, pointsInTool.ToArray());
-                    break;
-                case 4:
-                    g.DrawLine(p, pointsInTool[0], pointsInTool[1]);
-                    break;
-                case 5:
-                    //g.DrawArc(p, GetRectangle(), /*insert two angles*/);
-                    break;
-                case 6:
-                    //g.DrawPie(p, GetRectangle, /*inset two angles*/);
-                    break;
-                case 7:
-                    //g.DrawPath(p, /*insert path*/);
                     break;
                 default:
                     g.DrawRectangle(p, GetRectangle());
