@@ -51,12 +51,8 @@ namespace Pixel_Forgery
             this.rectangleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ellipseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.polygonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.arcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fillButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.colorChangeButton = new System.Windows.Forms.ToolStripButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox = new System.Windows.Forms.PictureBox();
@@ -142,7 +138,7 @@ namespace Pixel_Forgery
             this.eraserButton,
             this.shapeToolDropDown,
             this.fillButton,
-            this.toolStripButton1});
+            this.colorChangeButton});
             this.toolBar.Location = new System.Drawing.Point(0, 24);
             this.toolBar.Name = "toolBar";
             this.toolBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -171,7 +167,7 @@ namespace Pixel_Forgery
             this.brushSizeTextBox});
             this.sizeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.sizeToolStripMenuItem.Name = "sizeToolStripMenuItem";
-            this.sizeToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.sizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sizeToolStripMenuItem.Text = "Change Size";
             this.sizeToolStripMenuItem.MouseHover += new System.EventHandler(this.brushSizeToolStripMenuItem_MouseHover);
             // 
@@ -219,11 +215,7 @@ namespace Pixel_Forgery
             this.shapeToolDropDown.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rectangleToolStripMenuItem,
             this.ellipseToolStripMenuItem,
-            this.polygonToolStripMenuItem,
-            this.lineToolStripMenuItem,
-            this.arcToolStripMenuItem,
-            this.pieToolStripMenuItem,
-            this.pathToolStripMenuItem});
+            this.polygonToolStripMenuItem});
             this.shapeToolDropDown.Image = ((System.Drawing.Image)(resources.GetObject("shapeToolDropDown.Image")));
             this.shapeToolDropDown.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.shapeToolDropDown.Name = "shapeToolDropDown";
@@ -235,7 +227,7 @@ namespace Pixel_Forgery
             // 
             this.rectangleToolStripMenuItem.Image = global::Pixel_Forgery.Properties.Resources.rectangle;
             this.rectangleToolStripMenuItem.Name = "rectangleToolStripMenuItem";
-            this.rectangleToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.rectangleToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.rectangleToolStripMenuItem.Text = "Rectangle";
             this.rectangleToolStripMenuItem.Click += new System.EventHandler(this.rectangleToolStripMenuItem_Click);
             // 
@@ -243,7 +235,7 @@ namespace Pixel_Forgery
             // 
             this.ellipseToolStripMenuItem.Image = global::Pixel_Forgery.Properties.Resources.ellipse;
             this.ellipseToolStripMenuItem.Name = "ellipseToolStripMenuItem";
-            this.ellipseToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.ellipseToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.ellipseToolStripMenuItem.Text = "Ellipse";
             this.ellipseToolStripMenuItem.Click += new System.EventHandler(this.ellipseToolStripMenuItem_Click);
             // 
@@ -251,41 +243,9 @@ namespace Pixel_Forgery
             // 
             this.polygonToolStripMenuItem.Image = global::Pixel_Forgery.Properties.Resources.hexagon;
             this.polygonToolStripMenuItem.Name = "polygonToolStripMenuItem";
-            this.polygonToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.polygonToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.polygonToolStripMenuItem.Text = "Polygon";
             this.polygonToolStripMenuItem.Click += new System.EventHandler(this.polygonToolStripMenuItem_Click);
-            // 
-            // lineToolStripMenuItem
-            // 
-            this.lineToolStripMenuItem.Image = global::Pixel_Forgery.Properties.Resources.diagonal_line;
-            this.lineToolStripMenuItem.Name = "lineToolStripMenuItem";
-            this.lineToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
-            this.lineToolStripMenuItem.Text = "Line";
-            this.lineToolStripMenuItem.Click += new System.EventHandler(this.lineToolStripMenuItem_Click);
-            // 
-            // arcToolStripMenuItem
-            // 
-            this.arcToolStripMenuItem.Image = global::Pixel_Forgery.Properties.Resources.arc;
-            this.arcToolStripMenuItem.Name = "arcToolStripMenuItem";
-            this.arcToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
-            this.arcToolStripMenuItem.Text = "Arc";
-            this.arcToolStripMenuItem.Click += new System.EventHandler(this.arcToolStripMenuItem_Click);
-            // 
-            // pieToolStripMenuItem
-            // 
-            this.pieToolStripMenuItem.Image = global::Pixel_Forgery.Properties.Resources.pie_chart;
-            this.pieToolStripMenuItem.Name = "pieToolStripMenuItem";
-            this.pieToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
-            this.pieToolStripMenuItem.Text = "Pie";
-            this.pieToolStripMenuItem.Click += new System.EventHandler(this.pieToolStripMenuItem_Click);
-            // 
-            // pathToolStripMenuItem
-            // 
-            this.pathToolStripMenuItem.Image = global::Pixel_Forgery.Properties.Resources.route;
-            this.pathToolStripMenuItem.Name = "pathToolStripMenuItem";
-            this.pathToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
-            this.pathToolStripMenuItem.Text = "Path";
-            this.pathToolStripMenuItem.Click += new System.EventHandler(this.pathToolStripMenuItem_Click);
             // 
             // fillButton
             // 
@@ -299,16 +259,16 @@ namespace Pixel_Forgery
             this.fillButton.ToolTipText = "Fill Tool";
             this.fillButton.Click += new System.EventHandler(this.fillButton_Click);
             // 
-            // toolStripButton1
+            // colorChangeButton
             // 
-            this.toolStripButton1.AutoSize = false;
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(25, 25);
-            this.toolStripButton1.Click += new System.EventHandler(this.colorTool_Click);
+            this.colorChangeButton.AutoSize = false;
+            this.colorChangeButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.colorChangeButton.Image = ((System.Drawing.Image)(resources.GetObject("colorChangeButton.Image")));
+            this.colorChangeButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.colorChangeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.colorChangeButton.Name = "colorChangeButton";
+            this.colorChangeButton.Size = new System.Drawing.Size(25, 25);
+            this.colorChangeButton.Click += new System.EventHandler(this.colorTool_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -386,31 +346,22 @@ namespace Pixel_Forgery
         private System.Windows.Forms.ToolStripMenuItem redoButton;
 
         private System.Windows.Forms.ToolStrip toolBar;
-
-        private System.Windows.Forms.PictureBox pictureBox;
-
-        // Variables for code implementation
-        private Bitmap BMP;
-        private Changes changes;
-        private PixelForgeryTool tool = new BrushTool();
         private System.Windows.Forms.ToolStripDropDownButton brushButton;
-        private System.Windows.Forms.ToolStripDropDownButton eraserButton;
         private System.Windows.Forms.ToolStripMenuItem sizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox brushSizeTextBox;
+        private System.Windows.Forms.ToolStripDropDownButton eraserButton;
         private System.Windows.Forms.ToolStripMenuItem changeSizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox eraserSizeTextBox;
         private System.Windows.Forms.ToolStripDropDownButton shapeToolDropDown;
         private System.Windows.Forms.ToolStripMenuItem rectangleToolStripMenuItem;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton fillButton;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripMenuItem ellipseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem polygonToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem lineToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem arcToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pieToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pathToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton fillButton;
+        private System.Windows.Forms.ToolStripButton colorChangeButton;
+
+        private System.Windows.Forms.PictureBox pictureBox;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

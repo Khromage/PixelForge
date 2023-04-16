@@ -17,6 +17,9 @@ namespace Pixel_Forgery
 {
     public partial class PixelForgeryGUI : Form
     {
+        private Bitmap BMP;
+        private Changes changes;
+        private PixelForgeryTool tool = new BrushTool();
         private BrushTool brushTool = new BrushTool();
         private EraserTool eraserTool = new EraserTool();
         private ShapeTool shapeTool = new ShapeTool();
@@ -30,7 +33,7 @@ namespace Pixel_Forgery
             BMP = new Bitmap(pictureBox.Width, pictureBox.Height);
             pictureBox.Image = BMP;
             pictureBox.BackColor = Color.White;
-            toolStripButton1.BackColor = Color.Black;
+            colorChangeButton.BackColor = Color.Black;
             tool = brushTool;
 
             using (Graphics g = Graphics.FromImage(BMP))
@@ -101,19 +104,11 @@ namespace Pixel_Forgery
                     tool.startX = e.X;
                     tool.startY = e.Y;
                     if (tool == fillTool) tool.useTool(sender, e, pictureBox);
-                    if (tool == shapeTool && tool.typeOfTool == 3)
-                    {
-                        tool.isDrawing = false;
-                        points.Add(e.Location);
-                        tool.points(sender, points);
-                        tool.useTool(sender, e, pictureBox);
-                        changes.addChange(pictureBox);
-                    }
+                    if (tool == shapeTool && tool.typeOfTool == 3) tool.points(sender, points);
                     break;
                 case MouseButtons.Right:
                     tool.isDrawing = true;
                     points.Add(e.Location);
-                    if (tool == shapeTool && tool.typeOfTool == 3) tool.points(sender, points);
                     break;
                 default:
                     Console.WriteLine("uhhhh... Eto..... Bleg?");
@@ -153,10 +148,11 @@ namespace Pixel_Forgery
                     tool.endX = e.X;
                     tool.endY = e.Y;
                     if (tool == shapeTool) tool.useTool(sender, e, pictureBox);
+
                     changes.addChange(pictureBox);
                     break;
                 case MouseButtons.Right:
-                    //this is here if anyone wants to utilize a RMB click, I added this too all the mouse events
+
                     break;
                 default:
                     break;
@@ -269,7 +265,7 @@ namespace Pixel_Forgery
                 shapeTool.currentColor = cd.Color;
                 brushTool.currentColor = cd.Color;
                 fillTool.currentColor = cd.Color;
-                toolStripButton1.BackColor = cd.Color;
+                colorChangeButton.BackColor = cd.Color;
             }
         }
 
@@ -280,13 +276,8 @@ namespace Pixel_Forgery
 
         private void pictureBox_Paint(object sender, PaintEventArgs e)
         {
-            if(tool.isDrawing && tool == shapeTool && tool.typeOfTool <= 3)
+            if(tool.isDrawing && tool == shapeTool)
             {
-                tool.drawOutline(sender, e);
-            }
-            if (tool.isDrawing && tool == shapeTool && tool.typeOfTool >= 3 && points.Count > 1)
-            {
-                tool.points(sender, points);
                 tool.drawOutline(sender, e);
             }
         }
@@ -301,30 +292,6 @@ namespace Pixel_Forgery
         {
             tool = shapeTool;
             tool.typeOfTool = 3;
-        }
-
-        private void lineToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            tool = shapeTool;
-            tool.typeOfTool = 4;
-        }
-
-        private void arcToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            tool = shapeTool;
-            tool.typeOfTool = 5;
-        }
-
-        private void pieToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            tool = shapeTool;
-            tool.typeOfTool = 6;
-        }
-
-        private void pathToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            tool = shapeTool;
-            tool.typeOfTool = 7;
         }
     }
 }

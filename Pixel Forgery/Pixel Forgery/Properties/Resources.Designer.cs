@@ -63,26 +63,6 @@ namespace Pixel_Forgery.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap arc {
-            get {
-                object obj = ResourceManager.GetObject("arc", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap diagonal_line {
-            get {
-                object obj = ResourceManager.GetObject("diagonal-line", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap ellipse {
             get {
                 object obj = ResourceManager.GetObject("ellipse", resourceCulture);
@@ -103,29 +83,9 @@ namespace Pixel_Forgery.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pie_chart {
-            get {
-                object obj = ResourceManager.GetObject("pie-chart", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap rectangle {
             get {
                 object obj = ResourceManager.GetObject("rectangle", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap route {
-            get {
-                object obj = ResourceManager.GetObject("route", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
