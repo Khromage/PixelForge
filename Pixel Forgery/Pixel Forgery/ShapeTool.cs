@@ -16,7 +16,7 @@ namespace Pixel_Forgery
         Point locationX1Y1;
         Point locationXY;
         int i = 0;
-
+        //
         public override void useTool(object sender, MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
         {
             Graphics g = Graphics.FromImage(pictureBox1.Image);
