@@ -19,7 +19,7 @@ namespace Pixel_Forgery
     {
         private Bitmap BMP;
         private Changes changes;
-        private PixelForgeryTool tool = new BrushTool();
+        private PixelForgeryTool tool;
         private BrushTool brushTool = new BrushTool();
         private EraserTool eraserTool = new EraserTool();
         private ShapeTool shapeTool = new ShapeTool();
@@ -36,7 +36,8 @@ namespace Pixel_Forgery
             pictureBox.BackColor = Color.White;
             colorChangeButton.BackColor = Color.Black;
             tool = brushTool;
-            
+            changeToolBackground(1);
+
             using (Graphics g = Graphics.FromImage(BMP))
             {
                 Rectangle bg = new Rectangle(0, 0, BMP.Width, BMP.Height);
@@ -50,8 +51,28 @@ namespace Pixel_Forgery
         {
         }
 
-        // Save File Button
-        private void saveButton_Click(object sender, EventArgs e)
+
+        /// <summary>
+        /// Creates a new canvas for the user to draw in, defaults to 918x595 pixels in size
+        /// </summary>
+        private void newButton_Click(object sender, EventArgs e)                // New Button
+        {
+            BMP = new Bitmap(918, 595);
+            using (Graphics g = Graphics.FromImage(BMP))
+            {
+                Rectangle bg = new Rectangle(0, 0, BMP.Width, BMP.Height);
+                g.FillRectangle(Brushes.White, bg);
+            }
+            pictureBox.Size = BMP.Size;
+            pictureBox.Image = BMP;
+            changes.clearStacks();
+            changes.addChange(pictureBox);
+        }
+
+        /// <summary>
+        /// Opens a save file dialog to let the user save the image
+        /// </summary>
+        private void saveButton_Click(object sender, EventArgs e)               // Save File Button
         {
             FileExplorerDialog fd = new FileExplorerDialog();
             fd.saveFile(this.pictureBox);
@@ -59,9 +80,11 @@ namespace Pixel_Forgery
             changes.addChange(pictureBox);
         }
 
-        // Open File Button
-        private void openButton_Click(object sender, EventArgs e)
-        {
+        /// <summary>
+        /// Opens an open file dialog to let the user open an image from their pc
+        /// </summary>
+        private void openButton_Click(object sender, EventArgs e)               // Open File Button
+        {   
             FileExplorerDialog fd = new FileExplorerDialog();
             fd.loadFile(this.pictureBox);
             BMP = (Bitmap)pictureBox.Image;
@@ -69,162 +92,38 @@ namespace Pixel_Forgery
             changes.addChange(pictureBox);
         }
 
-        // Undo Changes Button
-        private void undoButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Reverts the image to its previous state
+        /// </summary>
+        private void undoButton_Click(object sender, EventArgs e)               // Undo Changes Button
         {
             changes.undoChange(pictureBox);
         }
 
-        // Redo Changes Button
-        private void redoButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Reverts an undone change
+        /// </summary>
+        private void redoButton_Click(object sender, EventArgs e)               // Redo Changes Button
         {
             changes.redoChange(pictureBox);
         }
 
-        // Brush Tool Button
-        private void brushButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Switches the user's tool to the brush tool
+        /// </summary>
+        private void brushButton_Click(object sender, EventArgs e)              // Brush Tool Button
         {
-            // Switch the tool type to Brush Tool
             tool = brushTool;
+            changeToolBackground(1);
         }
 
-        // Eraser Tool Button
-        private void eraserButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Switches the user's tool to the eraser tool
+        /// </summary>
+        private void eraserButton_Click(object sender, EventArgs e)             // Eraser Tool Button
         {
-            // Switch the tool type to Eraser Tool
             tool = eraserTool;
-        }
-
-        private void pictureBox_MouseDown(object sender, MouseEventArgs e)
-        {
-            // Update drawing status
-            
-            switch (e.Button)
-            {
-                case MouseButtons.Left:
-                    tool.isDrawing = true;
-                    tool.startX = e.X;
-                    tool.startY = e.Y;
-                    if (tool == fillTool) tool.useTool(sender, e, pictureBox);
-                    if (tool == shapeTool && tool.typeOfTool == 3) tool.points(sender, points);
-                    if (tool == colorPickerTool)
-                    {
-                        tool.currentColor = tool.pickedColor;
-                        shapeTool.currentColor = tool.pickedColor;
-                        brushTool.currentColor = tool.pickedColor;
-                        fillTool.currentColor = tool.pickedColor;
-                        colorChangeButton.BackColor = tool.pickedColor;
-                    }
-                    break;
-                case MouseButtons.Right:
-                    tool.isDrawing = true;
-                    points.Add(e.Location);
-                    break;
-                default:
-                    Console.WriteLine("uhhhh... Eto..... Bleg?");
-                    break;
-            }
-            
-        }
-
-        private void pictureBox_MouseMove(object sender, MouseEventArgs e)
-        {
-            if(tool == colorPickerTool)
-            {
-                // BackColor cannot be set to transparent, so just set to White whenever mouse is hovering over a transparent pixel
-                try
-                {
-                    tool.pickedColor = BMP.GetPixel(e.X, e.Y);
-                    pickedcolordisplay.BackColor = tool.pickedColor;
-                }
-                catch (System.ArgumentException ex)
-                {
-                    Console.WriteLine(ex.Message + " Reverting to default color.");
-                    tool.pickedColor = Color.White;
-                    pickedcolordisplay.BackColor = Color.White;
-                }
-            }
-            switch (e.Button)
-            {
-                case MouseButtons.Left:
-                    if (tool.isDrawing == true)
-                    {
-                        tool.endX = e.X;
-                        tool.endY = e.Y;
-                        if (tool == brushTool || tool == eraserTool) tool.useTool(sender, e, pictureBox);
-                    }
-                    break;
-                case MouseButtons.Right:
-
-                    break;
-                default:
-                    break;
-            }
-            pictureBox.Refresh();
-        }
-
-        private void pictureBox_MouseUp(object sender, MouseEventArgs e)
-        {
-            // Update drawing status
-            switch (e.Button)
-            {
-                case MouseButtons.Left:
-                    tool.isDrawing = false;
-                    tool.endX = e.X;
-                    tool.endY = e.Y;
-                    if (tool == shapeTool) tool.useTool(sender, e, pictureBox);
-
-                    changes.addChange(pictureBox);
-                    break;
-                case MouseButtons.Right:
-
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        private void pictureBox_Click(object sender, EventArgs e)
-        {
-        }
-        
-        // Keyboard Shortcuts
-        private void PixelForgeryGUI_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.N && (e.Control)) // Ctrl+S for Save
-            {
-                BMP = new Bitmap(pictureBox.Width, pictureBox.Height);
-                using (Graphics g = Graphics.FromImage(BMP))
-                {
-                    Rectangle bg = new Rectangle(0, 0, BMP.Width, BMP.Height);
-                    g.FillRectangle(Brushes.White, bg);
-                }
-                pictureBox.Image = BMP;
-                changes.clearStacks();
-                changes.addChange(pictureBox);
-            }
-            else if (e.KeyCode == Keys.S && (e.Control)) // Ctrl+S for Save
-            {
-                FileExplorerDialog fd = new FileExplorerDialog();
-                fd.saveFile(this.pictureBox);
-                changes.clearStacks();
-                changes.addChange(pictureBox);
-            }
-            else if (e.KeyCode == Keys.O && (e.Control)) // Ctrl+O for Open
-            {
-                FileExplorerDialog fd = new FileExplorerDialog();
-                fd.loadFile(this.pictureBox);
-                changes.clearStacks();
-                changes.addChange(pictureBox);
-            }
-            else if (e.KeyCode == Keys.Z && (e.Control)) // Ctrl+Z for Undo
-            {
-                changes.undoChange(pictureBox);
-            }
-            else if (e.KeyCode == Keys.Y && (e.Control)) // Ctrl+Y for Redo
-            {
-                changes.redoChange(pictureBox);
-            }
+            changeToolBackground(2);
         }
 
         /// <summary>
@@ -291,6 +190,27 @@ namespace Pixel_Forgery
         {
             tool = shapeTool;
             tool.typeOfTool = 1;
+            changeToolBackground(3);
+        }
+
+        private void ellipseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tool = shapeTool;
+            tool.typeOfTool = 2;
+            changeToolBackground(3);
+        }
+
+        private void polygonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tool = shapeTool;
+            tool.typeOfTool = 3;
+            changeToolBackground(3);
+        }
+
+        private void fillButton_Click(object sender, EventArgs e)
+        {
+            tool = fillTool;
+            changeToolBackground(4);
         }
 
         private void colorTool_Click(object sender, EventArgs e)
@@ -305,12 +225,146 @@ namespace Pixel_Forgery
                 colorChangeButton.BackColor = cd.Color;
             }
         }
-
-        private void fillButton_Click(object sender, EventArgs e)
+        private void colorPickerButton_Click(object sender, EventArgs e)
         {
-            tool = fillTool;
+
+            tool = colorPickerTool;
+            pickedcolordisplay.BackColor = tool.pickedColor;
+            changeToolBackground(5);
         }
 
+        private void pictureBox_MouseDown(object sender, MouseEventArgs e)
+        {
+            switch (e.Button)
+            {
+                case MouseButtons.Left:
+                    tool.isDrawing = true;
+                    tool.startX = e.X;
+                    tool.startY = e.Y;
+                    if (tool == fillTool) tool.useTool(sender, e, pictureBox);
+                    if (tool == shapeTool && tool.typeOfTool == 3) tool.points(sender, points);
+                    if (tool == colorPickerTool)
+                    {
+                        tool.currentColor = tool.pickedColor;
+                        shapeTool.currentColor = tool.pickedColor;
+                        brushTool.currentColor = tool.pickedColor;
+                        fillTool.currentColor = tool.pickedColor;
+                        colorChangeButton.BackColor = tool.pickedColor;
+                    }
+                    break;
+                case MouseButtons.Right:
+                    tool.isDrawing = true;
+                    points.Add(e.Location);
+                    break;
+                default:
+                    Console.WriteLine("uhhhh... Eto..... Bleg?");
+                    break;
+            }
+            
+        }
+
+        private void pictureBox_MouseMove(object sender, MouseEventArgs e)
+        {
+            if(tool == colorPickerTool)
+            {
+                try
+                {
+                    tool.pickedColor = BMP.GetPixel(e.X, e.Y);
+                    pickedcolordisplay.BackColor = tool.pickedColor;
+                    if (pickedcolordisplay.BackColor.ToArgb() == 0) pickedcolordisplay.BackColor = Color.White;
+                }
+                catch (System.ArgumentException ex)
+                {
+                    Console.WriteLine(ex.Message + " Reverting to default color.");
+                    tool.pickedColor = Color.White;
+                    pickedcolordisplay.BackColor = Color.White;
+                }
+            }
+            switch (e.Button)
+            {
+                case MouseButtons.Left:
+                    if (tool.isDrawing == true)
+                    {
+                        tool.endX = e.X;
+                        tool.endY = e.Y;
+                        if (tool == brushTool || tool == eraserTool) tool.useTool(sender, e, pictureBox);
+                    }
+                    break;
+                case MouseButtons.Right:
+                    break;
+                default:
+                    break;
+            }
+            pictureBox.Refresh();
+        }
+
+        private void pictureBox_MouseUp(object sender, MouseEventArgs e)
+        {
+            switch (e.Button)
+            {
+                case MouseButtons.Left:
+                    tool.isDrawing = false;
+                    tool.endX = e.X;
+                    tool.endY = e.Y;
+                    if (tool == shapeTool) tool.useTool(sender, e, pictureBox);
+                    changes.addChange(pictureBox);
+                    break;
+                case MouseButtons.Right:
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void pictureBox_Click(object sender, EventArgs e)
+        {
+        }
+        
+        /// <summary>
+        /// Allows the user to access menu bar functionality using pre-defined keyboard shortcuts
+        /// </summary>
+        private void PixelForgeryGUI_KeyDown(object sender, KeyEventArgs e)         // Keyboard Shortcuts
+        {
+            if (e.KeyCode == Keys.N && (e.Control)) // Ctrl+S for Save
+            {
+                BMP = new Bitmap(pictureBox.Width, pictureBox.Height);
+                using (Graphics g = Graphics.FromImage(BMP))
+                {
+                    Rectangle bg = new Rectangle(0, 0, BMP.Width, BMP.Height);
+                    g.FillRectangle(Brushes.White, bg);
+                }
+                pictureBox.Image = BMP;
+                changes.clearStacks();
+                changes.addChange(pictureBox);
+            }
+            else if (e.KeyCode == Keys.S && (e.Control)) // Ctrl+S for Save
+            {
+                FileExplorerDialog fd = new FileExplorerDialog();
+                fd.saveFile(this.pictureBox);
+                changes.clearStacks();
+                changes.addChange(pictureBox);
+            }
+            else if (e.KeyCode == Keys.O && (e.Control)) // Ctrl+O for Open
+            {
+                FileExplorerDialog fd = new FileExplorerDialog();
+                fd.loadFile(this.pictureBox);
+                changes.clearStacks();
+                changes.addChange(pictureBox);
+            }
+            else if (e.KeyCode == Keys.Z && (e.Control)) // Ctrl+Z for Undo
+            {
+                changes.undoChange(pictureBox);
+            }
+            else if (e.KeyCode == Keys.Y && (e.Control)) // Ctrl+Y for Redo
+            {
+                changes.redoChange(pictureBox);
+            }
+        }
+        
+        /// <summary>
+        /// Temporarily updates the canvas.
+        /// Actively shows what the user's shape looks like.
+        /// </summary>
         private void pictureBox_Paint(object sender, PaintEventArgs e)
         {
             if(tool.isDrawing && tool == shapeTool)
@@ -319,36 +373,49 @@ namespace Pixel_Forgery
             }
         }
 
-        private void ellipseToolStripMenuItem_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Changes the background color of buttons to indicate which tool is being currently used
+        /// </summary>
+        private void changeToolBackground(int i)
         {
-            tool = shapeTool;
-            tool.typeOfTool = 2;
-        }
-
-        private void polygonToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            tool = shapeTool;
-            tool.typeOfTool = 3;
-        }
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            tool = colorPickerTool;
-            pickedcolordisplay.BackColor = tool.pickedColor;
-        }
-
-        private void newButton_Click(object sender, EventArgs e)
-        {
-            BMP = new Bitmap(918, 595);
-            using (Graphics g = Graphics.FromImage(BMP))
+            switch (i)
             {
-                Rectangle bg = new Rectangle(0, 0, BMP.Width, BMP.Height);
-                g.FillRectangle(Brushes.White, bg);
+                case 1:                             // Brush
+                    brushButton.BackColor = Color.DarkGray;
+                    eraserButton.BackColor = Color.DimGray;
+                    shapeButton.BackColor = Color.DimGray;
+                    fillButton.BackColor = Color.DimGray;
+                    colorPickerButton.BackColor = Color.DimGray;
+                    break;
+                case 2:                             // Eraser
+                    brushButton.BackColor = Color.DimGray;
+                    eraserButton.BackColor = Color.DarkGray;
+                    shapeButton.BackColor = Color.DimGray;
+                    fillButton.BackColor = Color.DimGray;
+                    colorPickerButton.BackColor = Color.DimGray;
+                    break;
+                case 3:                             // Shape
+                    brushButton.BackColor = Color.DimGray;
+                    eraserButton.BackColor = Color.DimGray;
+                    shapeButton.BackColor = Color.DarkGray;
+                    fillButton.BackColor = Color.DimGray;
+                    colorPickerButton.BackColor = Color.DimGray;
+                    break;
+                case 4:                             // Fill
+                    brushButton.BackColor = Color.DimGray;
+                    eraserButton.BackColor = Color.DimGray;
+                    shapeButton.BackColor = Color.DimGray;
+                    fillButton.BackColor = Color.DarkGray;
+                    colorPickerButton.BackColor = Color.DimGray;
+                    break;
+                case 5:                             // Color Picker
+                    brushButton.BackColor = Color.DimGray;
+                    eraserButton.BackColor = Color.DimGray;
+                    shapeButton.BackColor = Color.DimGray;
+                    fillButton.BackColor = Color.DimGray;
+                    colorPickerButton.BackColor = Color.DarkGray;
+                    break;
             }
-            pictureBox.Size = BMP.Size;
-            pictureBox.Image = BMP;
-            changes.clearStacks();
-            changes.addChange(pictureBox);
         }
     }
 }

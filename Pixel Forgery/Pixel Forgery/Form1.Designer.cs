@@ -35,8 +35,11 @@ namespace Pixel_Forgery
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PixelForgeryGUI));
             this.menuBar = new System.Windows.Forms.MenuStrip();
             this.fileButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.newButton = new System.Windows.Forms.ToolStripMenuItem();
             this.saveButton = new System.Windows.Forms.ToolStripMenuItem();
             this.openButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileButtonSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.imagePropertiesButton = new System.Windows.Forms.ToolStripMenuItem();
             this.editButton = new System.Windows.Forms.ToolStripMenuItem();
             this.undoButton = new System.Windows.Forms.ToolStripMenuItem();
             this.redoButton = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,18 +50,17 @@ namespace Pixel_Forgery
             this.eraserButton = new System.Windows.Forms.ToolStripDropDownButton();
             this.changeSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eraserSizeTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.shapeToolDropDown = new System.Windows.Forms.ToolStripDropDownButton();
+            this.shapeButton = new System.Windows.Forms.ToolStripDropDownButton();
             this.rectangleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ellipseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.polygonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fillButton = new System.Windows.Forms.ToolStripButton();
             this.colorChangeButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.pickedcolordisplay = new System.Windows.Forms.ToolStripTextBox();
+            this.colorPickerButton = new System.Windows.Forms.ToolStripButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.newButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.pickedcolordisplay = new System.Windows.Forms.ToolStripLabel();
             this.menuBar.SuspendLayout();
             this.toolBar.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -84,16 +86,26 @@ namespace Pixel_Forgery
             this.fileButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newButton,
             this.saveButton,
-            this.openButton});
+            this.openButton,
+            this.fileButtonSeparator,
+            this.imagePropertiesButton});
             this.fileButton.Name = "fileButton";
             this.fileButton.Size = new System.Drawing.Size(37, 20);
             this.fileButton.Text = "File";
+            // 
+            // newButton
+            // 
+            this.newButton.Name = "newButton";
+            this.newButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.newButton.Size = new System.Drawing.Size(203, 22);
+            this.newButton.Text = "New";
+            this.newButton.Click += new System.EventHandler(this.newButton_Click);
             // 
             // saveButton
             // 
             this.saveButton.Name = "saveButton";
             this.saveButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveButton.Size = new System.Drawing.Size(180, 22);
+            this.saveButton.Size = new System.Drawing.Size(203, 22);
             this.saveButton.Text = "Save";
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
@@ -101,9 +113,21 @@ namespace Pixel_Forgery
             // 
             this.openButton.Name = "openButton";
             this.openButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openButton.Size = new System.Drawing.Size(180, 22);
+            this.openButton.Size = new System.Drawing.Size(203, 22);
             this.openButton.Text = "Open";
             this.openButton.Click += new System.EventHandler(this.openButton_Click);
+            // 
+            // fileButtonSeparator
+            // 
+            this.fileButtonSeparator.Name = "fileButtonSeparator";
+            this.fileButtonSeparator.Size = new System.Drawing.Size(200, 6);
+            // 
+            // imagePropertiesButton
+            // 
+            this.imagePropertiesButton.Name = "imagePropertiesButton";
+            this.imagePropertiesButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+            this.imagePropertiesButton.Size = new System.Drawing.Size(203, 22);
+            this.imagePropertiesButton.Text = "Image Properties";
             // 
             // editButton
             // 
@@ -134,37 +158,44 @@ namespace Pixel_Forgery
             // 
             // toolBar
             // 
+            this.toolBar.AllowItemReorder = true;
             this.toolBar.AutoSize = false;
             this.toolBar.BackColor = System.Drawing.Color.DimGray;
+            this.toolBar.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolBar.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.brushButton,
             this.eraserButton,
-            this.shapeToolDropDown,
+            this.shapeButton,
             this.fillButton,
             this.colorChangeButton,
-            this.toolStripButton1,
+            this.colorPickerButton,
             this.pickedcolordisplay});
             this.toolBar.Location = new System.Drawing.Point(0, 24);
             this.toolBar.Name = "toolBar";
-            this.toolBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolBar.Size = new System.Drawing.Size(1103, 50);
+            this.toolBar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.toolBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.toolBar.Size = new System.Drawing.Size(1103, 51);
             this.toolBar.TabIndex = 4;
             this.toolBar.Text = "toolStrip1";
             // 
             // brushButton
             // 
             this.brushButton.AutoSize = false;
+            this.brushButton.BackColor = System.Drawing.Color.DimGray;
+            this.brushButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.brushButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.brushButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sizeToolStripMenuItem});
             this.brushButton.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.brushButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.brushButton.Image = ((System.Drawing.Image)(resources.GetObject("brushButton.Image")));
             this.brushButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.brushButton.Margin = new System.Windows.Forms.Padding(0);
             this.brushButton.Name = "brushButton";
-            this.brushButton.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.brushButton.Size = new System.Drawing.Size(45, 45);
+            this.brushButton.Size = new System.Drawing.Size(60, 50);
             this.brushButton.Text = "Brush Tool";
+            this.brushButton.ToolTipText = "Brush";
             this.brushButton.Click += new System.EventHandler(this.brushButton_Click);
             // 
             // sizeToolStripMenuItem
@@ -173,7 +204,7 @@ namespace Pixel_Forgery
             this.brushSizeTextBox});
             this.sizeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.sizeToolStripMenuItem.Name = "sizeToolStripMenuItem";
-            this.sizeToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.sizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sizeToolStripMenuItem.Text = "Change Size";
             this.sizeToolStripMenuItem.MouseHover += new System.EventHandler(this.brushSizeToolStripMenuItem_MouseHover);
             // 
@@ -187,15 +218,16 @@ namespace Pixel_Forgery
             // 
             // eraserButton
             // 
+            this.eraserButton.AutoSize = false;
             this.eraserButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.eraserButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.changeSizeToolStripMenuItem});
             this.eraserButton.Image = ((System.Drawing.Image)(resources.GetObject("eraserButton.Image")));
             this.eraserButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.eraserButton.Name = "eraserButton";
-            this.eraserButton.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.eraserButton.Size = new System.Drawing.Size(58, 47);
+            this.eraserButton.Size = new System.Drawing.Size(60, 50);
             this.eraserButton.Text = "Eraser Tool";
+            this.eraserButton.ToolTipText = "Eraser";
             this.eraserButton.Click += new System.EventHandler(this.eraserButton_Click);
             // 
             // changeSizeToolStripMenuItem
@@ -203,7 +235,7 @@ namespace Pixel_Forgery
             this.changeSizeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.eraserSizeTextBox});
             this.changeSizeToolStripMenuItem.Name = "changeSizeToolStripMenuItem";
-            this.changeSizeToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.changeSizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.changeSizeToolStripMenuItem.Text = "Change Size";
             this.changeSizeToolStripMenuItem.MouseHover += new System.EventHandler(this.eraserSizeToolStripMenuItem_MouseHover);
             // 
@@ -215,25 +247,26 @@ namespace Pixel_Forgery
             this.eraserSizeTextBox.Click += new System.EventHandler(this.eraserSizeTextBox_Click);
             this.eraserSizeTextBox.TextChanged += new System.EventHandler(this.eraserSizeTextBox_TextChanged);
             // 
-            // shapeToolDropDown
+            // shapeButton
             // 
-            this.shapeToolDropDown.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.shapeToolDropDown.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.shapeButton.AutoSize = false;
+            this.shapeButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.shapeButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rectangleToolStripMenuItem,
             this.ellipseToolStripMenuItem,
             this.polygonToolStripMenuItem});
-            this.shapeToolDropDown.Image = ((System.Drawing.Image)(resources.GetObject("shapeToolDropDown.Image")));
-            this.shapeToolDropDown.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.shapeToolDropDown.Name = "shapeToolDropDown";
-            this.shapeToolDropDown.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.shapeToolDropDown.Size = new System.Drawing.Size(58, 47);
-            this.shapeToolDropDown.Text = "Shape Tool";
+            this.shapeButton.Image = ((System.Drawing.Image)(resources.GetObject("shapeButton.Image")));
+            this.shapeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.shapeButton.Name = "shapeButton";
+            this.shapeButton.Size = new System.Drawing.Size(60, 50);
+            this.shapeButton.Text = "Shape Tool";
+            this.shapeButton.ToolTipText = "Shape";
             // 
             // rectangleToolStripMenuItem
             // 
             this.rectangleToolStripMenuItem.Image = global::Pixel_Forgery.Properties.Resources.rectangle;
             this.rectangleToolStripMenuItem.Name = "rectangleToolStripMenuItem";
-            this.rectangleToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.rectangleToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.rectangleToolStripMenuItem.Text = "Rectangle";
             this.rectangleToolStripMenuItem.Click += new System.EventHandler(this.rectangleToolStripMenuItem_Click);
             // 
@@ -241,7 +274,7 @@ namespace Pixel_Forgery
             // 
             this.ellipseToolStripMenuItem.Image = global::Pixel_Forgery.Properties.Resources.ellipse;
             this.ellipseToolStripMenuItem.Name = "ellipseToolStripMenuItem";
-            this.ellipseToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.ellipseToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.ellipseToolStripMenuItem.Text = "Ellipse";
             this.ellipseToolStripMenuItem.Click += new System.EventHandler(this.ellipseToolStripMenuItem_Click);
             // 
@@ -249,20 +282,20 @@ namespace Pixel_Forgery
             // 
             this.polygonToolStripMenuItem.Image = global::Pixel_Forgery.Properties.Resources.hexagon;
             this.polygonToolStripMenuItem.Name = "polygonToolStripMenuItem";
-            this.polygonToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.polygonToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.polygonToolStripMenuItem.Text = "Polygon";
             this.polygonToolStripMenuItem.Click += new System.EventHandler(this.polygonToolStripMenuItem_Click);
             // 
             // fillButton
             // 
+            this.fillButton.AutoSize = false;
             this.fillButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.fillButton.Image = ((System.Drawing.Image)(resources.GetObject("fillButton.Image")));
             this.fillButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.fillButton.Name = "fillButton";
-            this.fillButton.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.fillButton.Size = new System.Drawing.Size(44, 47);
+            this.fillButton.Size = new System.Drawing.Size(60, 50);
             this.fillButton.Text = "toolStripButton2";
-            this.fillButton.ToolTipText = "Fill Tool";
+            this.fillButton.ToolTipText = "Fill";
             this.fillButton.Click += new System.EventHandler(this.fillButton_Click);
             // 
             // colorChangeButton
@@ -270,29 +303,26 @@ namespace Pixel_Forgery
             this.colorChangeButton.AutoSize = false;
             this.colorChangeButton.BackColor = System.Drawing.Color.Black;
             this.colorChangeButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.colorChangeButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.colorChangeButton.Image = ((System.Drawing.Image)(resources.GetObject("colorChangeButton.Image")));
             this.colorChangeButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.colorChangeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.colorChangeButton.Margin = new System.Windows.Forms.Padding(15, 0, 15, 0);
             this.colorChangeButton.Name = "colorChangeButton";
             this.colorChangeButton.Size = new System.Drawing.Size(25, 25);
             this.colorChangeButton.Click += new System.EventHandler(this.colorTool_Click);
             // 
-            // toolStripButton1
+            // colorPickerButton
             // 
-            this.toolStripButton1.AutoSize = false;
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(40, 40);
-            this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
-            // pickedcolordisplay
-            // 
-            this.pickedcolordisplay.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.pickedcolordisplay.Name = "pickedcolordisplay";
-            this.pickedcolordisplay.Size = new System.Drawing.Size(25, 50);
+            this.colorPickerButton.AutoSize = false;
+            this.colorPickerButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.colorPickerButton.Image = ((System.Drawing.Image)(resources.GetObject("colorPickerButton.Image")));
+            this.colorPickerButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.colorPickerButton.Name = "colorPickerButton";
+            this.colorPickerButton.Size = new System.Drawing.Size(60, 50);
+            this.colorPickerButton.Text = "Color Picker";
+            this.colorPickerButton.ToolTipText = "Color Picker";
+            this.colorPickerButton.Click += new System.EventHandler(this.colorPickerButton_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -300,9 +330,9 @@ namespace Pixel_Forgery
             this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel1.Controls.Add(this.panel1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 74);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 75);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1103, 746);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1103, 745);
             this.flowLayoutPanel1.TabIndex = 6;
             // 
             // panel1
@@ -319,6 +349,7 @@ namespace Pixel_Forgery
             // 
             // pictureBox
             // 
+            this.pictureBox.BackColor = System.Drawing.Color.White;
             this.pictureBox.Cursor = System.Windows.Forms.Cursors.Cross;
             this.pictureBox.Location = new System.Drawing.Point(20, 20);
             this.pictureBox.Name = "pictureBox";
@@ -331,13 +362,20 @@ namespace Pixel_Forgery
             this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
             this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseUp);
             // 
-            // newButton
+            // pickedcolordisplay
             // 
-            this.newButton.Name = "newButton";
-            this.newButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newButton.Size = new System.Drawing.Size(180, 22);
-            this.newButton.Text = "New";
-            this.newButton.Click += new System.EventHandler(this.newButton_Click);
+            this.pickedcolordisplay.ActiveLinkColor = System.Drawing.Color.White;
+            this.pickedcolordisplay.AutoSize = false;
+            this.pickedcolordisplay.BackColor = System.Drawing.Color.White;
+            this.pickedcolordisplay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pickedcolordisplay.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.pickedcolordisplay.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pickedcolordisplay.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.pickedcolordisplay.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.pickedcolordisplay.ImageTransparentColor = System.Drawing.Color.White;
+            this.pickedcolordisplay.Margin = new System.Windows.Forms.Padding(15, 0, 15, 0);
+            this.pickedcolordisplay.Name = "pickedcolordisplay";
+            this.pickedcolordisplay.Size = new System.Drawing.Size(25, 25);
             // 
             // PixelForgeryGUI
             // 
@@ -376,6 +414,9 @@ namespace Pixel_Forgery
         private System.Windows.Forms.ToolStripMenuItem editButton;
         private System.Windows.Forms.ToolStripMenuItem undoButton;
         private System.Windows.Forms.ToolStripMenuItem redoButton;
+        private System.Windows.Forms.ToolStripMenuItem newButton;
+        private System.Windows.Forms.ToolStripSeparator fileButtonSeparator;
+        private System.Windows.Forms.ToolStripMenuItem imagePropertiesButton;
 
         private System.Windows.Forms.ToolStrip toolBar;
         private System.Windows.Forms.ToolStripDropDownButton brushButton;
@@ -384,19 +425,18 @@ namespace Pixel_Forgery
         private System.Windows.Forms.ToolStripDropDownButton eraserButton;
         private System.Windows.Forms.ToolStripMenuItem changeSizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox eraserSizeTextBox;
-        private System.Windows.Forms.ToolStripDropDownButton shapeToolDropDown;
+        private System.Windows.Forms.ToolStripDropDownButton shapeButton;
         private System.Windows.Forms.ToolStripMenuItem rectangleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ellipseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem polygonToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton fillButton;
         private System.Windows.Forms.ToolStripButton colorChangeButton;
+        private System.Windows.Forms.ToolStripButton colorPickerButton;
 
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripTextBox pickedcolordisplay;
-        private System.Windows.Forms.ToolStripMenuItem newButton;
+        private System.Windows.Forms.ToolStripLabel pickedcolordisplay;
     }
 }
 
