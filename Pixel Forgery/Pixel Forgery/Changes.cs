@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -65,7 +66,18 @@ namespace Pixel_Forgery
         {
             System.Drawing.Image img = undoStack.Last();
             System.Drawing.Image current = (System.Drawing.Image)img.Clone();
-            pictureBox.Image = current;
+
+            Bitmap orig = (Bitmap)current;
+            Bitmap bmp = new Bitmap(orig.Width, orig.Height,
+                System.Drawing.Imaging.PixelFormat.Format32bppPArgb);
+
+            using (Graphics g = Graphics.FromImage(bmp))
+            {
+                g.DrawImage(orig, new Rectangle(0, 0, bmp.Width, bmp.Height));
+                g.Dispose();
+            }
+
+            pictureBox.Image = bmp;
         }
 
         // Clear the stacks (after saving, loading, or creating new images)

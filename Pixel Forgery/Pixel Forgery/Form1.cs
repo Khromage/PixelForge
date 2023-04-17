@@ -36,7 +36,7 @@ namespace Pixel_Forgery
             pictureBox.BackColor = Color.White;
             colorChangeButton.BackColor = Color.Black;
             tool = brushTool;
-
+            
             using (Graphics g = Graphics.FromImage(BMP))
             {
                 Rectangle bg = new Rectangle(0, 0, BMP.Width, BMP.Height);
@@ -131,8 +131,18 @@ namespace Pixel_Forgery
         {
             if(tool == colorPickerTool)
             {
-                tool.pickedColor = BMP.GetPixel(e.X, e.Y);
-                pickedcolordisplay.BackColor = tool.pickedColor;
+                // BackColor cannot be set to transparent, so just set to White whenever mouse is hovering over a transparent pixel
+                try
+                {
+                    tool.pickedColor = BMP.GetPixel(e.X, e.Y);
+                    pickedcolordisplay.BackColor = tool.pickedColor;
+                }
+                catch (System.ArgumentException ex)
+                {
+                    Console.WriteLine(ex.Message + " Reverting to default color.");
+                    tool.pickedColor = Color.White;
+                    pickedcolordisplay.BackColor = Color.White;
+                }
             }
             switch (e.Button)
             {
@@ -181,7 +191,19 @@ namespace Pixel_Forgery
         // Keyboard Shortcuts
         private void PixelForgeryGUI_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.S && (e.Control)) // Ctrl+S for Save
+            if (e.KeyCode == Keys.N && (e.Control)) // Ctrl+S for Save
+            {
+                BMP = new Bitmap(pictureBox.Width, pictureBox.Height);
+                using (Graphics g = Graphics.FromImage(BMP))
+                {
+                    Rectangle bg = new Rectangle(0, 0, BMP.Width, BMP.Height);
+                    g.FillRectangle(Brushes.White, bg);
+                }
+                pictureBox.Image = BMP;
+                changes.clearStacks();
+                changes.addChange(pictureBox);
+            }
+            else if (e.KeyCode == Keys.S && (e.Control)) // Ctrl+S for Save
             {
                 FileExplorerDialog fd = new FileExplorerDialog();
                 fd.saveFile(this.pictureBox);
@@ -313,6 +335,20 @@ namespace Pixel_Forgery
         {
             tool = colorPickerTool;
             pickedcolordisplay.BackColor = tool.pickedColor;
+        }
+
+        private void newButton_Click(object sender, EventArgs e)
+        {
+            BMP = new Bitmap(918, 595);
+            using (Graphics g = Graphics.FromImage(BMP))
+            {
+                Rectangle bg = new Rectangle(0, 0, BMP.Width, BMP.Height);
+                g.FillRectangle(Brushes.White, bg);
+            }
+            pictureBox.Size = BMP.Size;
+            pictureBox.Image = BMP;
+            changes.clearStacks();
+            changes.addChange(pictureBox);
         }
     }
 }
