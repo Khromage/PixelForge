@@ -81,7 +81,7 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Opens an open file dialog to let the user open an image from their pc
+        /// Opens an open file dialog to let the user open an image from their pc.
         /// </summary>
         private void openButton_Click(object sender, EventArgs e)               // Open File Button
         {   
@@ -93,7 +93,27 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Reverts the image to its previous state
+        /// Opens a form that allows the user to set canvas dimensions.
+        /// </summary>
+        private void imagePropertiesButton_Click(object sender, EventArgs e)    // Image Properties Button
+        {
+            try
+            {
+                using(ImagePropertiesForm iForm = new ImagePropertiesForm())
+                {
+                    iForm.Owner = this;
+                    iForm.Text = "";
+                    iForm.ShowDialog();
+                }
+            }
+            catch(Exception ex)
+            {
+                
+            }
+        }
+
+        /// <summary>
+        /// Reverts the image to its previous state.
         /// </summary>
         private void undoButton_Click(object sender, EventArgs e)               // Undo Changes Button
         {
@@ -363,7 +383,7 @@ namespace Pixel_Forgery
         
         /// <summary>
         /// Temporarily updates the canvas.
-        /// Actively shows what the user's shape looks like.
+        /// Actively shows what the shape being drawn looks like.
         /// </summary>
         private void pictureBox_Paint(object sender, PaintEventArgs e)
         {

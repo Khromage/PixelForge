@@ -66,6 +66,12 @@
     <Compile Include="ColorPickerTool.cs" />
     <Compile Include="ColorTool.cs" />
     <Compile Include="FillTool.cs" />
+    <Compile Include="ImagePropertiesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImagePropertiesForm.Designer.cs">
+      <DependentUpon>ImagePropertiesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ShapeTool.cs" />
     <Compile Include="EraserTool.cs" />
     <Compile Include="FileExplorerDialog.cs" />
@@ -81,6 +87,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImagePropertiesForm.resx">
+      <DependentUpon>ImagePropertiesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
