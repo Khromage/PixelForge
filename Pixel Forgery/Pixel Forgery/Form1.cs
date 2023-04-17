@@ -101,9 +101,35 @@ namespace Pixel_Forgery
             {
                 using(ImagePropertiesForm iForm = new ImagePropertiesForm())
                 {
+                    bool changeSize = false;
+                    int newWidth = pictureBox.Width, newHeight = pictureBox.Height;
+
                     iForm.Owner = this;
-                    iForm.Text = "";
+                    iForm.StartPosition = FormStartPosition.CenterParent;
+                    iForm.ShowInTaskbar = false;
+                    iForm.canvasWidth = pictureBox.Width;
+                    iForm.canvasHeight = pictureBox.Height;
                     iForm.ShowDialog();
+
+                    changeSize = iForm.changeSize;
+                    newWidth = iForm.canvasWidth;
+                    newHeight = iForm.canvasHeight;
+
+                    if (changeSize)
+                    {
+                        System.Drawing.Image curr = (System.Drawing.Image)pictureBox.Image.Clone();
+                        BMP = new Bitmap(newWidth, newHeight);
+                        Graphics g = Graphics.FromImage(BMP);
+                        g.FillRectangle(Brushes.White, new Rectangle(0, 0, BMP.Width, BMP.Height));
+                        g.DrawImage(curr, 0, 0);
+
+                        pictureBox.Image = BMP;
+                        pictureBox.Size = BMP.Size;
+                        pictureBox.Invalidate();
+                        changes.addChange(pictureBox);
+                    }
+
+                    pictureBox.Refresh();
                 }
             }
             catch(Exception ex)

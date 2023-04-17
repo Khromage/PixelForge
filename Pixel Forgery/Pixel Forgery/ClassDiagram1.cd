@@ -25,11 +25,7 @@
     <Position X="8.75" Y="3.75" Width="1.5" />
     <InheritanceLine Type="Pixel_Forgery.PixelForgeryTool" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="6.25" Y="3.947" />
-        <Point X="6.667" Y="3.947" Type="JumpStart" />
-        <Point X="6.833" Y="3.947" Type="JumpEnd" />
-        <Point X="7.075" Y="3.947" />
-        <Point X="7.075" Y="3.938" />
+        <Point X="6.25" Y="3.938" />
         <Point X="8.75" Y="3.938" />
       </Path>
     </InheritanceLine>
@@ -46,7 +42,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Pixel_Forgery.Changes">
-    <Position X="4.25" Y="7.25" Width="1.5" />
+    <Position X="4.25" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAgAIAAAAAAAAAAAACAAAoAAAAAIAACAAAAAA=</HashCode>
       <FileName>Changes.cs</FileName>
@@ -67,10 +63,17 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Pixel_Forgery.ColorPickerTool">
-    <Position X="10.5" Y="4" Width="1.5" />
+    <Position X="10.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ColorPickerTool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pixel_Forgery.ImagePropertiesForm">
+    <Position X="6.25" Y="6.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AQAAIBAAACYAAAAAAAKAIAJCAAAgAAgAgAAQABAgAAA=</HashCode>
+      <FileName>ImagePropertiesForm.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

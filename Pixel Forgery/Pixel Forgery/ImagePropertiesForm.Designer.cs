@@ -29,21 +29,90 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImagePropertiesForm));
+            this.widthLabel = new System.Windows.Forms.Label();
+            this.heightLabel = new System.Windows.Forms.Label();
+            this.widthTextBox = new System.Windows.Forms.TextBox();
+            this.heightTextBox = new System.Windows.Forms.TextBox();
+            this.acceptButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
+            this.defaultButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // widthLabel
+            // 
+            resources.ApplyResources(this.widthLabel, "widthLabel");
+            this.widthLabel.Name = "widthLabel";
+            // 
+            // heightLabel
+            // 
+            resources.ApplyResources(this.heightLabel, "heightLabel");
+            this.heightLabel.Name = "heightLabel";
+            // 
+            // widthTextBox
+            // 
+            resources.ApplyResources(this.widthTextBox, "widthTextBox");
+            this.widthTextBox.Name = "widthTextBox";
+            this.widthTextBox.TextChanged += new System.EventHandler(this.widthTextBox_TextChanged);
+            // 
+            // heightTextBox
+            // 
+            resources.ApplyResources(this.heightTextBox, "heightTextBox");
+            this.heightTextBox.Name = "heightTextBox";
+            this.heightTextBox.TextChanged += new System.EventHandler(this.heightTextBox_TextChanged);
+            // 
+            // acceptButton
+            // 
+            resources.ApplyResources(this.acceptButton, "acceptButton");
+            this.acceptButton.Name = "acceptButton";
+            this.acceptButton.UseVisualStyleBackColor = true;
+            this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            resources.ApplyResources(this.cancelButton, "cancelButton");
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
+            // defaultButton
+            // 
+            resources.ApplyResources(this.defaultButton, "defaultButton");
+            this.defaultButton.Name = "defaultButton";
+            this.defaultButton.UseVisualStyleBackColor = true;
+            this.defaultButton.Click += new System.EventHandler(this.defaultButton_Click);
             // 
             // ImagePropertiesForm
             // 
+            this.AcceptButton = this.acceptButton;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.CancelButton = this.cancelButton;
+            this.Controls.Add(this.defaultButton);
+            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.acceptButton);
+            this.Controls.Add(this.heightTextBox);
+            this.Controls.Add(this.widthTextBox);
+            this.Controls.Add(this.heightLabel);
+            this.Controls.Add(this.widthLabel);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ImagePropertiesForm";
             this.Load += new System.EventHandler(this.ImagePropertiesForm_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label widthLabel;
+        private System.Windows.Forms.Label heightLabel;
+        private System.Windows.Forms.TextBox widthTextBox;
+        private System.Windows.Forms.TextBox heightTextBox;
+        private System.Windows.Forms.Button acceptButton;
+        private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Button defaultButton;
     }
 }
