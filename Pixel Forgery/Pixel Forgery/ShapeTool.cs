@@ -92,7 +92,7 @@ namespace Pixel_Forgery
         /// </summary>
         /// <param name="sender">is the object type of the control which sent the command</param>
         /// <param name="points">is the list of points used to draw polygons</param>
-        public override void points(object sender, List<Point> points)
+        public override void points(List<Point> points)
         {
             pointsInTool = points;
         }
