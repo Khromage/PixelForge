@@ -12,9 +12,9 @@ namespace Pixel_Forgery
     /// <summary>
     /// Date: 04/05/2023 (initial commit)
     /// Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally, Lilianna Rosales
-    /// shape tool class controls the type and method of construction for the user's desired drawing type
-    /// contains two use methods (useTool and drawOutline)
-    /// useTool controls the instancing of the shape, drawOutline controls the dynamic drawing of the shape as the user drags the shape
+    /// Shape tool class controls the type and method of construction for the user's desired drawing type.
+    /// Contains two use methods (useTool() and drawOutline()):
+    /// useTool() controls the instancing of the shape, drawOutline() controls the dynamic drawing of the shape as the user drags the mouse.
     /// </summary>
     public class ShapeTool : PixelForgeryTool
     {
@@ -22,13 +22,12 @@ namespace Pixel_Forgery
         List<Point> pointsInTool = new List<Point>();
         Point locationX1Y1;
         Point locationXY;
-        int i = 0;
-        
+
         /// <summary>
         /// Date: 04/05/2023
         /// Programmer: Taylor Nastally
-        /// contains a switch that checks the typeOfTool and calls the appropriate draw function
-        /// draws to the pictureBox with Graphics g
+        /// Contains a switch that checks the typeOfTool and calls the appropriate draw function.
+        /// Draws to the pictureBox with Graphics g.
         /// </summary>
         /// <param name="sender">is the object type of the control which sent the command</param>
         /// <param name="e">is the mouse event parameter and contains data like location and mouse button click type</param>
@@ -59,8 +58,8 @@ namespace Pixel_Forgery
         /// <summary>
         /// Date: 04/11/2023
         /// Programmer(s): Justin Reyes, Taylor Nastally
-        /// contains a switch to check and draw the appropriate shape based on type of tool
-        /// draws with the passed Graphics g from onPaint in Form1
+        /// Contains a switch to check and draw the appropriate shape based on type of tool.
+        /// Draws with the passed Graphics g from onPaint in Form1.
         /// </summary>
         /// <param name="sender">is the object type of the control which sent the command</param>
         /// <param name="e">is the paint event handler and contains the graphics of the control</param>
@@ -101,10 +100,10 @@ namespace Pixel_Forgery
         /// <summary>
         /// Date: 04/05/2023
         /// Programmer: Taylor Nastally
-        /// creates new rectangle based off of the mouse location, if NULL
+        /// Creates new rectangle based off of the mouse location, if NULL
         /// else redraws the rectangle
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Rectangle showing where the shape should be drawn.</returns>
         private Rectangle GetRectangle()
         {
             locationXY.X = startX;

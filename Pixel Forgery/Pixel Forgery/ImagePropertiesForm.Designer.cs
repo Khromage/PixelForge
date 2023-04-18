@@ -1,13 +1,22 @@
 ﻿namespace Pixel_Forgery
 {
+    /// <summary>
+    /// Date: 4/16/23
+    /// Programmer(s): Justin Reyes
+    /// ImagePropertiesForm class which contains the GUI elements of this form.
+    /// </summary>
     partial class ImagePropertiesForm
     {
         /// <summary>
+        /// Date: 4/16/23
+        /// Programmer(s): None (Built-in to WinForm)
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
+        /// Date: 4/16/23
+        /// Programmer(s): None (Built-in to WinForm)
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -23,6 +32,8 @@
         #region Windows Form Designer generated code
 
         /// <summary>
+        /// Date: 4/16/23
+        /// Programmer(s): Justin Reyes
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
