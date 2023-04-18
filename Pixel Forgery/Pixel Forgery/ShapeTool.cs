@@ -30,9 +30,9 @@ namespace Pixel_Forgery
         /// contains a switch that checks the typeOfTool and calls the appropriate draw function
         /// draws to the pictureBox with Graphics g
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        /// <param name="pictureBox1"></param>
+        /// <param name="sender">is the object type of the control which sent the command</param>
+        /// <param name="e">is the mouse event parameter and contains data like location and mouse button click type</param>
+        /// <param name="pictureBox1">is the actual picturebox from Form1 sent to the tool so new graphics will be saved</param>
         public override void useTool(object sender, MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
         {
             Graphics g = Graphics.FromImage(pictureBox1.Image);
@@ -62,8 +62,8 @@ namespace Pixel_Forgery
         /// contains a switch to check and draw the appropriate shape based on type of tool
         /// draws with the passed Graphics g from onPaint in Form1
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">is the object type of the control which sent the command</param>
+        /// <param name="e">is the paint event handler and contains the graphics of the control</param>
         public override void drawOutline(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -89,9 +89,10 @@ namespace Pixel_Forgery
         /// Date: 04/14/2023
         /// Programmer: Taylor Nastally
         /// assigns the passed list to the tool object's list
+        /// (previous work got wiped out by an accidental revert during a sync, polygon draw will be operational this weekend)
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="points"></param>
+        /// <param name="sender">is the object type of the control which sent the command</param>
+        /// <param name="points">is the list of points used to draw polygons</param>
         public override void points(object sender, List<Point> points)
         {
             pointsInTool = points;
