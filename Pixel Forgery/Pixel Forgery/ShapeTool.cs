@@ -29,10 +29,9 @@ namespace Pixel_Forgery
         /// Contains a switch that checks the typeOfTool and calls the appropriate draw function.
         /// Draws to the pictureBox with Graphics g.
         /// </summary>
-        /// <param name="sender">Reference to the pictureBox object.</param>
         /// <param name="e">Event listener used to check the Mouse's location.</param>
         /// <param name="pictureBox1">Reference to the canvas.</param>
-        public override void useTool(object sender, MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
+        public override void useTool(MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
         {
             Graphics g = Graphics.FromImage(pictureBox1.Image);
             p.Color = currentColor;
@@ -61,9 +60,8 @@ namespace Pixel_Forgery
         /// Contains a switch to check and draw the appropriate shape based on type of tool.
         /// Draws with the passed Graphics g from onPaint in Form1.
         /// </summary>
-        /// <param name="sender">Reference to the pictureBox object.</param>
         /// <param name="e">Event listener for the canvas's PaintEvent.</param>
-        public override void drawOutline(object sender, PaintEventArgs e)
+        public override void drawOutline(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
             switch (typeOfTool)
@@ -89,9 +87,8 @@ namespace Pixel_Forgery
         /// Programmer: Taylor Nastally
         /// Assigns the passed list to the tool object's list.
         /// </summary>
-        /// <param name="sender">Reference to the pictureBox object.</param>
         /// <param name="points">List of points.</param>
-        public override void points(object sender, List<Point> points)
+        public override void points(List<Point> points)
         {
             pointsInTool = points;
         }

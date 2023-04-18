@@ -24,16 +24,16 @@ namespace Pixel_Forgery
         }
         public Color pickedColor;
 
-        public virtual void useTool(object sender, MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
+        public virtual void useTool(MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
         {
         }
 
-        public virtual void drawOutline(object sender, PaintEventArgs e) 
+        public virtual void drawOutline(PaintEventArgs e) 
         {
         }
 
         //for polygon draw
-        public virtual void points(object sender, List<Point> points)
+        public virtual void points(List<Point> points)
         {
         }
     }

@@ -16,7 +16,7 @@ namespace Pixel_Forgery
         private Pen p = new Pen(Color.Black, 5);
 
         /// <summary>
-        /// Property variable for setting & getting the 
+        /// Property variable for setting and getting the 
         /// brush pen width
         /// </summary>
         public float BrushWidth
@@ -25,7 +25,7 @@ namespace Pixel_Forgery
             get { return p.Width; }
         }
 
-        public override void useTool(object sender, MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
+        public override void useTool(MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
         {
             Graphics g = Graphics.FromImage(pictureBox1.Image);
             g.SmoothingMode = SmoothingMode.HighQuality;

@@ -15,7 +15,7 @@ namespace Pixel_Forgery
         private Pen p = new Pen(Color.White, 20);
 
         /// <summary>
-        /// Property variable for setting & getting the 
+        /// Property variable for setting and getting the 
         /// eraser pen width
         /// </summary>
         public float EraserWidth
@@ -24,7 +24,7 @@ namespace Pixel_Forgery
             get { return p.Width; }
         }
 
-        public override void useTool(object sender, MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
+        public override void useTool(MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
         {
             Graphics g = Graphics.FromImage(pictureBox1.Image);
             g.SmoothingMode = SmoothingMode.HighQuality;

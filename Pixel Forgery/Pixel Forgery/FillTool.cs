@@ -24,10 +24,9 @@ namespace Pixel_Forgery
         /// Programmer(s): Justin Reyes
         /// Overloads the PixelForgeryTool's useTool method with the Fill Tool method.
         /// </summary>
-        /// <param name="sender">Reference to the pictureBox object.</param>
         /// <param name="e">An EventListener used checking for Mouse location.</param>
         /// <param name="pictureBox1">Reference to the canvas.</param>
-        public override void useTool(object sender, MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
+        public override void useTool(MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
         {
             // Set stopwatch for Fill Tool algorithm testing
             Stopwatch stopWatch = new Stopwatch();
@@ -36,7 +35,7 @@ namespace Pixel_Forgery
             // Do Fill algorithm
             Bitmap bmp = (Bitmap)pictureBox1.Image;
             if(bmp.GetPixel(e.X, e.Y).ToArgb() != currentColor.ToArgb())
-                dfsFill(sender, e, pictureBox1);
+                dfsFill(e, pictureBox1);
 
             stopWatch.Stop();
             TimeSpan ts = stopWatch.Elapsed;
@@ -53,10 +52,9 @@ namespace Pixel_Forgery
         /// Programmer(s): Justin Reyes
         /// Uses Depth-First Search to do a flood fill starting from the current mouse location.
         /// </summary>
-        /// <param name="sender">Reference to the pictureBox object.</param>
         /// <param name="e">An EventListener used checking for Mouse location.</param>
         /// <param name="pictureBox1">Reference to the canvas.</param>
-        public void dfsFill(object sender, MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
+        public void dfsFill(MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
         {
             Bitmap bmp = (Bitmap)pictureBox1.Image;
             int x = e.X, y = e.Y, w = bmp.Width, h = bmp.Height;
