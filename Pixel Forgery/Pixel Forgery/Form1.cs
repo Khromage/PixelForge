@@ -355,6 +355,13 @@ namespace Pixel_Forgery
             changeToolBackground(4);
         }
 
+        /// <summary>
+        /// Date: 
+        /// Programmer(s): Gregory Khrom-Abramyan
+        /// Opens the color selection dialog and when pressing "ok", applies the selected color to all tools.
+        /// </summary>
+        /// <param name="sender">References the colorTool object.</param>
+        /// <param name="e">An EventListener checking for when the Button is clicked.</param>
         private void colorTool_Click(object sender, EventArgs e)
         {
             ColorDialog cd = new ColorDialog();
@@ -367,6 +374,14 @@ namespace Pixel_Forgery
                 colorChangeButton.BackColor = cd.Color;
             }
         }
+
+        /// <summary>
+        /// Date: 
+        /// Programmer(s): Gregory Khrom-Abramyan
+        /// Changes the tool to the color picker tool and updates the hovered color preview.
+        /// </summary>
+        /// <param name="sender">References the colorPickerButton object.</param>
+        /// <param name="e">An EventListener checking for when the Button is clicked.</param>
         private void colorPickerButton_Click(object sender, EventArgs e)
         {
 
@@ -375,6 +390,14 @@ namespace Pixel_Forgery
             changeToolBackground(5);
         }
 
+        /// <summary>
+        /// Date: 
+        /// Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally
+        /// Draws on the canvas using the currently selected tool.
+        /// If the current tool is the color picker, the hovered color is applied to all tools.
+        /// </summary>
+        /// <param name="sender">References the pictureBox object.</param>
+        /// <param name="e">An EventListener checking for when the pictureBox is clicked.</param>
         private void pictureBox_MouseDown(object sender, MouseEventArgs e)
         {
             switch (e.Button)
@@ -405,6 +428,14 @@ namespace Pixel_Forgery
             
         }
 
+        /// <summary>
+        /// Date: 
+        /// Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally
+        /// If a drawing tool is in use, continues to draw and updates the mous position.
+        /// If the color picker tool is in use, update the hovered color and apply the color to the color picker preview.
+        /// </summary>
+        /// <param name="sender">References the pictureBox object.</param>
+        /// <param name="e">An EventListener checking for when the pictureBox is clicked.</param>
         private void pictureBox_MouseMove(object sender, MouseEventArgs e)
         {
             if(tool == colorPickerTool)
@@ -440,6 +471,15 @@ namespace Pixel_Forgery
             pictureBox.Refresh();
         }
 
+        /// <summary>
+        /// Date: 
+        /// Programmer(s): Justin Reyes, Taylor Nastally
+        /// If a drawing tool is in use, stops drawing.
+        /// If a shape tool is in use, applies the draw shape to changes.
+        /// If the color picker tool is in use, update the hovered color and apply the color to the color picker preview.
+        /// </summary>
+        /// <param name="sender">References the pictureBox object.</param>
+        /// <param name="e">An EventListener checking for when the pictureBox is clicked.</param>
         private void pictureBox_MouseUp(object sender, MouseEventArgs e)
         {
             switch (e.Button)
@@ -458,13 +498,13 @@ namespace Pixel_Forgery
             }
         }
 
-        private void pictureBox_Click(object sender, EventArgs e)
-        {
-        }
-        
         /// <summary>
-        /// Allows the user to access menu bar functionality using pre-defined keyboard shortcuts
+        /// Date: 
+        /// Programmer(s): Justin Reyes
+        /// Checks for user inputted keyboard commands to save and open files and to undo or redo changes..
         /// </summary>
+        /// <param name="sender">References the PixelForgeryGUI object.</param>
+        /// <param name="e">An EventListener checking for when a key is pressed.</param>
         private void PixelForgeryGUI_KeyDown(object sender, KeyEventArgs e)         // Keyboard Shortcuts
         {
             if (e.KeyCode == Keys.N && (e.Control)) // Ctrl+S for Save
@@ -502,11 +542,15 @@ namespace Pixel_Forgery
                 changes.redoChange(pictureBox);
             }
         }
-        
+
         /// <summary>
+        /// Date: 
+        /// Programmer(s): Taylor Nastally
         /// Temporarily updates the canvas.
         /// Actively shows what the shape being drawn looks like.
         /// </summary>
+        /// <param name="sender">References the pictureBox object.</param>
+        /// <param name="e">An EventListener checking for the Paint event.</param>
         private void pictureBox_Paint(object sender, PaintEventArgs e)
         {
             if(tool.isDrawing && tool == shapeTool)
@@ -515,9 +559,13 @@ namespace Pixel_Forgery
             }
         }
 
+
         /// <summary>
+        /// Date: 
+        /// Programmer(s): Justin Reyes
         /// Changes the background color of buttons to indicate which tool is being currently used
         /// </summary>
+        /// <param name="i">References which tool object is in use.</param>
         private void changeToolBackground(int i)
         {
             switch (i)
