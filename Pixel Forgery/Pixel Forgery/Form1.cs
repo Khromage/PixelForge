@@ -15,6 +15,12 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace Pixel_Forgery
 {
+    /// <summary>
+    /// Date: 
+    /// Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally, Lilianna Rosales
+    /// GUI class which loads the essential tools for the software.
+    /// Contains EventListeners for MouseEvents and KeyboardEvents.
+    /// </summary>
     public partial class PixelForgeryGUI : Form
     {
         private Bitmap BMP;
@@ -26,7 +32,14 @@ namespace Pixel_Forgery
         private ColorPickerTool colorPickerTool = new ColorPickerTool();
         private FillTool fillTool = new FillTool();
         private List<Point> points = new List<Point>();
-
+        
+        /// <summary>
+        /// Date: 
+        /// Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally, Lilianna Rosales
+        /// Constructor for the PixelForgeryGUI class.
+        /// Initializes all the graphical objects in the GUI.
+        /// Sets the canvas to a white background and the tool to the brush tool by default.
+        /// </summary>
         public PixelForgeryGUI()
         {
             InitializeComponent();
@@ -47,14 +60,13 @@ namespace Pixel_Forgery
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-        }
-
-
         /// <summary>
-        /// Creates a new canvas for the user to draw in, defaults to 918x595 pixels in size
+        /// Date: 4/16/23
+        /// Programmer(s): Justin Reyes
+        /// Creates a new canvas for the user to draw in, defaults to 918x595 pixels in size.
         /// </summary>
+        /// <param name="sender">References the newButton object</param>
+        /// <param name="e">An EventListener checking for when the Button is clicked</param>
         private void newButton_Click(object sender, EventArgs e)                // New Button
         {
             BMP = new Bitmap(918, 595);
@@ -70,8 +82,12 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Opens a save file dialog to let the user save the image
+        /// Date: 
+        /// Programmer(s): Justin Reyes
+        /// Opens a save file dialog to let the user save the image.
         /// </summary>
+        /// <param name="sender">References the saveButton object.</param>
+        /// <param name="e">An EventListener checking for when the Button is clicked.</param>
         private void saveButton_Click(object sender, EventArgs e)               // Save File Button
         {
             FileExplorerDialog fd = new FileExplorerDialog();
@@ -81,8 +97,12 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Opens an open file dialog to let the user open an image from their pc.
+        /// Date: 
+        /// Programmer(s): Justin Reyes
+        /// Opens an open file dialog to let the user open an image.
         /// </summary>
+        /// <param name="sender">References the openButton object.</param>
+        /// <param name="e">An EventListener checking for when the Button is clicked.</param>
         private void openButton_Click(object sender, EventArgs e)               // Open File Button
         {   
             FileExplorerDialog fd = new FileExplorerDialog();
@@ -93,8 +113,12 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
+        /// Date: 4/16/23
+        /// Programmer(s): Justin Reyes
         /// Opens a form that allows the user to set canvas dimensions.
         /// </summary>
+        /// <param name="sender">References the imagePropertiesButton object.</param>
+        /// <param name="e">An EventListener checking for when the Button is clicked.</param>
         private void imagePropertiesButton_Click(object sender, EventArgs e)    // Image Properties Button
         {
             try
@@ -139,24 +163,36 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
+        /// Date: 
+        /// Programmer(s): Justin Reyes
         /// Reverts the image to its previous state.
         /// </summary>
+        /// <param name="sender">References the undoButton object.</param>
+        /// <param name="e">An EventListener checking for when the Button is clicked.</param>
         private void undoButton_Click(object sender, EventArgs e)               // Undo Changes Button
         {
             changes.undoChange(pictureBox);
         }
 
         /// <summary>
+        /// Date: 
+        /// Programmer(s): Justin Reyes
         /// Reverts an undone change
         /// </summary>
+        /// <param name="sender">References the redoButton object.</param>
+        /// <param name="e">An EventListener checking for when the Button is clicked.</param>
         private void redoButton_Click(object sender, EventArgs e)               // Redo Changes Button
         {
             changes.redoChange(pictureBox);
         }
 
         /// <summary>
-        /// Switches the user's tool to the brush tool
+        /// Date: 
+        /// Programmer(s): Gregory Khrom-Abramyan
+        /// Changes the tool to the brush tool
         /// </summary>
+        /// <param name="sender">References the brushButton object.</param>
+        /// <param name="e">An EventListener checking for when the Button is clicked.</param>
         private void brushButton_Click(object sender, EventArgs e)              // Brush Tool Button
         {
             tool = brushTool;
@@ -164,8 +200,12 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Switches the user's tool to the eraser tool
+        /// Date: 
+        /// Programmer(s): Gregory Khrom-Abramyan
+        /// Changes the tool to the eraser tool
         /// </summary>
+        /// <param name="sender">References the eraserButton object.</param>
+        /// <param name="e">An EventListener checking for when the Button is clicked.</param>
         private void eraserButton_Click(object sender, EventArgs e)             // Eraser Tool Button
         {
             tool = eraserTool;
@@ -173,25 +213,38 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Populates the brush-size text box with the current brush size
+        /// Date: 
+        /// Programmer(s): Lilianna Rosales
+        /// Populates the text box with the brush width
         /// </summary>
+        /// <param name="sender">References the brushSizeToolStripMenuItem object.</param>
+        /// <param name="e">An EventListener checking for when the MenuItem is hovered over.</param>
         private void brushSizeToolStripMenuItem_MouseHover(object sender, EventArgs e)
         {
             brushSizeTextBox.Text = brushTool.BrushWidth.ToString();
         }
 
         /// <summary>
-        /// Populates the eraser-size text box with the current eraser size
+        /// Date: 
+        /// Programmer(s): Lilianna Rosales
+        /// Populates the text box with the eraser width
         /// </summary>
+        /// <param name="sender">References the eraserSizeToolStripMenuItem object.</param>
+        /// <param name="e">An EventListener checking for when the MenuItem is hovered over.</param>
         private void eraserSizeToolStripMenuItem_MouseHover(object sender, EventArgs e)
         {
             eraserSizeTextBox.Text = eraserTool.EraserWidth.ToString();
         }
 
         /// <summary>
+        /// Date: 
+        /// Programmer(s): Lilianna Rosales
+        /// Populates the text box with the eraser width
         /// Processes brush size changes. If an invalid value is input the brush size is
         /// set back to the default size of 5
         /// </summary>
+        /// <param name="sender">References the brushSizeTextBox object.</param>
+        /// <param name="e">An EventListener checking for when the TextBox is changed.</param>
         private void brushSizeTextBox_TextChanged(object sender, EventArgs e)
         {
             string s = brushSizeTextBox.Text;
@@ -203,9 +256,13 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
+        /// Date: 
+        /// Programmer(s): Lilianna Rosales
         /// Processes eraser size changes. If an invalid value is input the eraser size is
         /// set back to the default size of 20
         /// </summary>
+        /// <param name="sender">References the eraserSizeTextBox object.</param>
+        /// <param name="e">An EventListener checking for when the TextBox is changed.</param>
         private void eraserSizeTextBox_TextChanged(object sender, EventArgs e)
         {
             string s = eraserSizeTextBox.Text;
@@ -217,21 +274,37 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
+        /// Date: 
+        /// Programmer(s): Lilianna Rosales
         /// Clears the brush-size text box when the user clicks inside the text box
         /// </summary>
+        /// <param name="sender">References the brushSizeTextBox object.</param>
+        /// <param name="e">An EventListener checking for when the TextBox is clicked.</param>
         private void brushSizeTextBox_Click(object sender, EventArgs e)
         {
             brushSizeTextBox.Clear();
         }
 
         /// <summary>
+        /// Date: 
+        /// Programmer(s): Lilianna Rosales
         /// Clears the eraser-size text box when the user clicks inside the text box
         /// </summary>
+        /// <param name="sender">References the eraserSizeTextBox object.</param>
+        /// <param name="e">An EventListener checking for when the TextBox is clicked.</param>
         private void eraserSizeTextBox_Click(object sender, EventArgs e)
         {
             eraserSizeTextBox.Clear();
         }
 
+        /// <summary>
+        /// Date: 
+        /// Programmer(s): Taylor Nastally
+        /// Changes the tool to the shape tool.
+        /// Changes the type of shape tool to 1 (Rectangle).
+        /// </summary>
+        /// <param name="sender">References the rectangleToolMenuItem object.</param>
+        /// <param name="e">An EventListener checking for when the MenuItem is clicked.</param>
         private void rectangleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tool = shapeTool;
@@ -239,6 +312,14 @@ namespace Pixel_Forgery
             changeToolBackground(3);
         }
 
+        /// <summary>
+        /// Date: 
+        /// Programmer(s): Taylor Nastally
+        /// Changes the tool to the shape tool.
+        /// Changes the type of shape tool to 2 (Ellipse).
+        /// </summary>
+        /// <param name="sender">References the ellipseToolMenuItem object.</param>
+        /// <param name="e">An EventListener checking for when the MenuItem is clicked.</param>
         private void ellipseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tool = shapeTool;
@@ -246,6 +327,14 @@ namespace Pixel_Forgery
             changeToolBackground(3);
         }
 
+        /// <summary>
+        /// Date: 
+        /// Programmer(s): Taylor Nastally
+        /// Changes the tool to the shape tool.
+        /// Changes the type of shape tool to 3 (Polygon).
+        /// </summary>
+        /// <param name="sender">References the polygonToolMenuItem object.</param>
+        /// <param name="e">An EventListener checking for when the MenuItem is clicked.</param>
         private void polygonToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tool = shapeTool;
@@ -253,6 +342,13 @@ namespace Pixel_Forgery
             changeToolBackground(3);
         }
 
+        /// <summary>
+        /// Date: 
+        /// Programmer(s): Justin Reyes
+        /// Changes the tool to the fill tool.
+        /// </summary>
+        /// <param name="sender">References the fillButton object.</param>
+        /// <param name="e">An EventListener checking for when the Button is clicked.</param>
         private void fillButton_Click(object sender, EventArgs e)
         {
             tool = fillTool;

@@ -4,6 +4,9 @@ using System.Drawing;
 
 namespace Pixel_Forgery
 {
+    /// <summary>
+    /// GUI class containing all the graphical objects rendered in the form.
+    /// </summary>
     partial class PixelForgeryGUI
     {
         /// <summary>
@@ -397,7 +400,6 @@ namespace Pixel_Forgery
             this.MinimumSize = new System.Drawing.Size(1080, 717);
             this.Name = "PixelForgeryGUI";
             this.Text = "Pixel Forge";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PixelForgeryGUI_KeyDown);
             this.menuBar.ResumeLayout(false);
             this.menuBar.PerformLayout();
