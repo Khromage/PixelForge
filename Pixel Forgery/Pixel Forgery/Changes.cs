@@ -77,6 +77,8 @@ namespace Pixel_Forgery
                 g.Dispose();
             }
 
+            pictureBox.Width = bmp.Width;
+            pictureBox.Height = bmp.Height;
             pictureBox.Image = bmp;
         }
 

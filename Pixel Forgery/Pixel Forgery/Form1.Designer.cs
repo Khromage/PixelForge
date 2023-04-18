@@ -44,11 +44,6 @@ namespace Pixel_Forgery
             this.undoButton = new System.Windows.Forms.ToolStripMenuItem();
             this.redoButton = new System.Windows.Forms.ToolStripMenuItem();
             this.toolBar = new System.Windows.Forms.ToolStrip();
-            this.pickedcolordisplay = new System.Windows.Forms.ToolStripLabel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.brushButton = new System.Windows.Forms.ToolStripDropDownButton();
             this.sizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.brushSizeTextBox = new System.Windows.Forms.ToolStripTextBox();
@@ -62,6 +57,11 @@ namespace Pixel_Forgery
             this.fillButton = new System.Windows.Forms.ToolStripButton();
             this.colorChangeButton = new System.Windows.Forms.ToolStripButton();
             this.colorPickerButton = new System.Windows.Forms.ToolStripButton();
+            this.pickedcolordisplay = new System.Windows.Forms.ToolStripLabel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.menuBar.SuspendLayout();
             this.toolBar.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -78,27 +78,29 @@ namespace Pixel_Forgery
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
             this.menuBar.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuBar.Size = new System.Drawing.Size(1103, 24);
+            this.menuBar.Size = new System.Drawing.Size(1103, 25);
             this.menuBar.TabIndex = 3;
             this.menuBar.Text = "menuStrip1";
             // 
             // fileButton
             // 
+            this.fileButton.AutoSize = false;
             this.fileButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newButton,
             this.saveButton,
             this.openButton,
             this.fileButtonSeparator,
             this.imagePropertiesButton});
+            this.fileButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fileButton.Name = "fileButton";
-            this.fileButton.Size = new System.Drawing.Size(37, 20);
+            this.fileButton.Size = new System.Drawing.Size(42, 21);
             this.fileButton.Text = "File";
             // 
             // newButton
             // 
             this.newButton.Name = "newButton";
             this.newButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newButton.Size = new System.Drawing.Size(203, 22);
+            this.newButton.Size = new System.Drawing.Size(220, 22);
             this.newButton.Text = "New";
             this.newButton.Click += new System.EventHandler(this.newButton_Click);
             // 
@@ -106,7 +108,7 @@ namespace Pixel_Forgery
             // 
             this.saveButton.Name = "saveButton";
             this.saveButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveButton.Size = new System.Drawing.Size(203, 22);
+            this.saveButton.Size = new System.Drawing.Size(220, 22);
             this.saveButton.Text = "Save";
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
@@ -114,30 +116,32 @@ namespace Pixel_Forgery
             // 
             this.openButton.Name = "openButton";
             this.openButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openButton.Size = new System.Drawing.Size(203, 22);
+            this.openButton.Size = new System.Drawing.Size(220, 22);
             this.openButton.Text = "Open";
             this.openButton.Click += new System.EventHandler(this.openButton_Click);
             // 
             // fileButtonSeparator
             // 
             this.fileButtonSeparator.Name = "fileButtonSeparator";
-            this.fileButtonSeparator.Size = new System.Drawing.Size(200, 6);
+            this.fileButtonSeparator.Size = new System.Drawing.Size(217, 6);
             // 
             // imagePropertiesButton
             // 
             this.imagePropertiesButton.Name = "imagePropertiesButton";
             this.imagePropertiesButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.imagePropertiesButton.Size = new System.Drawing.Size(203, 22);
+            this.imagePropertiesButton.Size = new System.Drawing.Size(220, 22);
             this.imagePropertiesButton.Text = "Image Properties";
             this.imagePropertiesButton.Click += new System.EventHandler(this.imagePropertiesButton_Click);
             // 
             // editButton
             // 
+            this.editButton.AutoSize = false;
             this.editButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.undoButton,
             this.redoButton});
+            this.editButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(39, 20);
+            this.editButton.Size = new System.Drawing.Size(42, 21);
             this.editButton.Text = "Edit";
             // 
             // undoButton
@@ -145,7 +149,7 @@ namespace Pixel_Forgery
             this.undoButton.Name = "undoButton";
             this.undoButton.ShortcutKeyDisplayString = "";
             this.undoButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoButton.Size = new System.Drawing.Size(144, 22);
+            this.undoButton.Size = new System.Drawing.Size(152, 22);
             this.undoButton.Text = "Undo";
             this.undoButton.Click += new System.EventHandler(this.undoButton_Click);
             // 
@@ -154,7 +158,7 @@ namespace Pixel_Forgery
             this.redoButton.Name = "redoButton";
             this.redoButton.ShortcutKeyDisplayString = "";
             this.redoButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.redoButton.Size = new System.Drawing.Size(144, 22);
+            this.redoButton.Size = new System.Drawing.Size(152, 22);
             this.redoButton.Text = "Redo";
             this.redoButton.Click += new System.EventHandler(this.redoButton_Click);
             // 
@@ -173,66 +177,13 @@ namespace Pixel_Forgery
             this.colorChangeButton,
             this.colorPickerButton,
             this.pickedcolordisplay});
-            this.toolBar.Location = new System.Drawing.Point(0, 24);
+            this.toolBar.Location = new System.Drawing.Point(0, 25);
             this.toolBar.Name = "toolBar";
             this.toolBar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.toolBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolBar.Size = new System.Drawing.Size(1103, 51);
             this.toolBar.TabIndex = 4;
             this.toolBar.Text = "toolStrip1";
-            // 
-            // pickedcolordisplay
-            // 
-            this.pickedcolordisplay.ActiveLinkColor = System.Drawing.Color.White;
-            this.pickedcolordisplay.AutoSize = false;
-            this.pickedcolordisplay.BackColor = System.Drawing.Color.White;
-            this.pickedcolordisplay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pickedcolordisplay.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.pickedcolordisplay.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pickedcolordisplay.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.pickedcolordisplay.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.pickedcolordisplay.ImageTransparentColor = System.Drawing.Color.White;
-            this.pickedcolordisplay.Margin = new System.Windows.Forms.Padding(15, 0, 15, 0);
-            this.pickedcolordisplay.Name = "pickedcolordisplay";
-            this.pickedcolordisplay.Size = new System.Drawing.Size(25, 25);
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel1.Controls.Add(this.panel1);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 75);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1103, 745);
-            this.flowLayoutPanel1.TabIndex = 6;
-            // 
-            // panel1
-            // 
-            this.panel1.AutoSize = true;
-            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel1.Controls.Add(this.pictureBox);
-            this.flowLayoutPanel1.SetFlowBreak(this.panel1, true);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(20);
-            this.panel1.Size = new System.Drawing.Size(961, 638);
-            this.panel1.TabIndex = 7;
-            // 
-            // pictureBox
-            // 
-            this.pictureBox.BackColor = System.Drawing.Color.White;
-            this.pictureBox.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.pictureBox.Location = new System.Drawing.Point(20, 20);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(918, 595);
-            this.pictureBox.TabIndex = 5;
-            this.pictureBox.TabStop = false;
-            this.pictureBox.Click += new System.EventHandler(this.pictureBox_Click);
-            this.pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);
-            this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
-            this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
-            this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseUp);
             // 
             // brushButton
             // 
@@ -265,6 +216,7 @@ namespace Pixel_Forgery
             // 
             // brushSizeTextBox
             // 
+            this.brushSizeTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.brushSizeTextBox.Name = "brushSizeTextBox";
             this.brushSizeTextBox.Size = new System.Drawing.Size(100, 23);
             this.brushSizeTextBox.Click += new System.EventHandler(this.brushSizeTextBox_Click);
@@ -295,6 +247,7 @@ namespace Pixel_Forgery
             // 
             // eraserSizeTextBox
             // 
+            this.eraserSizeTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.eraserSizeTextBox.Name = "eraserSizeTextBox";
             this.eraserSizeTextBox.Size = new System.Drawing.Size(100, 23);
             this.eraserSizeTextBox.Click += new System.EventHandler(this.eraserSizeTextBox_Click);
@@ -319,7 +272,7 @@ namespace Pixel_Forgery
             // 
             this.rectangleToolStripMenuItem.Image = global::Pixel_Forgery.Properties.Resources.rectangle;
             this.rectangleToolStripMenuItem.Name = "rectangleToolStripMenuItem";
-            this.rectangleToolStripMenuItem.Size = new System.Drawing.Size(130, 26);
+            this.rectangleToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.rectangleToolStripMenuItem.Text = "Rectangle";
             this.rectangleToolStripMenuItem.Click += new System.EventHandler(this.rectangleToolStripMenuItem_Click);
             // 
@@ -327,7 +280,7 @@ namespace Pixel_Forgery
             // 
             this.ellipseToolStripMenuItem.Image = global::Pixel_Forgery.Properties.Resources.ellipse;
             this.ellipseToolStripMenuItem.Name = "ellipseToolStripMenuItem";
-            this.ellipseToolStripMenuItem.Size = new System.Drawing.Size(130, 26);
+            this.ellipseToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.ellipseToolStripMenuItem.Text = "Ellipse";
             this.ellipseToolStripMenuItem.Click += new System.EventHandler(this.ellipseToolStripMenuItem_Click);
             // 
@@ -335,7 +288,7 @@ namespace Pixel_Forgery
             // 
             this.polygonToolStripMenuItem.Image = global::Pixel_Forgery.Properties.Resources.hexagon;
             this.polygonToolStripMenuItem.Name = "polygonToolStripMenuItem";
-            this.polygonToolStripMenuItem.Size = new System.Drawing.Size(130, 26);
+            this.polygonToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.polygonToolStripMenuItem.Text = "Polygon";
             this.polygonToolStripMenuItem.Click += new System.EventHandler(this.polygonToolStripMenuItem_Click);
             // 
@@ -376,6 +329,59 @@ namespace Pixel_Forgery
             this.colorPickerButton.Text = "Color Picker";
             this.colorPickerButton.ToolTipText = "Color Picker";
             this.colorPickerButton.Click += new System.EventHandler(this.colorPickerButton_Click);
+            // 
+            // pickedcolordisplay
+            // 
+            this.pickedcolordisplay.ActiveLinkColor = System.Drawing.Color.White;
+            this.pickedcolordisplay.AutoSize = false;
+            this.pickedcolordisplay.BackColor = System.Drawing.Color.White;
+            this.pickedcolordisplay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pickedcolordisplay.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.pickedcolordisplay.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pickedcolordisplay.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.pickedcolordisplay.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.pickedcolordisplay.ImageTransparentColor = System.Drawing.Color.White;
+            this.pickedcolordisplay.Margin = new System.Windows.Forms.Padding(15, 0, 15, 0);
+            this.pickedcolordisplay.Name = "pickedcolordisplay";
+            this.pickedcolordisplay.Size = new System.Drawing.Size(25, 25);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel1.Controls.Add(this.panel1);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 76);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1103, 744);
+            this.flowLayoutPanel1.TabIndex = 6;
+            // 
+            // panel1
+            // 
+            this.panel1.AutoSize = true;
+            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel1.Controls.Add(this.pictureBox);
+            this.flowLayoutPanel1.SetFlowBreak(this.panel1, true);
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(20);
+            this.panel1.Size = new System.Drawing.Size(961, 638);
+            this.panel1.TabIndex = 7;
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.BackColor = System.Drawing.Color.White;
+            this.pictureBox.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.pictureBox.Location = new System.Drawing.Point(20, 20);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(918, 595);
+            this.pictureBox.TabIndex = 5;
+            this.pictureBox.TabStop = false;
+            this.pictureBox.Click += new System.EventHandler(this.pictureBox_Click);
+            this.pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);
+            this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
+            this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
+            this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseUp);
             // 
             // PixelForgeryGUI
             // 
