@@ -1,6 +1,6 @@
 # PixelForge
 
-##Images used with permission:
+## Images used with permission:
 
 <a href="https://www.flaticon.com/free-icons/rectangle" title="rectangle icons">Rectangle icons created by Freepik - Flaticon</a>
 
