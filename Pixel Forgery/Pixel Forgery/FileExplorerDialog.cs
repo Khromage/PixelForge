@@ -7,11 +7,21 @@ using System.Windows.Forms;
 
 namespace Pixel_Forgery
 {
+    /// <summary>
+    /// Date: 3/29/23
+    /// Programmer(s): Justin Reyes
+    /// FileExplorerDialog class which handles File input/output for the program.
+    /// Contains two methods:
+    /// saveFile() does file output, loadFile() does file input
+    /// </summary>
     public class FileExplorerDialog
     {
         /// <summary>
-        /// Launches a SaveFileDialog to save the pictureBox's image to the location that the user selects
+        /// Date: 3/29/23
+        /// Programmer(s): Justin Reyes
+        /// Launches a SaveFileDialog to save the pictureBox's image to the location that the user selects.
         /// </summary>
+        /// <param name="pictureBox">Reference to the pictureBox.</param>
         public void saveFile(PictureBox pictureBox)
         {
             SaveFileDialog sfd = new SaveFileDialog();
@@ -25,8 +35,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Launches an OpenFileDialog to load a selected image to the pictureBox
+        /// Date: 3/29/23
+        /// Programmer(s): Justin Reyes
+        /// Launches an OpenFileDialog to load a selected image to the pictureBox.
         /// </summary>
+        /// <param name="pictureBox">Reference to the pictureBox.</param>
         public void loadFile(PictureBox pictureBox)
         {
             OpenFileDialog ofd = new OpenFileDialog();

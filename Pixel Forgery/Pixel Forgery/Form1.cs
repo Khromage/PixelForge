@@ -16,7 +16,7 @@ using static System.Net.Mime.MediaTypeNames;
 namespace Pixel_Forgery
 {
     /// <summary>
-    /// Date: 
+    /// Date: 2/26/23
     /// Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally, Lilianna Rosales
     /// GUI class which loads the essential tools for the software.
     /// Contains EventListeners for MouseEvents and KeyboardEvents.
@@ -32,9 +32,9 @@ namespace Pixel_Forgery
         private ColorPickerTool colorPickerTool = new ColorPickerTool();
         private FillTool fillTool = new FillTool();
         private List<Point> points = new List<Point>();
-        
+
         /// <summary>
-        /// Date: 
+        /// Date: 2/26/23
         /// Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally, Lilianna Rosales
         /// Constructor for the PixelForgeryGUI class.
         /// Initializes all the graphical objects in the GUI.
@@ -82,7 +82,7 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 
+        /// Date: 3/29/23
         /// Programmer(s): Justin Reyes
         /// Opens a save file dialog to let the user save the image.
         /// </summary>
@@ -97,7 +97,7 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 
+        /// Date: 3/29/23
         /// Programmer(s): Justin Reyes
         /// Opens an open file dialog to let the user open an image.
         /// </summary>
@@ -163,7 +163,7 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 
+        /// Date: 4/01/23
         /// Programmer(s): Justin Reyes
         /// Reverts the image to its previous state.
         /// </summary>
@@ -175,7 +175,7 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 
+        /// Date: 4/01/23
         /// Programmer(s): Justin Reyes
         /// Reverts an undone change
         /// </summary>
@@ -187,8 +187,8 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 
-        /// Programmer(s): Gregory Khrom-Abramyan
+        /// Date: 3/13/23
+        /// Programmer(s): Gregory Khrom-Abramyan, Justin Reyes
         /// Changes the tool to the brush tool
         /// </summary>
         /// <param name="sender">References the brushButton object.</param>
@@ -200,8 +200,8 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 
-        /// Programmer(s): Gregory Khrom-Abramyan
+        /// Date: 3/13/23
+        /// Programmer(s): Gregory Khrom-Abramyan, Justin Reyes
         /// Changes the tool to the eraser tool
         /// </summary>
         /// <param name="sender">References the eraserButton object.</param>
@@ -213,7 +213,7 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 
+        /// Date: 4/05/23
         /// Programmer(s): Lilianna Rosales
         /// Populates the text box with the brush width
         /// </summary>
@@ -225,7 +225,7 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 
+        /// Date: 4/05/23
         /// Programmer(s): Lilianna Rosales
         /// Populates the text box with the eraser width
         /// </summary>
@@ -237,7 +237,7 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 
+        /// Date: 4/05/23
         /// Programmer(s): Lilianna Rosales
         /// Populates the text box with the eraser width
         /// Processes brush size changes. If an invalid value is input the brush size is
@@ -256,7 +256,7 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 
+        /// Date: 4/05/23
         /// Programmer(s): Lilianna Rosales
         /// Processes eraser size changes. If an invalid value is input the eraser size is
         /// set back to the default size of 20
@@ -274,7 +274,7 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 
+        /// Date: 4/05/23
         /// Programmer(s): Lilianna Rosales
         /// Clears the brush-size text box when the user clicks inside the text box
         /// </summary>
@@ -286,7 +286,7 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 
+        /// Date: 4/05/23
         /// Programmer(s): Lilianna Rosales
         /// Clears the eraser-size text box when the user clicks inside the text box
         /// </summary>
@@ -298,7 +298,7 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 
+        /// Date: 4/05/23
         /// Programmer(s): Taylor Nastally
         /// Changes the tool to the shape tool.
         /// Changes the type of shape tool to 1 (Rectangle).
@@ -313,7 +313,7 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 
+        /// Date: 4/14/23
         /// Programmer(s): Taylor Nastally
         /// Changes the tool to the shape tool.
         /// Changes the type of shape tool to 2 (Ellipse).
@@ -328,7 +328,7 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 
+        /// Date: 4/14/23
         /// Programmer(s): Taylor Nastally
         /// Changes the tool to the shape tool.
         /// Changes the type of shape tool to 3 (Polygon).
@@ -343,7 +343,7 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 
+        /// Date: 4/10/23
         /// Programmer(s): Justin Reyes
         /// Changes the tool to the fill tool.
         /// </summary>
@@ -356,7 +356,7 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 
+        /// Date: 4/05/23
         /// Programmer(s): Gregory Khrom-Abramyan
         /// Opens the color selection dialog and when pressing "ok", applies the selected color to all tools.
         /// </summary>
@@ -376,7 +376,7 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 
+        /// Date: 4/16/23
         /// Programmer(s): Gregory Khrom-Abramyan
         /// Changes the tool to the color picker tool and updates the hovered color preview.
         /// </summary>
@@ -391,7 +391,7 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 
+        /// Date: 3/08/23
         /// Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally
         /// Draws on the canvas using the currently selected tool.
         /// If the current tool is the color picker, the hovered color is applied to all tools.
@@ -429,7 +429,7 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 
+        /// Date: 3/08/23
         /// Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally
         /// If a drawing tool is in use, continues to draw and updates the mous position.
         /// If the color picker tool is in use, update the hovered color and apply the color to the color picker preview.
@@ -472,7 +472,7 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 
+        /// Date: 3/08/23
         /// Programmer(s): Justin Reyes, Taylor Nastally
         /// If a drawing tool is in use, stops drawing.
         /// If a shape tool is in use, applies the draw shape to changes.
@@ -499,7 +499,7 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 
+        /// Date: 4/01/23
         /// Programmer(s): Justin Reyes
         /// Checks for user inputted keyboard commands to save and open files and to undo or redo changes..
         /// </summary>
@@ -544,8 +544,8 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 
-        /// Programmer(s): Taylor Nastally
+        /// Date: 4/11/23
+        /// Programmer(s): Justin Reyes, Taylor Nastally
         /// Temporarily updates the canvas.
         /// Actively shows what the shape being drawn looks like.
         /// </summary>
@@ -559,9 +559,8 @@ namespace Pixel_Forgery
             }
         }
 
-
         /// <summary>
-        /// Date: 
+        /// Date: 4/16/23
         /// Programmer(s): Justin Reyes
         /// Changes the background color of buttons to indicate which tool is being currently used
         /// </summary>

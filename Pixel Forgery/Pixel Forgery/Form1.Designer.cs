@@ -5,16 +5,22 @@ using System.Drawing;
 namespace Pixel_Forgery
 {
     /// <summary>
+    /// Date: 2/26/23
+    /// Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally, Lilianna Rosales
     /// GUI class containing all the graphical objects rendered in the form.
     /// </summary>
     partial class PixelForgeryGUI
     {
         /// <summary>
+        /// Date: 2/26/23
+        /// Programmer(s): None (Built-in to WinForm)
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
+        /// Date: 2/26/23
+        /// Programmer(s): None (Built-in to WinForm)
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -30,6 +36,8 @@ namespace Pixel_Forgery
         #region Windows Form Designer generated code
 
         /// <summary>
+        /// Date: 2/26/23
+        /// Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally, Lilianna Rosales
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
