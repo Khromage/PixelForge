@@ -11,7 +11,7 @@ namespace Pixel_Forgery
 {
     /// <summary>
     /// Date: 3/13/23
-    /// Programmer(s): Justin Reyes & Lilianna Rosales
+    /// Programmer(s): Justin Reyes, Lilianna Rosales
     /// BrushTool class controls the construction and use of the brush
     /// Contains 1 method:
     /// useTool() which creates brush strokes by by changing color the pixels from pictureBox1 

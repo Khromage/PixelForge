@@ -10,7 +10,7 @@ namespace Pixel_Forgery
 {
     /// <summary>
     /// Date: 3/13/23
-    /// Programmer(s): Justin Reyes & Lilianna Rosales
+    /// Programmer(s): Justin Reyes, Lilianna Rosales
     /// EraserTool class controls the construction and use of the eraser
     /// Contains 1 method:
     /// useTool() which erases pixels from pictureBox1 by changing their color to white.
