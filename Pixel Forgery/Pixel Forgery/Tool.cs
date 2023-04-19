@@ -39,16 +39,30 @@ namespace Pixel_Forgery
         }
         public Color pickedColor;
 
-
+        /// <summary>
+        /// Date: 4/05/23
+        /// Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally, Lilianna Rosales
+        /// Abstract method that is called upon using a tool.
+        /// The specific tool with override the useTool method.
+        /// </summary>
         public virtual void useTool(MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
         {
         }
 
+        /// <summary>
+        /// Date: 4/05/23
+        /// Programmer(s): Taylor Nastally
+        /// Abstract method that is called and overriden upon using the shapeTool.
+        /// </summary>
         public virtual void drawOutline(PaintEventArgs e) 
         {
         }
 
-        //for polygon draw
+        /// <summary>
+        /// Date: 4/05/23
+        /// Programmer(s): Taylor Nastally
+        /// Abstract method that is called and overriden upon using the shapeTool.
+        /// </summary>
         public virtual void points(List<Point> points)
         {
         }
