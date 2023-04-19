@@ -8,7 +8,7 @@ using System.Windows.Forms;
 namespace Pixel_Forgery
 {
     /// <summary>
-    /// Date: 
+    /// Date: 4/16/23
     /// Programmer(s): Gregory Khrom-Abramyan
     /// Constructor for the ColorPickerTool that allows selection of the tool from the menu bar.
     /// </summary>
