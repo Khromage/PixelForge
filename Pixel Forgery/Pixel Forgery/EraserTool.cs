@@ -8,13 +8,25 @@ using System.Windows.Forms;
 
 namespace Pixel_Forgery
 {
+    /// <summary>
+    /// Date: 3/13/23
+    /// Programmer(s): Justin Reyes & Lilianna Rosales
+    /// EraserTool class controls the construction and use of the eraser
+    /// Contains 1 method:
+    /// useTool() which erases pixels from pictureBox1 by changing their color to white.
+    /// Contains 1 property variable:
+    /// EraserWidth which gets and sets the eraser pen width
+    /// </summary>
     public class EraserTool : PixelForgeryTool
     {
         // Create the pen object only once. This makes it easier to 
         // edit the pen width and color
         private Pen p = new Pen(Color.White, 20);
 
+
         /// <summary>
+        /// Date: 4/05/23
+        /// Programmer(s): Lilianna Rosales
         /// Property variable for setting and getting the 
         /// eraser pen width
         /// </summary>
@@ -24,6 +36,13 @@ namespace Pixel_Forgery
             get { return p.Width; }
         }
 
+        /// <summary>
+        /// Date: 3/13/23
+        /// Programmer(s): Justin Reyes
+        /// Erases pixels from pictureBox1 by changing their color to white.
+        /// </summary>
+        /// <param name="e">is the mouse event parameter and contains data like location and mouse button click type</param>
+        /// <param name="pictureBox1">Reference to the pictureBox.</param>
         public override void useTool(MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
         {
             Graphics g = Graphics.FromImage(pictureBox1.Image);
