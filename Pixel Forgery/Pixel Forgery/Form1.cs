@@ -406,7 +406,7 @@ namespace Pixel_Forgery
                     tool.isDrawing = true;
                     tool.startX = e.X;
                     tool.startY = e.Y;
-                    if (tool == fillTool) tool.useTool(e, pictureBox);
+                    if (tool == fillTool) tool.UseTool(e, pictureBox);
                     if (tool == shapeTool && tool.typeOfTool == 3) tool.points(points);
                     if (tool == colorPickerTool)
                     {
@@ -460,7 +460,7 @@ namespace Pixel_Forgery
                     {
                         tool.endX = e.X;
                         tool.endY = e.Y;
-                        if (tool == brushTool || tool == eraserTool) tool.useTool(e, pictureBox);
+                        if (tool == brushTool || tool == eraserTool) tool.UseTool(e, pictureBox);
                     }
                     break;
                 case MouseButtons.Right:
@@ -488,7 +488,7 @@ namespace Pixel_Forgery
                     tool.isDrawing = false;
                     tool.endX = e.X;
                     tool.endY = e.Y;
-                    if (tool == shapeTool) tool.useTool(e, pictureBox);
+                    if (tool == shapeTool) tool.UseTool(e, pictureBox);
                     changes.addChange(pictureBox);
                     break;
                 case MouseButtons.Right:

@@ -12,7 +12,7 @@ namespace Pixel_Forgery
     /// Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally, Lilianna Rosales
     /// Provides basic functionality needed for the use of tools withing Pixel_Forgery 
     /// Contains 3 method:
-    /// useTool() overritten by BrushTool, EraserTool, FillTool
+    /// UseTool() overritten by BrushTool, EraserTool, FillTool
     /// drawOutline() overritten by ShapeTool
     /// points() overritten by ShapeTool
     /// </summary>
@@ -43,9 +43,9 @@ namespace Pixel_Forgery
         /// Date: 4/05/23
         /// Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally, Lilianna Rosales
         /// Abstract method that is called upon using a tool.
-        /// The specific tool with override the useTool method.
+        /// The specific tool with override the UseTool method.
         /// </summary>
-        public virtual void useTool(MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
+        public virtual void UseTool(MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
         {
         }
 

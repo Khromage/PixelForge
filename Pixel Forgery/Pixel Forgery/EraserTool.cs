@@ -13,7 +13,7 @@ namespace Pixel_Forgery
     /// Programmer(s): Justin Reyes, Lilianna Rosales
     /// EraserTool class controls the construction and use of the eraser
     /// Contains 1 method:
-    /// useTool() which erases pixels from pictureBox1 by changing their color to white.
+    /// UseTool() which erases pixels from pictureBox1 by changing their color to white.
     /// Contains 1 property variable:
     /// EraserWidth which gets and sets the eraser pen width
     /// </summary>
@@ -43,7 +43,7 @@ namespace Pixel_Forgery
         /// </summary>
         /// <param name="e">is the mouse event parameter and contains data like location and mouse button click type</param>
         /// <param name="pictureBox1">Reference to the pictureBox.</param>
-        public override void useTool(MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
+        public override void UseTool(MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
         {
             Graphics g = Graphics.FromImage(pictureBox1.Image);
             g.SmoothingMode = SmoothingMode.HighQuality;

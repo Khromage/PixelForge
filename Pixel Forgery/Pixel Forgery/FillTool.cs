@@ -14,17 +14,17 @@ namespace Pixel_Forgery
     /// </list>
     /// Contains several methods:
     /// <list type="number">
-    /// <item>useTool() is an overridden method to the Tool class</item>
-    /// <item>dfsFill() uses the Depth-First Search algorithm to flood fill the canvas</item>
-    /// <item>setColor() is a helper function for dfsFill() which sets a pixel to the currentColor</item>
-    /// <item>addPoint() is a helper function for dfsFill() which scans and adds a point to the DFS stack</item>
-    /// <item>isInside() is a helper function for dfsFill() which checks if a point is still inside the canvas</item>
+    /// <item>UseTool() is an overridden method to the Tool class</item>
+    /// <item>DfsFill() uses the Depth-First Search algorithm to flood fill the canvas</item>
+    /// <item>SetColor() is a helper function for DfsFill() which sets a pixel to the currentColor</item>
+    /// <item>AddPoint() is a helper function for DfsFill() which scans and adds a point to the DFS stack</item>
+    /// <item>IsInside() is a helper function for DfsFill() which checks if a point is still inside the canvas</item>
     /// </list>
     /// </summary>
     public class FillTool : PixelForgeryTool
     {
         /// <summary>
-        /// Overloads the PixelForgeryTool's useTool method with the Fill Tool method.
+        /// Overloads the PixelForgeryTool's UseTool method with the Fill Tool method.
         /// <list type="bullet">
         /// <item>Date: 4/10/23</item>
         /// <item>Programmer(s): Justin Reyes</item>
@@ -32,7 +32,7 @@ namespace Pixel_Forgery
         /// </summary>
         /// <param name="e">An EventListener used checking for Mouse location.</param>
         /// <param name="pictureBox1">Reference to the canvas.</param>
-        public override void useTool(MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
+        public override void UseTool(MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
         {
             // Set stopwatch for Fill Tool algorithm testing
             Stopwatch stopWatch = new Stopwatch();
@@ -41,7 +41,7 @@ namespace Pixel_Forgery
             // Do Fill algorithm
             Bitmap bmp = (Bitmap)pictureBox1.Image;
             if(bmp.GetPixel(e.X, e.Y).ToArgb() != currentColor.ToArgb())
-                dfsFill(e, pictureBox1);
+                DfsFill(e, pictureBox1);
 
             stopWatch.Stop();
             TimeSpan ts = stopWatch.Elapsed;
@@ -62,7 +62,7 @@ namespace Pixel_Forgery
         /// </summary>
         /// <param name="e">An EventListener used checking for Mouse location.</param>
         /// <param name="pictureBox1">Reference to the canvas.</param>
-        public void dfsFill(MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
+        public void DfsFill(MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
         {
             Bitmap bmp = (Bitmap)pictureBox1.Image;
             int x = e.X, y = e.Y, w = bmp.Width, h = bmp.Height;
@@ -92,13 +92,13 @@ namespace Pixel_Forgery
             while (stack.Count != 0)
             {
                 Point current = stack.Pop();
-                setColor(current.X, current.Y, w, rgbValues);
+                SetColor(current.X, current.Y, w, rgbValues);
 
                 // Check neighboring points
-                addPoint(current.X - 1, current.Y, w, h, mask, rgbValues, replacedColor, stack);
-                addPoint(current.X, current.Y + 1, w, h, mask, rgbValues, replacedColor, stack);
-                addPoint(current.X + 1, current.Y, w, h, mask, rgbValues, replacedColor, stack);
-                addPoint(current.X, current.Y - 1, w, h, mask, rgbValues, replacedColor, stack);
+                AddPoint(current.X - 1, current.Y, w, h, mask, rgbValues, replacedColor, stack);
+                AddPoint(current.X, current.Y + 1, w, h, mask, rgbValues, replacedColor, stack);
+                AddPoint(current.X + 1, current.Y, w, h, mask, rgbValues, replacedColor, stack);
+                AddPoint(current.X, current.Y - 1, w, h, mask, rgbValues, replacedColor, stack);
             }
 
             // Copy rgb array to bitmap
@@ -122,7 +122,7 @@ namespace Pixel_Forgery
         /// <param name="y">Vertical location of the point.</param>
         /// <param name="w">Width of the canvas.</param>
         /// <param name="rgbValues">Byte array of rgb values in the bitmap.</param>
-        public void setColor(int x, int y, int w, byte[] rgbValues)
+        public void SetColor(int x, int y, int w, byte[] rgbValues)
         {
             int currByte = (x + y * w) * 4;
             rgbValues[currByte] = currentColor.B;
@@ -146,9 +146,9 @@ namespace Pixel_Forgery
         /// <param name="rgbValues">Byte array of rgb values in the bitmap.</param>
         /// <param name="replacedColor">Color that needs to be replaced in the flood fill.</param>
         /// <param name="stack">Stack structure used for DFS algorithm.</param>
-        public void addPoint(int x, int y, int w, int h, int[,] mask, byte[] rgbValues, Color replacedColor, Stack<Point> stack)
+        public void AddPoint(int x, int y, int w, int h, int[,] mask, byte[] rgbValues, Color replacedColor, Stack<Point> stack)
         {
-            if (isInside(x, y, w, h) && mask[x, y] == 0)
+            if (IsInside(x, y, w, h) && mask[x, y] == 0)
             {
                 int currByte = (x + y * w) * 4;
                 int G = rgbValues[currByte], B = rgbValues[currByte + 1], R = rgbValues[currByte + 2], A = rgbValues[currByte + 3];
@@ -174,7 +174,7 @@ namespace Pixel_Forgery
         /// <param name="width">Width of the canvas.</param>
         /// <param name="height">Height of the canvas.</param>
         /// <returns>Returns false if the point is outside the canvas, else true</returns>
-        public Boolean isInside(int x, int y, int width, int height)
+        public Boolean IsInside(int x, int y, int width, int height)
         {
             if (x < 0 || y < 0 || x >= width || y >= height) return false;
             else return true;

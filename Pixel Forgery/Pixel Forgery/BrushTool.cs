@@ -14,7 +14,7 @@ namespace Pixel_Forgery
     /// Programmer(s): Justin Reyes, Lilianna Rosales
     /// BrushTool class controls the construction and use of the brush
     /// Contains 1 method:
-    /// useTool() which creates brush strokes by by changing color the pixels from pictureBox1 
+    /// UseTool() which creates brush strokes by by changing color the pixels from pictureBox1 
     /// Contains 1 property variable:
     /// BrushWidth which gets and sets the brush pen width
     /// </summary>
@@ -43,7 +43,7 @@ namespace Pixel_Forgery
         /// </summary>
         /// <param name="e">is the mouse event parameter and contains data like location and mouse button click type</param>
         /// <param name="pictureBox1">Reference to the pictureBox.</param>
-        public override void useTool(MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
+        public override void UseTool(MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
         {
             Graphics g = Graphics.FromImage(pictureBox1.Image);
             g.SmoothingMode = SmoothingMode.HighQuality;

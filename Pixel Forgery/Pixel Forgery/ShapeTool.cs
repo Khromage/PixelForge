@@ -13,8 +13,8 @@ namespace Pixel_Forgery
     /// Date: 04/05/2023 (initial commit)
     /// Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally, Lilianna Rosales
     /// Shape tool class controls the type and method of construction for the user's desired drawing type.
-    /// Contains two use methods (useTool() and drawOutline()):
-    /// useTool() controls the instancing of the shape, drawOutline() controls the dynamic drawing of the shape as the user drags the mouse.
+    /// Contains two use methods (UseTool() and drawOutline()):
+    /// UseTool() controls the instancing of the shape, drawOutline() controls the dynamic drawing of the shape as the user drags the mouse.
     /// </summary>
     public class ShapeTool : PixelForgeryTool
     {
@@ -31,7 +31,7 @@ namespace Pixel_Forgery
         /// </summary>
         /// <param name="e">is the mouse event parameter and contains data like location and mouse button click type</param>
         /// <param name="pictureBox1">is the actual picturebox from Form1 sent to the tool so new graphics will be saved</param>
-        public override void useTool(MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
+        public override void UseTool(MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
         {
             Graphics g = Graphics.FromImage(pictureBox1.Image);
             p.Color = currentColor;

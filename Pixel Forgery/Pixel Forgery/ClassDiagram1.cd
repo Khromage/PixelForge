@@ -3,21 +3,21 @@
   <Class Name="Pixel_Forgery.PixelForgeryGUI">
     <Position X="0.5" Y="1.5" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AMQAAALBASgEqYFAUpGIIsAmYKoJQIIkBCYA6xQISTA=</HashCode>
+      <HashCode>AMQAAALBASgEqYFAUpGIIsAmYKoJQIIkBCIA6wQISTA=</HashCode>
       <FileName>Form1.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Pixel_Forgery.PixelForgeryTool">
     <Position X="4.25" Y="1.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAACAAAEABAMgABAAAAAAgAAiAAAAAEAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAACAAAEABAMgABAAACAAgAACAAAAAEAAAAAAAAA=</HashCode>
       <FileName>Tool.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Pixel_Forgery.BrushTool">
     <Position X="7" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAEAAAAAAAAA=</HashCode>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAEAAAAAAAAA=</HashCode>
       <FileName>BrushTool.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -30,7 +30,7 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAEAAAACAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAEAAAACAAAA=</HashCode>
       <FileName>EraserTool.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -51,14 +51,14 @@
   <Class Name="Pixel_Forgery.ShapeTool">
     <Position X="8.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAADAIAAAAAAAAAAAIAAAAAAiAAAAIAABAAAAAAE=</HashCode>
+      <HashCode>AAAAAADAIAAAAAAAAAAAICAAAAACAAAAAAABAAAAAAE=</HashCode>
       <FileName>ShapeTool.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Pixel_Forgery.FillTool">
     <Position X="7" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAABAAAAAAAAAAQAAAAAAAAAAgAAAAAAAAAAgIAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAGgAAAAAAAAAAAgAAAAAAAA=</HashCode>
       <FileName>FillTool.cs</FileName>
     </TypeIdentifier>
   </Class>
