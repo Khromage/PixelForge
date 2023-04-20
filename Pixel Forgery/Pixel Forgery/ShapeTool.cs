@@ -69,7 +69,6 @@ namespace Pixel_Forgery
         /// <item>Date: 04/11/2023</item>
         /// <item>Programmer(s): Justin Reyes, Taylor Nastally</item>
         /// </list>
-
         /// </summary>
         /// <param name="e">is the paint event handler and contains the graphics of the control</param>
         public override void drawOutline(PaintEventArgs e)
@@ -96,12 +95,11 @@ namespace Pixel_Forgery
         /// <summary>
         /// assigns the passed list to the tool object's list
         /// (previous work got wiped out by an accidental revert during a sync, polygon draw will be operational this weekend)
-        /// </summary>
         /// <list type="bullet">
         /// <item>Date: 04/14/2023</item>
         /// <item>Programmer: Taylor Nastally</item>
         /// </list>
-
+        /// </summary>
         /// <param name="points">is the list of points used to draw polygons</param>
         public override void points(List<Point> points)
         {
