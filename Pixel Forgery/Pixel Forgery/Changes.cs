@@ -9,16 +9,20 @@ using System.Windows.Forms;
 namespace Pixel_Forgery
 {
     /// <summary>
-    /// Date: 4/01/23
-    /// Programmer(s): Justin Reyes
     /// Changes class which implements Undo/Redo functionality by passing image states between two linked lists (LL).
+    /// <list type="bullet">
+    /// <item>Date: 4/01/23</item>
+    /// <item>Programmer(s): Justin Reyes</item>
+    /// </list>
     /// Contains 6 methods:
-    /// Changes() which is the constructor for the class that instantiates the LLs.
-    /// addChange() which saves a new image state.
-    /// undoChange() which reverts to a previous image state.
-    /// redoChange() which reverts to an undone image state.
-    /// setNewImage() which is a helper function to undoChange() and redoChange() and sets the pictureBox to the right image state.
-    /// clearStacks() which resets the two LLs.
+    /// <list type="number">
+    /// <item>Changes() which is the constructor for the class that instantiates the LLs.</item>
+    /// <item>addChange() which saves a new image state</item>
+    /// <item>undoChange() which reverts to a previous image state.</item>
+    /// <item>redoChange() which reverts to an undone image state.</item>
+    /// <item>setNewImage() which is a helper function to undoChange() and redoChange() and sets the pictureBox to the right image state.</item>
+    /// <item>clearStacks() which resets the two LLs.</item>
+    /// </list>
     /// The FILO functionality of Stacks is the most important part of the class's methods.
     /// However, a linked-list is used instead to limit the number of images saved by removing from the bottom of the "Stack".
     /// </summary>
@@ -28,10 +32,12 @@ namespace Pixel_Forgery
         private LinkedList<System.Drawing.Image> redoStack;
 
         /// <summary>
-        /// Date: 4/01/23
-        /// Programmer(s): Justin Reyes
         /// Constructor for the Changes class.
         /// Instantiates the undoStack and redoStack linked-lists.
+        /// <list type="bullet">
+        /// <item>Date: 4/01/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         public Changes()
         {
@@ -40,9 +46,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/01/23
-        /// Programmer(s): Justin Reyes
         /// Add a new item to undoStack and reset redoStack.
+        /// <list type="bullet">
+        /// <item>Date: 4/01/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="pictureBox">Reference to the pictureBox.</param>
         public void addChange(System.Windows.Forms.PictureBox pictureBox)
@@ -56,9 +64,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/01/23
-        /// Programmer(s): Justin Reyes
         /// Move top of undoStack to top of redoStack and set the new image.
+        /// <list type="bullet">
+        /// <item>Date: 4/01/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="pictureBox">Reference to the pictureBox.</param>
         public void undoChange(System.Windows.Forms.PictureBox pictureBox)
@@ -75,11 +85,13 @@ namespace Pixel_Forgery
                 setNewImage(pictureBox);
             }
         }
-        
+
         /// <summary>
-        /// Date: 4/01/23
-        /// Programmer(s): Justin Reyes
         /// Move top of redoStack to top of undoStack
+        /// <list type="bullet">
+        /// <item>Date: 4/01/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="pictureBox">Reference to the pictureBox.</param>
         public void redoChange(System.Windows.Forms.PictureBox pictureBox)
@@ -97,9 +109,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/01/23
-        /// Programmer(s): Justin Reyes
         /// Set picture box image to the top of undoStack.
+        /// <list type="bullet">
+        /// <item>Date: 4/01/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="pictureBox">Reference to the pictureBox.</param>
         public void setNewImage(System.Windows.Forms.PictureBox pictureBox)
@@ -124,9 +138,11 @@ namespace Pixel_Forgery
 
 
         /// <summary>
-        /// Date: 4/01/23
-        /// Programmer(s): Justin Reyes
         /// Clear the two linked lists (after saving, loading, or creating new images).
+        /// <list type="bullet">
+        /// <item>Date: 4/01/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         public void clearStacks()
         {
