@@ -7,22 +7,28 @@ using System.Windows.Forms;
 namespace Pixel_Forgery
 {
     /// <summary>
-    /// Date: 4/10/23
-    /// Programmer(s): Justin Reyes
     /// FillTool class created for flood filling the canvas
+    /// <list type="bullet">
+    /// <item>Date: 4/10/23</item>
+    /// <item>Programmer(s): Justin Reyes</item>
+    /// </list>
     /// Contains several methods:
-    /// useTool() is an overridden method to the Tool class
-    /// dfsFill() uses the Depth-First Search algorithm to flood fill the canvas
-    /// setColor() is a helper function for dfsFill() which sets a pixel to the currentColor
-    /// addPoint() is a helper function for dfsFill() which scans and adds a point to the DFS stack
-    /// isInside() is a helper function for dfsFill() which checks if a point is still inside the canvas
+    /// <list type="number">
+    /// <item>useTool() is an overridden method to the Tool class</item>
+    /// <item>dfsFill() uses the Depth-First Search algorithm to flood fill the canvas</item>
+    /// <item>setColor() is a helper function for dfsFill() which sets a pixel to the currentColor</item>
+    /// <item>addPoint() is a helper function for dfsFill() which scans and adds a point to the DFS stack</item>
+    /// <item>isInside() is a helper function for dfsFill() which checks if a point is still inside the canvas</item>
+    /// </list>
     /// </summary>
     public class FillTool : PixelForgeryTool
     {
         /// <summary>
-        /// Date: 4/10/23
-        /// Programmer(s): Justin Reyes
         /// Overloads the PixelForgeryTool's useTool method with the Fill Tool method.
+        /// <list type="bullet">
+        /// <item>Date: 4/10/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="e">An EventListener used checking for Mouse location.</param>
         /// <param name="pictureBox1">Reference to the canvas.</param>
@@ -48,9 +54,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/10/23
-        /// Programmer(s): Justin Reyes
         /// Uses Depth-First Search to do a flood fill starting from the current mouse location.
+        /// <list type="bullet">
+        /// <item>Date: 4/15/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="e">An EventListener used checking for Mouse location.</param>
         /// <param name="pictureBox1">Reference to the canvas.</param>
@@ -104,9 +112,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/15/23
-        /// Programmer(s): Justin Reyes
         /// Sets the rgb values of the given pixel position.
+        /// <list type="bullet">
+        /// <item>Date: 4/15/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="x">Horizontal location of the point.</param>
         /// <param name="y">Vertical location of the point.</param>
@@ -122,9 +132,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/15/23
-        /// Programmer(s): Justin Reyes
         /// Validates and adds a Point to the DFS stack.
+        /// <list type="bullet">
+        /// <item>Date: 4/15/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="x">Horizontal location of the point.</param>
         /// <param name="y">Vertical location of the point.</param>
@@ -151,9 +163,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/15/23
-        /// Programmer(s): Justin Reyes
         /// Checks whether the given position is inside the grid.
+        /// <list type="bullet">
+        /// <item>Date: 4/15/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="x">Horizontal location of the point.</param>
         /// <param name="y">Vertical location of the point.</param>

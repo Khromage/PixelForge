@@ -8,18 +8,25 @@ using System.Windows.Forms;
 namespace Pixel_Forgery
 {
     /// <summary>
-    /// Date: 3/29/23
-    /// Programmer(s): Justin Reyes
     /// FileExplorerDialog class which handles File input/output for the program.
+    /// <list type="bullet">
+    /// <item>Date: 3/29/23</item>
+    /// <item>Programmer(s): Justin Reyes</item>
+    /// </list>
     /// Contains two methods:
-    /// saveFile() does file output, loadFile() does file input
+    /// <list type="number">
+    /// <item>saveFile() does file output</item>
+    /// <item>loadFile() does file input</item>
+    /// </list>
     /// </summary>
     public class FileExplorerDialog
     {
         /// <summary>
-        /// Date: 3/29/23
-        /// Programmer(s): Justin Reyes
         /// Launches a SaveFileDialog to save the pictureBox's image to the location that the user selects.
+        /// <list type="bullet">
+        /// <item>Date: 3/29/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="pictureBox">Reference to the pictureBox.</param>
         public void saveFile(PictureBox pictureBox)
@@ -35,9 +42,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 3/29/23
-        /// Programmer(s): Justin Reyes
         /// Launches an OpenFileDialog to load a selected image to the pictureBox.
+        /// <list type="bullet">
+        /// <item>Date: 3/29/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="pictureBox">Reference to the pictureBox.</param>
         public void loadFile(PictureBox pictureBox)
