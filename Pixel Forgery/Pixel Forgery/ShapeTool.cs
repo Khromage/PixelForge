@@ -63,12 +63,13 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
+        /// Contains a switch to check and draw the appropriate shape based on type of tool.
+        /// Draws with the passed Graphics g from onPaint in Form1.
         /// <list type="bullet">
         /// <item>Date: 04/11/2023</item>
         /// <item>Programmer(s): Justin Reyes, Taylor Nastally</item>
         /// </list>
-        /// Contains a switch to check and draw the appropriate shape based on type of tool.
-        /// Draws with the passed Graphics g from onPaint in Form1.
+
         /// </summary>
         /// <param name="e">is the paint event handler and contains the graphics of the control</param>
         public override void drawOutline(PaintEventArgs e)
@@ -93,13 +94,14 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
+        /// assigns the passed list to the tool object's list
+        /// (previous work got wiped out by an accidental revert during a sync, polygon draw will be operational this weekend)
+        /// </summary>
         /// <list type="bullet">
         /// <item>Date: 04/14/2023</item>
         /// <item>Programmer: Taylor Nastally</item>
         /// </list>
-        /// assigns the passed list to the tool object's list
-        /// (previous work got wiped out by an accidental revert during a sync, polygon draw will be operational this weekend)
-        /// </summary>
+
         /// <param name="points">is the list of points used to draw polygons</param>
         public override void points(List<Point> points)
         {
@@ -107,12 +109,12 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
+        /// Creates new rectangle based off of the mouse location, if NULL
+        /// else redraws the rectangle
         /// <list type="bullet">
         /// <item>Date: 04/05/2023</item>
         /// <item>Programmer: Taylor Nastally</item>
         /// </list>
-        /// Creates new rectangle based off of the mouse location, if NULL
-        /// else redraws the rectangle
         /// </summary>
         /// <returns>Rectangle showing where the shape should be drawn.</returns>
         private Rectangle GetRectangle()
