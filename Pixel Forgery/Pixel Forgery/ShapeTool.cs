@@ -10,11 +10,11 @@ using static System.Windows.Forms.AxHost;
 namespace Pixel_Forgery
 {
     /// <summary>
+    /// Shape tool class controls the type and method of construction for the user's desired drawing type.
     /// <list type="bullet">
     /// <item>Date: 04/05/2023 (initial commit)</item>
     /// <item>Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally, Lilianna Rosales</item>
     /// </list>
-    /// Shape tool class controls the type and method of construction for the user's desired drawing type.
     /// Contains two use methods (UseTool() and drawOutline()):
     /// <list type="number">
     /// <item>useTool() is an overriden method that allows the tool to be drawn to the canvas</item>
