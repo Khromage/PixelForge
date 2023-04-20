@@ -15,8 +15,8 @@ namespace Pixel_Forgery
     /// </list>
     /// Contains two methods:
     /// <list type="number">
-    /// <item>saveFile() does file output</item>
-    /// <item>loadFile() does file input</item>
+    /// <item>SaveFile() does file output</item>
+    /// <item>OpenFile() does file input</item>
     /// </list>
     /// </summary>
     public class FileExplorerDialog
@@ -29,7 +29,7 @@ namespace Pixel_Forgery
         /// </list>
         /// </summary>
         /// <param name="pictureBox">Reference to the pictureBox.</param>
-        public void saveFile(PictureBox pictureBox)
+        public void SaveFile(PictureBox pictureBox)
         {
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "PNG (*.png)|*.png|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|BMP (*.bmp)|*.bmp|GIF (*.gif)|*.gif";
@@ -49,7 +49,7 @@ namespace Pixel_Forgery
         /// </list>
         /// </summary>
         /// <param name="pictureBox">Reference to the pictureBox.</param>
-        public void loadFile(PictureBox pictureBox)
+        public void OpenFile(PictureBox pictureBox)
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.FileName = "";

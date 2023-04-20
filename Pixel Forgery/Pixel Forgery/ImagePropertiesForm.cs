@@ -67,7 +67,7 @@ namespace Pixel_Forgery
         /// </summary>
         /// <param name="sender">Reference to the widthTextBox object.</param>
         /// <param name="e">Event listener for when the Text Box's content is changed.</param>
-        private void widthTextBox_TextChanged(object sender, EventArgs e)
+        private void WidthTextBox_TextChanged(object sender, EventArgs e)
         {
             string s = widthTextBox.Text;
 
@@ -83,7 +83,7 @@ namespace Pixel_Forgery
         /// </summary>
         /// <param name="sender">Reference to the heightTextBox object.</param>
         /// <param name="e">Event listener for when the Text Box's content is changed.</param>
-        private void heightTextBox_TextChanged(object sender, EventArgs e)
+        private void HeightTextBox_TextChanged(object sender, EventArgs e)
         {
             string s = heightTextBox.Text;
 
@@ -98,7 +98,7 @@ namespace Pixel_Forgery
         /// </summary>
         /// <param name="sender">Reference to the defaultButton object.</param>
         /// <param name="e">Event listener for when the Button is clicked.</param>
-        private void defaultButton_Click(object sender, EventArgs e)
+        private void DefaultButton_Click(object sender, EventArgs e)
         {
             canvasWidth = 918; 
             canvasHeight = 595;
@@ -113,7 +113,7 @@ namespace Pixel_Forgery
         /// </summary>
         /// <param name="sender">Reference to the acceptButton object.</param>
         /// <param name="e">Event listener for when the Button is clicked.</param>
-        private void acceptButton_Click(object sender, EventArgs e)
+        private void AcceptButton_Click(object sender, EventArgs e)
         {
             changeSize = true;
             this.Close();
@@ -126,7 +126,7 @@ namespace Pixel_Forgery
         /// </summary>
         /// <param name="sender">Reference to the cancelButton object.</param>
         /// <param name="e">Event listener for when the Button is clicked.</param>
-        private void cancelButton_Click(object sender, EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }

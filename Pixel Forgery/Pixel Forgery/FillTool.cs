@@ -94,7 +94,7 @@ namespace Pixel_Forgery
                 Point current = stack.Pop();
                 SetColor(current.X, current.Y, w, rgbValues);
 
-                // Check neighboring points
+                // Check neighboring Points
                 AddPoint(current.X - 1, current.Y, w, h, mask, rgbValues, replacedColor, stack);
                 AddPoint(current.X, current.Y + 1, w, h, mask, rgbValues, replacedColor, stack);
                 AddPoint(current.X + 1, current.Y, w, h, mask, rgbValues, replacedColor, stack);
@@ -142,7 +142,7 @@ namespace Pixel_Forgery
         /// <param name="y">Vertical location of the point.</param>
         /// <param name="w">Width of the canvas.</param>
         /// <param name="h">Height of the canvas.</param>
-        /// <param name="mask">2D integer array showing which points have been checked.</param>
+        /// <param name="mask">2D integer array showing which Points have been checked.</param>
         /// <param name="rgbValues">Byte array of rgb values in the bitmap.</param>
         /// <param name="replacedColor">Color that needs to be replaced in the flood fill.</param>
         /// <param name="stack">Stack structure used for DFS algorithm.</param>

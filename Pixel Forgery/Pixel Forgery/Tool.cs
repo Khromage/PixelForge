@@ -13,8 +13,8 @@ namespace Pixel_Forgery
     /// Provides basic functionality needed for the use of tools withing Pixel_Forgery 
     /// Contains 3 method:
     /// UseTool() overritten by BrushTool, EraserTool, FillTool
-    /// drawOutline() overritten by ShapeTool
-    /// points() overritten by ShapeTool
+    /// DrawOutline() overritten by ShapeTool
+    /// Points() overritten by ShapeTool
     /// </summary>
     public abstract class PixelForgeryTool
     {
@@ -54,7 +54,7 @@ namespace Pixel_Forgery
         /// Programmer(s): Taylor Nastally
         /// Abstract method that is called and overriden upon using the shapeTool.
         /// </summary>
-        public virtual void drawOutline(PaintEventArgs e) 
+        public virtual void DrawOutline(PaintEventArgs e) 
         {
         }
 
@@ -63,7 +63,7 @@ namespace Pixel_Forgery
         /// Programmer(s): Taylor Nastally
         /// Abstract method that is called and overriden upon using the shapeTool.
         /// </summary>
-        public virtual void points(List<Point> points)
+        public virtual void Points(List<Point> points)
         {
         }
     }
