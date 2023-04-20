@@ -10,11 +10,17 @@ using static System.Windows.Forms.AxHost;
 namespace Pixel_Forgery
 {
     /// <summary>
-    /// Date: 04/05/2023 (initial commit)
-    /// Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally, Lilianna Rosales
+    /// <list type="bullet">
+    /// <item>Date: 04/05/2023 (initial commit)</item>
+    /// <item>Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally, Lilianna Rosales</item>
+    /// </list>
     /// Shape tool class controls the type and method of construction for the user's desired drawing type.
     /// Contains two use methods (UseTool() and drawOutline()):
-    /// UseTool() controls the instancing of the shape, drawOutline() controls the dynamic drawing of the shape as the user drags the mouse.
+    /// <list type="number">
+    /// <item>useTool() is an overriden method that allows the tool to be drawn to the canvas</item>
+    /// <item>drawOutline() is an overriden method that allows the tool to have drag-and-drop functionality</item>
+    /// <item>drawRectangle() is a private method that allows takes the mouse loction and creates a rectangle with it</item>
+    /// </list>
     /// </summary>
     public class ShapeTool : PixelForgeryTool
     {
@@ -24,10 +30,12 @@ namespace Pixel_Forgery
         Point locationXY;
 
         /// <summary>
-        /// Date: 04/05/2023
-        /// Programmer: Taylor Nastally
         /// Contains a switch that checks the typeOfTool and calls the appropriate draw function.
         /// Draws to the pictureBox with Graphics g.
+        /// <list type="bullet">
+        /// <item>Date: 04/05/2023</item>
+        /// <item>Programmer: Taylor Nastally</item>
+        /// </list>
         /// </summary>
         /// <param name="e">is the mouse event parameter and contains data like location and mouse button click type</param>
         /// <param name="pictureBox1">is the actual picturebox from Form1 sent to the tool so new graphics will be saved</param>
@@ -55,8 +63,10 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 04/11/2023
-        /// Programmer(s): Justin Reyes, Taylor Nastally
+        /// <list type="bullet">
+        /// <item>Date: 04/11/2023</item>
+        /// <item>Programmer(s): Justin Reyes, Taylor Nastally</item>
+        /// </list>
         /// Contains a switch to check and draw the appropriate shape based on type of tool.
         /// Draws with the passed Graphics g from onPaint in Form1.
         /// </summary>
@@ -83,8 +93,10 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 04/14/2023
-        /// Programmer: Taylor Nastally
+        /// <list type="bullet">
+        /// <item>Date: 04/14/2023</item>
+        /// <item>Programmer: Taylor Nastally</item>
+        /// </list>
         /// assigns the passed list to the tool object's list
         /// (previous work got wiped out by an accidental revert during a sync, polygon draw will be operational this weekend)
         /// </summary>
@@ -95,8 +107,10 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 04/05/2023
-        /// Programmer: Taylor Nastally
+        /// <list type="bullet">
+        /// <item>Date: 04/05/2023</item>
+        /// <item>Programmer: Taylor Nastally</item>
+        /// </list>
         /// Creates new rectangle based off of the mouse location, if NULL
         /// else redraws the rectangle
         /// </summary>
