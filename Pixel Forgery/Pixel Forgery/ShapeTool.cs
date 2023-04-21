@@ -15,7 +15,7 @@ namespace Pixel_Forgery
     /// <item>Date: 04/05/2023 (initial commit)</item>
     /// <item>Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally, Lilianna Rosales</item>
     /// </list>
-    /// Contains two use methods (UseTool() and DrawOutline()):
+    /// Contains 3 methods:
     /// <list type="number">
     /// <item>useTool() is an overriden method that allows the tool to be drawn to the canvas</item>
     /// <item>DrawOutline() is an overriden method that allows the tool to have drag-and-drop functionality</item>

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 namespace Pixel_Forgery
 {
     /// <summary>
-    /// Provides basic functionality needed for the use of tools withing Pixel_Forgery 
+    /// Provides basic functionality needed for the use of tools within Pixel_Forgery 
     /// <list type="bullet">
     /// <item>Date: 3/13/23</item>
     /// <item>Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally, Lilianna Rosales</item>
