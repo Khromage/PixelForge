@@ -5,23 +5,29 @@ using System.Drawing;
 namespace Pixel_Forgery
 {
     /// <summary>
-    /// Date: 2/26/23
-    /// Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally, Lilianna Rosales
     /// GUI class containing all the graphical objects rendered in the form.
+    /// <list type="bullet">
+    /// <item>Date: 2/26/23</item>
+    /// <item>Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally, Lilianna Rosales</item>
+    /// </list>
     /// </summary>
     partial class PixelForgeryGUI
     {
         /// <summary>
-        /// Date: 2/26/23
-        /// Programmer(s): None (Built-in to WinForm)
         /// Required designer variable.
+        /// <list type="bullet">
+        /// <item>Date: 2/26/23</item>
+        /// <item>Programmer(s): None (Built-in to WinForm)</item>
+        /// </list>
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Date: 2/26/23
-        /// Programmer(s): None (Built-in to WinForm)
         /// Clean up any resources being used.
+        /// <list type="bullet">
+        /// <item>Date: 2/26/23</item>
+        /// <item>Programmer(s): None (Built-in to WinForm)</item>
+        /// </list>
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)

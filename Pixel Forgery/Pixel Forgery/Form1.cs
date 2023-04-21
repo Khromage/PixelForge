@@ -12,7 +12,7 @@ namespace Pixel_Forgery
     /// <list type="bullet">
     /// <item>Date: 2/26/23</item>
     /// <item>Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally, Lilianna Rosales</item>
-    /// </list>
+    /// </list> 
     /// </summary>
     public partial class PixelForgeryGUI : Form
     {
@@ -27,11 +27,13 @@ namespace Pixel_Forgery
         private List<Point> points = new List<Point>();
 
         /// <summary>
-        /// Date: 2/26/23
-        /// Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally, Lilianna Rosales
         /// Constructor for the PixelForgeryGUI class.
         /// Initializes all the graphical objects in the GUI.
         /// Sets the canvas to a white background and the tool to the brush tool by default.
+        /// <list type="bullet">
+        /// <item>Date: 2/26/23</item>
+        /// <item>Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally, Lilianna Rosales</item>
+        /// </list> 
         /// </summary>
         public PixelForgeryGUI()
         {
@@ -52,11 +54,13 @@ namespace Pixel_Forgery
             changes.AddChange(pictureBox);
 
         }
-        
+
         /// <summary>
-        /// Date: 4/16/23
-        /// Programmer(s): Justin Reyes
         /// Creates a new canvas for the user to draw in, defaults to 918x595 pixels in size.
+        /// <list type="bullet">
+        /// <item>Date: 4/16/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the newButton object</param>
         /// <param name="e">An EventListener checking for when the Button is clicked</param>
@@ -75,9 +79,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 3/29/23
-        /// Programmer(s): Justin Reyes
         /// Opens a save file dialog to let the user save the image.
+        /// <list type="bullet">
+        /// <item>Date: 3/29/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the saveButton object.</param>
         /// <param name="e">An EventListener checking for when the Button is clicked.</param>
@@ -90,9 +96,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 3/29/23
-        /// Programmer(s): Justin Reyes
         /// Opens an open file dialog to let the user open an image.
+        /// <list type="bullet">
+        /// <item>Date: 3/29/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the openButton object.</param>
         /// <param name="e">An EventListener checking for when the Button is clicked.</param>
@@ -106,9 +114,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/16/23
-        /// Programmer(s): Justin Reyes
         /// Opens a form that allows the user to set canvas dimensions.
+        /// <list type="bullet">
+        /// <item>Date: 4/16/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the imagePropertiesButton object.</param>
         /// <param name="e">An EventListener checking for when the Button is clicked.</param>
@@ -156,9 +166,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/01/23
-        /// Programmer(s): Justin Reyes
         /// Reverts the image to its previous state.
+        /// <list type="bullet">
+        /// <item>Date: 4/01/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the undoButton object.</param>
         /// <param name="e">An EventListener checking for when the Button is clicked.</param>
@@ -168,9 +180,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/01/23
-        /// Programmer(s): Justin Reyes
         /// Reverts an undone change
+        /// <list type="bullet">
+        /// <item>Date: 4/01/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the redoButton object.</param>
         /// <param name="e">An EventListener checking for when the Button is clicked.</param>
@@ -180,9 +194,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 3/13/23
-        /// Programmer(s): Gregory Khrom-Abramyan, Justin Reyes
         /// Changes the tool to the brush tool
+        /// <list type="bullet">
+        /// <item>Date: 3/13/23</item>
+        /// <item>Programmer(s): Gregory Khrom-Abramyan, Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the brushButton object.</param>
         /// <param name="e">An EventListener checking for when the Button is clicked.</param>
@@ -193,9 +209,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 3/13/23
-        /// Programmer(s): Gregory Khrom-Abramyan, Justin Reyes
         /// Changes the tool to the eraser tool
+        /// <list type="bullet">
+        /// <item>Date: 3/13/23</item>
+        /// <item>Programmer(s): Gregory Khrom-Abramyan, Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the eraserButton object.</param>
         /// <param name="e">An EventListener checking for when the Button is clicked.</param>
@@ -206,9 +224,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/05/23
-        /// Programmer(s): Lilianna Rosales
         /// Populates the text box with the brush width
+        /// <list type="bullet">
+        /// <item>Date: 4/05/23</item>
+        /// <item>Programmer(s): Lilianna Rosales</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the brushSizeToolStripMenuItem object.</param>
         /// <param name="e">An EventListener checking for when the MenuItem is hovered over.</param>
@@ -218,9 +238,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/05/23
-        /// Programmer(s): Lilianna Rosales
         /// Populates the text box with the eraser width
+        /// <list type="bullet">
+        /// <item>Date: 4/05/23</item>
+        /// <item>Programmer(s): Lilianna Rosales</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the eraserSizeToolStripMenuItem object.</param>
         /// <param name="e">An EventListener checking for when the MenuItem is hovered over.</param>
@@ -230,11 +252,13 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/05/23
-        /// Programmer(s): Lilianna Rosales
-        /// Populates the text box with the eraser width
+        /// Populates the text box with the eraser width.
         /// Processes brush size changes. If an invalid value is input the brush size is
-        /// set back to the default size of 5
+        /// set back to the default size of 5.
+        /// <list type="bullet">
+        /// <item>Date: 4/05/23</item>
+        /// <item>Programmer(s): Lilianna Rosales</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the brushSizeTextBox object.</param>
         /// <param name="e">An EventListener checking for when the TextBox is changed.</param>
@@ -249,10 +273,12 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/05/23
-        /// Programmer(s): Lilianna Rosales
         /// Processes eraser size changes. If an invalid value is input the eraser size is
-        /// set back to the default size of 20
+        /// set back to the default size of 20.
+        /// <list type="bullet">
+        /// <item>Date: 4/05/23</item>
+        /// <item>Programmer(s): Lilianna Rosales</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the eraserSizeTextBox object.</param>
         /// <param name="e">An EventListener checking for when the TextBox is changed.</param>
@@ -267,9 +293,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/05/23
-        /// Programmer(s): Lilianna Rosales
-        /// Clears the brush-size text box when the user clicks inside the text box
+        /// Clears the brush-size text box when the user clicks inside the text box.
+        /// <list type="bullet">
+        /// <item>Date: 4/05/23</item>
+        /// <item>Programmer(s): Lilianna Rosales</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the brushSizeTextBox object.</param>
         /// <param name="e">An EventListener checking for when the TextBox is clicked.</param>
@@ -279,9 +307,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/05/23
-        /// Programmer(s): Lilianna Rosales
-        /// Clears the eraser-size text box when the user clicks inside the text box
+        /// Clears the eraser-size text box when the user clicks inside the text box.
+        /// <list type="bullet">
+        /// <item>Date: 4/05/23</item>
+        /// <item>Programmer(s): Lilianna Rosales</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the eraserSizeTextBox object.</param>
         /// <param name="e">An EventListener checking for when the TextBox is clicked.</param>
@@ -291,10 +321,12 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/05/23
-        /// Programmer(s): Taylor Nastally
         /// Changes the tool to the shape tool.
         /// Changes the type of shape tool to 1 (Rectangle).
+        /// <list type="bullet">
+        /// <item>Date: 4/05/23</item>
+        /// <item>Programmer(s): Taylor Nastally</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the rectangleToolMenuItem object.</param>
         /// <param name="e">An EventListener checking for when the MenuItem is clicked.</param>
@@ -306,10 +338,12 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/14/23
-        /// Programmer(s): Taylor Nastally
         /// Changes the tool to the shape tool.
         /// Changes the type of shape tool to 2 (Ellipse).
+        /// <list type="bullet">
+        /// <item>Date: 4/14/23</item>
+        /// <item>Programmer(s): Taylor Nastally</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the ellipseToolMenuItem object.</param>
         /// <param name="e">An EventListener checking for when the MenuItem is clicked.</param>
@@ -321,10 +355,12 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/14/23
-        /// Programmer(s): Taylor Nastally
         /// Changes the tool to the shape tool.
         /// Changes the type of shape tool to 3 (Polygon).
+        /// <list type="bullet">
+        /// <item>Date: 4/14/23</item>
+        /// <item>Programmer(s): Taylor Nastally</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the polygonToolMenuItem object.</param>
         /// <param name="e">An EventListener checking for when the MenuItem is clicked.</param>
@@ -336,9 +372,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/10/23
-        /// Programmer(s): Justin Reyes
         /// Changes the tool to the fill tool.
+        /// <list type="bullet">
+        /// <item>Date: 4/10/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the fillButton object.</param>
         /// <param name="e">An EventListener checking for when the Button is clicked.</param>
@@ -349,9 +387,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/05/23
-        /// Programmer(s): Gregory Khrom-Abramyan
         /// Opens the color selection dialog and when pressing "ok", applies the selected color to all tools.
+        /// <list type="bullet">
+        /// <item>Date: 4/05/23</item>
+        /// <item>Programmer(s): Gregory Khrom-Abramyan</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the colorTool object.</param>
         /// <param name="e">An EventListener checking for when the Button is clicked.</param>
@@ -369,9 +409,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/16/23
-        /// Programmer(s): Gregory Khrom-Abramyan
         /// Changes the tool to the color picker tool and updates the hovered color preview.
+        /// <list type="bullet">
+        /// <item>Date: 4/16/23</item>
+        /// <item>Programmer(s): Gregory Khrom-Abramyan</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the colorPickerButton object.</param>
         /// <param name="e">An EventListener checking for when the Button is clicked.</param>
@@ -384,10 +426,12 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 3/08/23
-        /// Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally
         /// Draws on the canvas using the currently selected tool.
         /// If the current tool is the color picker, the hovered color is applied to all tools.
+        /// <list type="bullet">
+        /// <item>Date: 3/08/23</item>
+        /// <item>Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the pictureBox object.</param>
         /// <param name="e">An EventListener checking for when the pictureBox is clicked.</param>
@@ -422,10 +466,12 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 3/08/23
-        /// Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally
         /// If a drawing tool is in use, continues to draw and updates the mous position.
         /// If the color picker tool is in use, update the hovered color and apply the color to the color picker preview.
+        /// <list type="bullet">
+        /// <item>Date: 3/08/23</item>
+        /// <item>Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the pictureBox object.</param>
         /// <param name="e">An EventListener checking for when the pictureBox is clicked.</param>
@@ -465,11 +511,13 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 3/08/23
-        /// Programmer(s): Justin Reyes, Taylor Nastally
         /// If a drawing tool is in use, stops drawing.
         /// If a shape tool is in use, applies the draw shape to changes.
         /// If the color picker tool is in use, update the hovered color and apply the color to the color picker preview.
+        /// <list type="bullet">
+        /// <item>Date: 3/08/23</item>
+        /// <item>Programmer(s): Justin Reyes, Taylor Nastally</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the pictureBox object.</param>
         /// <param name="e">An EventListener checking for when the pictureBox is clicked.</param>
@@ -492,9 +540,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/01/23
-        /// Programmer(s): Justin Reyes
-        /// Checks for user inputted keyboard commands to save and open files and to undo or redo changes..
+        /// Checks for user inputted keyboard commands to save and open files and to undo or redo changes.
+        /// <list type="bullet">
+        /// <item>Date: 4/01/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the PixelForgeryGUI object.</param>
         /// <param name="e">An EventListener checking for when a key is pressed.</param>
@@ -537,10 +587,12 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/11/23
-        /// Programmer(s): Justin Reyes, Taylor Nastally
         /// Temporarily updates the canvas.
         /// Actively shows what the shape being drawn looks like.
+        /// <list type="bullet">
+        /// <item>Date: 4/11/23</item>
+        /// <item>Programmer(s): Justin Reyes, Taylor Nastally</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the pictureBox object.</param>
         /// <param name="e">An EventListener checking for the Paint event.</param>
@@ -553,9 +605,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/16/23
-        /// Programmer(s): Justin Reyes
-        /// Changes the background color of buttons to indicate which tool is being currently used
+        /// Changes the background color of buttons to indicate which tool is being currently used.
+        /// <list type="bullet">
+        /// <item>Date: 4/16/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="i">References which tool object is in use.</param>
         private void ChangeToolBackground(int i)
