@@ -9,13 +9,19 @@ using System.Windows.Forms;
 namespace Pixel_Forgery
 {
     /// <summary>
-    /// Date: 3/13/23
-    /// Programmer(s): Justin Reyes, Lilianna Rosales
     /// EraserTool class controls the construction and use of the eraser
+    /// <list type="bullet">
+    /// <item>Date: 3/13/23</item>
+    /// <item>Programmer(s): Justin Reyes, Lilianna Rosales</item>
+    /// </list>
     /// Contains 1 method:
-    /// UseTool() which erases pixels from pictureBox1 by changing their color to white.
+    /// <list type="number">
+    /// <item>UseTool() which erases pixels from pictureBox1 by changing their color to white.</item>
+    /// </list>
     /// Contains 1 property variable:
-    /// EraserWidth which gets and sets the eraser pen width
+    /// <list type="number">
+    /// <item>EraserWidth which gets and sets the eraser pen width.</item>
+    /// </list>
     /// </summary>
     public class EraserTool : PixelForgeryTool
     {
@@ -25,10 +31,12 @@ namespace Pixel_Forgery
 
 
         /// <summary>
-        /// Date: 4/05/23
-        /// Programmer(s): Lilianna Rosales
         /// Property variable for setting and getting the 
         /// eraser pen width
+        /// <list type="bullet">
+        /// <item>Date: 4/05/23</item>
+        /// <item>Programmer(s): Lilianna Rosales</item>
+        /// </list>
         /// </summary>
         public float EraserWidth
         {
@@ -37,9 +45,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 3/13/23
-        /// Programmer(s): Justin Reyes
         /// Erases pixels from pictureBox1 by changing their color to white.
+        /// <list type="bullet">
+        /// <item>Date: 3/13/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="e">is the mouse event parameter and contains data like location and mouse button click type</param>
         /// <param name="pictureBox1">Reference to the pictureBox.</param>

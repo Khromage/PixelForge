@@ -44,7 +44,7 @@
   <Class Name="Pixel_Forgery.Changes">
     <Position X="4.25" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAgAAgAAAAAAAAAAAAAACAAAggAAACAAAAAAAAAg=</HashCode>
+      <HashCode>AACAAgAAAAAAAAAAAAAAAAACAAAggAAACAAAAAAAAAg=</HashCode>
       <FileName>Changes.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -72,7 +72,7 @@
   <Class Name="Pixel_Forgery.ImagePropertiesForm">
     <Position X="6.25" Y="6.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AQAAIBAAACYAAAAAAAKAIAJCAAAgAAgAgAAQABAgAAA=</HashCode>
+      <HashCode>ARAAIAAAACYAAAAAAAKAAAACBAAoAAgAkAAAgBAgAAA=</HashCode>
       <FileName>ImagePropertiesForm.cs</FileName>
     </TypeIdentifier>
   </Class>

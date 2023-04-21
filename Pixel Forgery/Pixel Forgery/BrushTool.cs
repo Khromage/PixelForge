@@ -10,13 +10,19 @@ using static System.Windows.Forms.AxHost;
 namespace Pixel_Forgery
 {
     /// <summary>
-    /// Date: 3/13/23
-    /// Programmer(s): Justin Reyes, Lilianna Rosales
     /// BrushTool class controls the construction and use of the brush
+    /// <list type="bullet">
+    /// <item>Date: 3/13/23</item>
+    /// <item>Programmer(s): Justin Reyes, Lilianna Rosales</item>
+    /// </list>
     /// Contains 1 method:
-    /// UseTool() which creates brush strokes by by changing color the pixels from pictureBox1 
+    /// <list type="number">
+    /// <item>UseTool() which creates brush strokes by by changing color the pixels from pictureBox1</item>
+    /// </list>
     /// Contains 1 property variable:
-    /// BrushWidth which gets and sets the brush pen width
+    /// <list type="number">
+    /// <item>BrushWidth which gets and sets the brush pen width</item>
+    /// </list>
     /// </summary>
     public class BrushTool : PixelForgeryTool
     {
@@ -25,10 +31,12 @@ namespace Pixel_Forgery
         private Pen p = new Pen(Color.Black, 5);
 
         /// <summary>
-        /// Date: 4/05/23
-        /// Programmer(s): Lilianna Rosales
         /// Property variable for setting and getting the 
         /// brush pen width
+        /// <list type="bullet">
+        /// <item>Date: 4/05/23</item>
+        /// <item>Programmer(s): Lilianna Rosales</item>
+        /// </list>
         /// </summary>
         public float BrushWidth
         {
@@ -37,9 +45,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 3/13/23
-        /// Programmer(s): Justin Reyes
         /// Creates brush strokes by by changing color the pixels from pictureBox1
+        /// <list type="bullet">
+        /// <item>Date: 3/13/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="e">is the mouse event parameter and contains data like location and mouse button click type</param>
         /// <param name="pictureBox1">Reference to the pictureBox.</param>

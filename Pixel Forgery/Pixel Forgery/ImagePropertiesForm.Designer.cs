@@ -1,9 +1,13 @@
 ﻿namespace Pixel_Forgery
 {
     /// <summary>
-    /// Date: 4/16/23
-    /// Programmer(s): Justin Reyes
-    /// ImagePropertiesForm class which contains the GUI elements of this form.
+    /// ImagePropertiesForm class which contains the GUI elements of this form. Contains EventListeners for MouseEvents.
+    /// This form is shown to the user whenever they press the Image Properties button in the main application.
+    /// It is necessary for setting the width and height of the canvas.
+    /// <list type="bullet">
+    /// <item>Date: 4/16/23</item>
+    /// <item>Programmer(s): Justin Reyes</item>
+    /// </list>
     /// </summary>
     partial class ImagePropertiesForm
     {
@@ -32,10 +36,12 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        /// Date: 4/16/23
-        /// Programmer(s): Justin Reyes
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
+        /// <list type="bullet">
+        /// <item>Date: 4/16/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         private void InitializeComponent()
         {

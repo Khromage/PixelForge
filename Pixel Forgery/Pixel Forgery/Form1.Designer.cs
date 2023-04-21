@@ -5,7 +5,8 @@ using System.Drawing;
 namespace Pixel_Forgery
 {
     /// <summary>
-    /// GUI class containing all the graphical objects rendered in the form.
+    /// GUI class containing all the graphical objects rendered in the form. Loads the essential tools for the software.
+    /// Contains EventListeners for MouseEvents and KeyboardEvents.
     /// <list type="bullet">
     /// <item>Date: 2/26/23</item>
     /// <item>Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally, Lilianna Rosales</item>

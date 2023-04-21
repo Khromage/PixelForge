@@ -9,9 +9,11 @@ namespace Pixel_Forgery
     internal static class Program
     {
         /// <summary>
-        /// Date: 2/26/23
-        /// Programmer(s): None (Built-in to WinForm)
         /// The main entry point for the application.
+        /// <list type="bullet">
+        /// <item>Date: 2/26/23</item>
+        /// <item>Programmer(s): None (Built-in to WinForm)</item>
+        /// </list>
         /// </summary>
         [STAThread]
         static void Main()

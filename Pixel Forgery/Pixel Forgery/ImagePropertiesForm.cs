@@ -11,34 +11,50 @@ using System.Windows.Forms;
 namespace Pixel_Forgery
 {
     /// <summary>
-    /// Date: 4/16/23
-    /// Programmer: Justin Reyes
-    /// ImagePropertiesForm class which contains the functionality for this form.
-    /// Contains EventListeners for MouseEvents.
+    /// ImagePropertiesForm class which contains the functionality for this form. Contains EventListeners for MouseEvents.
     /// This form is shown to the user whenever they press the Image Properties button in the main application.
     /// It is necessary for setting the width and height of the canvas.
+    /// <list type="bullet">
+    /// <item>Date: 4/16/23</item>
+    /// <item>Programmer(s): Justin Reyes</item>
+    /// </list>
     /// </summary>
     public partial class ImagePropertiesForm : Form
     {
         /// <summary>
-        /// Date: 4/16/23
-        /// Programmer: Justin Reyes
-        /// Integer variables containing the width and height that the user desires for the canvas.
+        /// Integer variable containing the width that the user desires for the canvas.
+        /// <list type="bullet">
+        /// <item>Date: 4/16/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
-        public int canvasWidth, canvasHeight;
+        public int canvasWidth;
 
         /// <summary>
-        /// Date: 4/16/23
-        /// Programmer: Justin Reyes
+        /// Integer variable containing the height that the user desires for the canvas.
+        /// <list type="bullet">
+        /// <item>Date: 4/16/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
+        /// </summary>
+        public int canvasHeight;
+
+        /// <summary>
         /// Boolean variable that checks whether or not the user accepts or cancels the canvas resize.
+        /// <list type="bullet">
+        /// <item>Date: 4/16/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         public bool changeSize = false;
 
         /// <summary>
-        /// Date: 4/16/23
-        /// Programmer: Justin Reyes
         /// Constructor for the ImageProperties form class.
         /// Initializes the GUI elements and sets default control of the user.
+        /// <list type="bullet">
+        /// <item>Date: 4/16/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         public ImagePropertiesForm()
         {
@@ -47,9 +63,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/16/23
-        /// Programmer: Justin Reyes
         /// Sets the text of the width and height Text Boxes to what the main GUI's canvas is currently set to.
+        /// <list type="bullet">
+        /// <item>Date: 4/16/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">Reference to the ImagePropertiesForm object.</param>
         /// <param name="e">Event listener for when the form is initialized and loaded to the screen.</param>
@@ -60,10 +78,12 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/16/23
-        /// Programmer: Justin Reyes
         /// Reads the text inputted by the user into the widthTextBox and converts it to an integer.
         /// Sets the canvasWidth variable to the parsed integer.
+        /// <list type="bullet">
+        /// <item>Date: 4/16/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">Reference to the widthTextBox object.</param>
         /// <param name="e">Event listener for when the Text Box's content is changed.</param>
@@ -76,10 +96,12 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/16/23
-        /// Programmer: Justin Reyes
         /// Reads the text inputted by the user into the heightTextBox and converts it to an integer.
         /// Sets the canvasHeight variable to the parsed integer.
+        /// <list type="bullet">
+        /// <item>Date: 4/16/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">Reference to the heightTextBox object.</param>
         /// <param name="e">Event listener for when the Text Box's content is changed.</param>
@@ -92,9 +114,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/16/23
-        /// Programmer: Justin Reyes
         /// Sets the width and height Text Boxes to their default values.
+        /// <list type="bullet">
+        /// <item>Date: 4/16/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">Reference to the defaultButton object.</param>
         /// <param name="e">Event listener for when the Button is clicked.</param>
@@ -107,9 +131,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/16/23
-        /// Programmer: Justin Reyes
         /// Accepts the changes made to the canvas width and height, closes this form, and sends control back to the main GUI.
+        /// <list type="bullet">
+        /// <item>Date: 4/16/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">Reference to the acceptButton object.</param>
         /// <param name="e">Event listener for when the Button is clicked.</param>
@@ -120,9 +146,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/16/23
-        /// Programmer: Justin Reyes
         /// Closes this form and sends control back to the main GUI without changing anything.
+        /// <list type="bullet">
+        /// <item>Date: 4/16/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">Reference to the cancelButton object.</param>
         /// <param name="e">Event listener for when the Button is clicked.</param>
