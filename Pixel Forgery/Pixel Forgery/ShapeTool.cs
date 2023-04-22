@@ -10,15 +10,15 @@ using static System.Windows.Forms.AxHost;
 namespace Pixel_Forgery
 {
     /// <summary>
+    /// Shape tool class controls the type and method of construction for the user's desired drawing type.
     /// <list type="bullet">
     /// <item>Date: 04/05/2023 (initial commit)</item>
     /// <item>Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally, Lilianna Rosales</item>
     /// </list>
-    /// Shape tool class controls the type and method of construction for the user's desired drawing type.
-    /// Contains two use methods (UseTool() and drawOutline()):
+    /// Contains 3 methods:
     /// <list type="number">
     /// <item>useTool() is an overriden method that allows the tool to be drawn to the canvas</item>
-    /// <item>drawOutline() is an overriden method that allows the tool to have drag-and-drop functionality</item>
+    /// <item>DrawOutline() is an overriden method that allows the tool to have drag-and-drop functionality</item>
     /// <item>drawRectangle() is a private method that allows takes the mouse loction and creates a rectangle with it</item>
     /// </list>
     /// </summary>
@@ -73,10 +73,9 @@ namespace Pixel_Forgery
         /// <item>Date: 04/11/2023</item>
         /// <item>Programmer(s): Justin Reyes, Taylor Nastally</item>
         /// </list>
-
         /// </summary>
         /// <param name="e">is the paint event handler and contains the graphics of the control</param>
-        public override void drawOutline(PaintEventArgs e)
+        public override void DrawOutline(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
             switch (typeOfTool)
@@ -101,14 +100,13 @@ namespace Pixel_Forgery
         /// <summary>
         /// assigns the passed list to the tool object's list
         /// (previous work got wiped out by an accidental revert during a sync, polygon draw will be operational this weekend)
-        /// </summary>
         /// <list type="bullet">
         /// <item>Date: 04/14/2023</item>
         /// <item>Programmer: Taylor Nastally</item>
         /// </list>
-
-        /// <param name="points">is the list of points used to draw polygons</param>
-        public override void points(List<Point> points)
+        /// </summary>
+        /// <param name="points">is the list of Points used to draw polygons</param>
+        public override void Points(List<Point> points)
         {
             if (this.pointsInTool == null)
                 pointsInTool = new List<Point>();

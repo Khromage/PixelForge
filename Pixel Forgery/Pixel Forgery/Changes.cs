@@ -16,12 +16,12 @@ namespace Pixel_Forgery
     /// </list>
     /// Contains 6 methods:
     /// <list type="number">
-    /// <item>Changes() which is the constructor for the class that instantiates the LLs.</item>
-    /// <item>addChange() which saves a new image state</item>
-    /// <item>undoChange() which reverts to a previous image state.</item>
-    /// <item>redoChange() which reverts to an undone image state.</item>
-    /// <item>setNewImage() which is a helper function to undoChange() and redoChange() and sets the pictureBox to the right image state.</item>
-    /// <item>clearStacks() which resets the two LLs.</item>
+    /// <item>Changes() which is the constructor for the class that instantiates the LLs</item>
+    /// <item>AddChange() which saves a new image state</item>
+    /// <item>UndoChange() which reverts to a previous image state</item>
+    /// <item>RedoChange() which reverts to an undone image state</item>
+    /// <item>SetNewImage() which is a helper function to UndoChange() and RedoChange() and sets the pictureBox to the right image state</item>
+    /// <item>ClearStacks() which resets the two LLs</item>
     /// </list>
     /// The FILO functionality of Stacks is the most important part of the class's methods.
     /// However, a linked-list is used instead to limit the number of images saved by removing from the bottom of the "Stack".
@@ -53,7 +53,7 @@ namespace Pixel_Forgery
         /// </list>
         /// </summary>
         /// <param name="pictureBox">Reference to the pictureBox.</param>
-        public void addChange(System.Windows.Forms.PictureBox pictureBox)
+        public void AddChange(System.Windows.Forms.PictureBox pictureBox)
         {
             System.Drawing.Image curr = (System.Drawing.Image)pictureBox.Image.Clone();
             undoStack.AddLast(curr);
@@ -71,7 +71,7 @@ namespace Pixel_Forgery
         /// </list>
         /// </summary>
         /// <param name="pictureBox">Reference to the pictureBox.</param>
-        public void undoChange(System.Windows.Forms.PictureBox pictureBox)
+        public void UndoChange(System.Windows.Forms.PictureBox pictureBox)
         {
             if (undoStack.Count > 1)
             {
@@ -82,7 +82,7 @@ namespace Pixel_Forgery
 
                 undoStack.RemoveLast();
 
-                setNewImage(pictureBox);
+                SetNewImage(pictureBox);
             }
         }
 
@@ -94,7 +94,7 @@ namespace Pixel_Forgery
         /// </list>
         /// </summary>
         /// <param name="pictureBox">Reference to the pictureBox.</param>
-        public void redoChange(System.Windows.Forms.PictureBox pictureBox)
+        public void RedoChange(System.Windows.Forms.PictureBox pictureBox)
         {
             if(redoStack.Count > 1)
             {
@@ -104,7 +104,7 @@ namespace Pixel_Forgery
                 undoStack.AddLast(curr);
                 redoStack.RemoveLast();
 
-                setNewImage(pictureBox);
+                SetNewImage(pictureBox);
             }
         }
 
@@ -116,7 +116,7 @@ namespace Pixel_Forgery
         /// </list>
         /// </summary>
         /// <param name="pictureBox">Reference to the pictureBox.</param>
-        public void setNewImage(System.Windows.Forms.PictureBox pictureBox)
+        public void SetNewImage(System.Windows.Forms.PictureBox pictureBox)
         {
             System.Drawing.Image img = undoStack.Last();
             System.Drawing.Image current = (System.Drawing.Image)img.Clone();
@@ -144,7 +144,7 @@ namespace Pixel_Forgery
         /// <item>Programmer(s): Justin Reyes</item>
         /// </list>
         /// </summary>
-        public void clearStacks()
+        public void ClearStacks()
         {
             undoStack.Clear();
             redoStack.Clear();

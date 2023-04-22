@@ -1,25 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Text;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
 
 
 namespace Pixel_Forgery
 {
     /// <summary>
-    /// Date: 2/26/23
-    /// Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally, Lilianna Rosales
     /// GUI class which loads the essential tools for the software.
     /// Contains EventListeners for MouseEvents and KeyboardEvents.
+    /// <list type="bullet">
+    /// <item>Date: 2/26/23</item>
+    /// <item>Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally, Lilianna Rosales</item>
+    /// </list> 
     /// </summary>
     public partial class PixelForgeryGUI : Form
     {
@@ -34,11 +27,13 @@ namespace Pixel_Forgery
         private List<Point> points = new List<Point>();
 
         /// <summary>
-        /// Date: 2/26/23
-        /// Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally, Lilianna Rosales
         /// Constructor for the PixelForgeryGUI class.
         /// Initializes all the graphical objects in the GUI.
         /// Sets the canvas to a white background and the tool to the brush tool by default.
+        /// <list type="bullet">
+        /// <item>Date: 2/26/23</item>
+        /// <item>Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally, Lilianna Rosales</item>
+        /// </list> 
         /// </summary>
         public PixelForgeryGUI()
         {
@@ -49,25 +44,27 @@ namespace Pixel_Forgery
             pictureBox.BackColor = Color.White;
             colorChangeButton.BackColor = Color.Black;
             tool = brushTool;
-            changeToolBackground(1);
+            ChangeToolBackground(1);
 
             using (Graphics g = Graphics.FromImage(BMP))
             {
                 Rectangle bg = new Rectangle(0, 0, BMP.Width, BMP.Height);
                 g.FillRectangle(Brushes.White, bg);
             }
-            changes.addChange(pictureBox);
+            changes.AddChange(pictureBox);
 
         }
 
         /// <summary>
-        /// Date: 4/16/23
-        /// Programmer(s): Justin Reyes
         /// Creates a new canvas for the user to draw in, defaults to 918x595 pixels in size.
+        /// <list type="bullet">
+        /// <item>Date: 4/16/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the newButton object</param>
         /// <param name="e">An EventListener checking for when the Button is clicked</param>
-        private void newButton_Click(object sender, EventArgs e)                // New Button
+        private void NewButton_Click(object sender, EventArgs e)                // New Button
         {
             BMP = new Bitmap(918, 595);
             using (Graphics g = Graphics.FromImage(BMP))
@@ -77,49 +74,55 @@ namespace Pixel_Forgery
             }
             pictureBox.Size = BMP.Size;
             pictureBox.Image = BMP;
-            changes.clearStacks();
-            changes.addChange(pictureBox);
+            changes.ClearStacks();
+            changes.AddChange(pictureBox);
         }
 
         /// <summary>
-        /// Date: 3/29/23
-        /// Programmer(s): Justin Reyes
         /// Opens a save file dialog to let the user save the image.
+        /// <list type="bullet">
+        /// <item>Date: 3/29/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the saveButton object.</param>
         /// <param name="e">An EventListener checking for when the Button is clicked.</param>
-        private void saveButton_Click(object sender, EventArgs e)               // Save File Button
+        private void SaveButton_Click(object sender, EventArgs e)               // Save File Button
         {
             FileExplorerDialog fd = new FileExplorerDialog();
-            fd.saveFile(this.pictureBox);
-            changes.clearStacks();
-            changes.addChange(pictureBox);
+            fd.SaveFile(this.pictureBox);
+            changes.ClearStacks();
+            changes.AddChange(pictureBox);
         }
 
         /// <summary>
-        /// Date: 3/29/23
-        /// Programmer(s): Justin Reyes
         /// Opens an open file dialog to let the user open an image.
+        /// <list type="bullet">
+        /// <item>Date: 3/29/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the openButton object.</param>
         /// <param name="e">An EventListener checking for when the Button is clicked.</param>
-        private void openButton_Click(object sender, EventArgs e)               // Open File Button
+        private void OpenButton_Click(object sender, EventArgs e)               // Open File Button
         {   
             FileExplorerDialog fd = new FileExplorerDialog();
-            fd.loadFile(this.pictureBox);
+            fd.OpenFile(this.pictureBox);
             BMP = (Bitmap)pictureBox.Image;
-            changes.clearStacks();
-            changes.addChange(pictureBox);
+            changes.ClearStacks();
+            changes.AddChange(pictureBox);
         }
 
         /// <summary>
-        /// Date: 4/16/23
-        /// Programmer(s): Justin Reyes
         /// Opens a form that allows the user to set canvas dimensions.
+        /// <list type="bullet">
+        /// <item>Date: 4/16/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the imagePropertiesButton object.</param>
         /// <param name="e">An EventListener checking for when the Button is clicked.</param>
-        private void imagePropertiesButton_Click(object sender, EventArgs e)    // Image Properties Button
+        private void ImagePropertiesButton_Click(object sender, EventArgs e)    // Image Properties Button
         {
             try
             {
@@ -150,7 +153,7 @@ namespace Pixel_Forgery
                         pictureBox.Image = BMP;
                         pictureBox.Size = BMP.Size;
                         pictureBox.Invalidate();
-                        changes.addChange(pictureBox);
+                        changes.AddChange(pictureBox);
                     }
 
                     pictureBox.Refresh();
@@ -163,89 +166,103 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/01/23
-        /// Programmer(s): Justin Reyes
         /// Reverts the image to its previous state.
+        /// <list type="bullet">
+        /// <item>Date: 4/01/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the undoButton object.</param>
         /// <param name="e">An EventListener checking for when the Button is clicked.</param>
-        private void undoButton_Click(object sender, EventArgs e)               // Undo Changes Button
+        private void UndoButton_Click(object sender, EventArgs e)               // Undo Changes Button
         {
-            changes.undoChange(pictureBox);
+            changes.UndoChange(pictureBox);
         }
 
         /// <summary>
-        /// Date: 4/01/23
-        /// Programmer(s): Justin Reyes
         /// Reverts an undone change
+        /// <list type="bullet">
+        /// <item>Date: 4/01/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the redoButton object.</param>
         /// <param name="e">An EventListener checking for when the Button is clicked.</param>
-        private void redoButton_Click(object sender, EventArgs e)               // Redo Changes Button
+        private void RedoButton_Click(object sender, EventArgs e)               // Redo Changes Button
         {
-            changes.redoChange(pictureBox);
+            changes.RedoChange(pictureBox);
         }
 
         /// <summary>
-        /// Date: 3/13/23
-        /// Programmer(s): Gregory Khrom-Abramyan, Justin Reyes
         /// Changes the tool to the brush tool
+        /// <list type="bullet">
+        /// <item>Date: 3/13/23</item>
+        /// <item>Programmer(s): Gregory Khrom-Abramyan, Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the brushButton object.</param>
         /// <param name="e">An EventListener checking for when the Button is clicked.</param>
-        private void brushButton_Click(object sender, EventArgs e)              // Brush Tool Button
+        private void BrushButton_Click(object sender, EventArgs e)              // Brush Tool Button
         {
             tool = brushTool;
-            changeToolBackground(1);
+            ChangeToolBackground(1);
         }
 
         /// <summary>
-        /// Date: 3/13/23
-        /// Programmer(s): Gregory Khrom-Abramyan, Justin Reyes
         /// Changes the tool to the eraser tool
+        /// <list type="bullet">
+        /// <item>Date: 3/13/23</item>
+        /// <item>Programmer(s): Gregory Khrom-Abramyan, Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the eraserButton object.</param>
         /// <param name="e">An EventListener checking for when the Button is clicked.</param>
-        private void eraserButton_Click(object sender, EventArgs e)             // Eraser Tool Button
+        private void EraserButton_Click(object sender, EventArgs e)             // Eraser Tool Button
         {
             tool = eraserTool;
-            changeToolBackground(2);
+            ChangeToolBackground(2);
         }
 
         /// <summary>
-        /// Date: 4/05/23
-        /// Programmer(s): Lilianna Rosales
         /// Populates the text box with the brush width
+        /// <list type="bullet">
+        /// <item>Date: 4/05/23</item>
+        /// <item>Programmer(s): Lilianna Rosales</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the brushSizeToolStripMenuItem object.</param>
         /// <param name="e">An EventListener checking for when the MenuItem is hovered over.</param>
-        private void brushSizeToolStripMenuItem_MouseHover(object sender, EventArgs e)
+        private void BrushSizeToolStripMenuItem_MouseHover(object sender, EventArgs e)
         {
             brushSizeTextBox.Text = brushTool.BrushWidth.ToString();
         }
 
         /// <summary>
-        /// Date: 4/05/23
-        /// Programmer(s): Lilianna Rosales
         /// Populates the text box with the eraser width
+        /// <list type="bullet">
+        /// <item>Date: 4/05/23</item>
+        /// <item>Programmer(s): Lilianna Rosales</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the eraserSizeToolStripMenuItem object.</param>
         /// <param name="e">An EventListener checking for when the MenuItem is hovered over.</param>
-        private void eraserSizeToolStripMenuItem_MouseHover(object sender, EventArgs e)
+        private void EraserSizeToolStripMenuItem_MouseHover(object sender, EventArgs e)
         {
             eraserSizeTextBox.Text = eraserTool.EraserWidth.ToString();
         }
 
         /// <summary>
-        /// Date: 4/05/23
-        /// Programmer(s): Lilianna Rosales
-        /// Populates the text box with the eraser width
+        /// Populates the text box with the eraser width.
         /// Processes brush size changes. If an invalid value is input the brush size is
-        /// set back to the default size of 5
+        /// set back to the default size of 5.
+        /// <list type="bullet">
+        /// <item>Date: 4/05/23</item>
+        /// <item>Programmer(s): Lilianna Rosales</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the brushSizeTextBox object.</param>
         /// <param name="e">An EventListener checking for when the TextBox is changed.</param>
-        private void brushSizeTextBox_TextChanged(object sender, EventArgs e)
+        private void BrushSizeTextBox_TextChanged(object sender, EventArgs e)
         {
             string s = brushSizeTextBox.Text;
 
@@ -256,14 +273,16 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/05/23
-        /// Programmer(s): Lilianna Rosales
         /// Processes eraser size changes. If an invalid value is input the eraser size is
-        /// set back to the default size of 20
+        /// set back to the default size of 20.
+        /// <list type="bullet">
+        /// <item>Date: 4/05/23</item>
+        /// <item>Programmer(s): Lilianna Rosales</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the eraserSizeTextBox object.</param>
         /// <param name="e">An EventListener checking for when the TextBox is changed.</param>
-        private void eraserSizeTextBox_TextChanged(object sender, EventArgs e)
+        private void EraserSizeTextBox_TextChanged(object sender, EventArgs e)
         {
             string s = eraserSizeTextBox.Text;
 
@@ -274,95 +293,109 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/05/23
-        /// Programmer(s): Lilianna Rosales
-        /// Clears the brush-size text box when the user clicks inside the text box
+        /// Clears the brush-size text box when the user clicks inside the text box.
+        /// <list type="bullet">
+        /// <item>Date: 4/05/23</item>
+        /// <item>Programmer(s): Lilianna Rosales</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the brushSizeTextBox object.</param>
         /// <param name="e">An EventListener checking for when the TextBox is clicked.</param>
-        private void brushSizeTextBox_Click(object sender, EventArgs e)
+        private void BrushSizeTextBox_Click(object sender, EventArgs e)
         {
             brushSizeTextBox.Clear();
         }
 
         /// <summary>
-        /// Date: 4/05/23
-        /// Programmer(s): Lilianna Rosales
-        /// Clears the eraser-size text box when the user clicks inside the text box
+        /// Clears the eraser-size text box when the user clicks inside the text box.
+        /// <list type="bullet">
+        /// <item>Date: 4/05/23</item>
+        /// <item>Programmer(s): Lilianna Rosales</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the eraserSizeTextBox object.</param>
         /// <param name="e">An EventListener checking for when the TextBox is clicked.</param>
-        private void eraserSizeTextBox_Click(object sender, EventArgs e)
+        private void EraserSizeTextBox_Click(object sender, EventArgs e)
         {
             eraserSizeTextBox.Clear();
         }
 
         /// <summary>
-        /// Date: 4/05/23
-        /// Programmer(s): Taylor Nastally
         /// Changes the tool to the shape tool.
         /// Changes the type of shape tool to 1 (Rectangle).
+        /// <list type="bullet">
+        /// <item>Date: 4/05/23</item>
+        /// <item>Programmer(s): Taylor Nastally</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the rectangleToolMenuItem object.</param>
         /// <param name="e">An EventListener checking for when the MenuItem is clicked.</param>
-        private void rectangleToolStripMenuItem_Click(object sender, EventArgs e)
+        private void RectangleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tool = shapeTool;
             tool.typeOfTool = 1;
-            changeToolBackground(3);
+            ChangeToolBackground(3);
         }
 
         /// <summary>
-        /// Date: 4/14/23
-        /// Programmer(s): Taylor Nastally
         /// Changes the tool to the shape tool.
         /// Changes the type of shape tool to 2 (Ellipse).
+        /// <list type="bullet">
+        /// <item>Date: 4/14/23</item>
+        /// <item>Programmer(s): Taylor Nastally</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the ellipseToolMenuItem object.</param>
         /// <param name="e">An EventListener checking for when the MenuItem is clicked.</param>
-        private void ellipseToolStripMenuItem_Click(object sender, EventArgs e)
+        private void EllipseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tool = shapeTool;
             tool.typeOfTool = 2;
-            changeToolBackground(3);
+            ChangeToolBackground(3);
         }
 
         /// <summary>
-        /// Date: 4/14/23
-        /// Programmer(s): Taylor Nastally
         /// Changes the tool to the shape tool.
         /// Changes the type of shape tool to 3 (Polygon).
+        /// <list type="bullet">
+        /// <item>Date: 4/14/23</item>
+        /// <item>Programmer(s): Taylor Nastally</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the polygonToolMenuItem object.</param>
         /// <param name="e">An EventListener checking for when the MenuItem is clicked.</param>
-        private void polygonToolStripMenuItem_Click(object sender, EventArgs e)
+        private void PolygonToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tool = shapeTool;
             tool.typeOfTool = 3;
-            changeToolBackground(3);
+            ChangeToolBackground(3);
         }
 
         /// <summary>
-        /// Date: 4/10/23
-        /// Programmer(s): Justin Reyes
         /// Changes the tool to the fill tool.
+        /// <list type="bullet">
+        /// <item>Date: 4/10/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the fillButton object.</param>
         /// <param name="e">An EventListener checking for when the Button is clicked.</param>
-        private void fillButton_Click(object sender, EventArgs e)
+        private void FillButton_Click(object sender, EventArgs e)
         {
             tool = fillTool;
-            changeToolBackground(4);
+            ChangeToolBackground(4);
         }
 
         /// <summary>
-        /// Date: 4/05/23
-        /// Programmer(s): Gregory Khrom-Abramyan
         /// Opens the color selection dialog and when pressing "ok", applies the selected color to all tools.
+        /// <list type="bullet">
+        /// <item>Date: 4/05/23</item>
+        /// <item>Programmer(s): Gregory Khrom-Abramyan</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the colorTool object.</param>
         /// <param name="e">An EventListener checking for when the Button is clicked.</param>
-        private void colorTool_Click(object sender, EventArgs e)
+        private void ColorTool_Click(object sender, EventArgs e)
         {
             ColorDialog cd = new ColorDialog();
             if (cd.ShowDialog() == DialogResult.OK)
@@ -376,29 +409,33 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/16/23
-        /// Programmer(s): Gregory Khrom-Abramyan
         /// Changes the tool to the color picker tool and updates the hovered color preview.
+        /// <list type="bullet">
+        /// <item>Date: 4/16/23</item>
+        /// <item>Programmer(s): Gregory Khrom-Abramyan</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the colorPickerButton object.</param>
         /// <param name="e">An EventListener checking for when the Button is clicked.</param>
-        private void colorPickerButton_Click(object sender, EventArgs e)
+        private void ColorPickerButton_Click(object sender, EventArgs e)
         {
 
             tool = colorPickerTool;
             pickedcolordisplay.BackColor = tool.pickedColor;
-            changeToolBackground(5);
+            ChangeToolBackground(5);
         }
 
         /// <summary>
-        /// Date: 3/08/23
-        /// Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally
         /// Draws on the canvas using the currently selected tool.
         /// If the current tool is the color picker, the hovered color is applied to all tools.
+        /// <list type="bullet">
+        /// <item>Date: 3/08/23</item>
+        /// <item>Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the pictureBox object.</param>
         /// <param name="e">An EventListener checking for when the pictureBox is clicked.</param>
-        private void pictureBox_MouseDown(object sender, MouseEventArgs e)
+        private void PictureBox_MouseDown(object sender, MouseEventArgs e)
         {
             switch (e.Button)
             {
@@ -439,14 +476,16 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 3/08/23
-        /// Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally
         /// If a drawing tool is in use, continues to draw and updates the mous position.
         /// If the color picker tool is in use, update the hovered color and apply the color to the color picker preview.
+        /// <list type="bullet">
+        /// <item>Date: 3/08/23</item>
+        /// <item>Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the pictureBox object.</param>
         /// <param name="e">An EventListener checking for when the pictureBox is clicked.</param>
-        private void pictureBox_MouseMove(object sender, MouseEventArgs e)
+        private void PictureBox_MouseMove(object sender, MouseEventArgs e)
         {
             if(tool == colorPickerTool)
             {
@@ -482,15 +521,17 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 3/08/23
-        /// Programmer(s): Justin Reyes, Taylor Nastally
         /// If a drawing tool is in use, stops drawing.
         /// If a shape tool is in use, applies the draw shape to changes.
         /// If the color picker tool is in use, update the hovered color and apply the color to the color picker preview.
+        /// <list type="bullet">
+        /// <item>Date: 3/08/23</item>
+        /// <item>Programmer(s): Justin Reyes, Taylor Nastally</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the pictureBox object.</param>
         /// <param name="e">An EventListener checking for when the pictureBox is clicked.</param>
-        private void pictureBox_MouseUp(object sender, MouseEventArgs e)
+        private void PictureBox_MouseUp(object sender, MouseEventArgs e)
         {
             switch (e.Button)
             {
@@ -513,9 +554,11 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Date: 4/01/23
-        /// Programmer(s): Justin Reyes
-        /// Checks for user inputted keyboard commands to save and open files and to undo or redo changes..
+        /// Checks for user inputted keyboard commands to save and open files and to undo or redo changes.
+        /// <list type="bullet">
+        /// <item>Date: 4/01/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the PixelForgeryGUI object.</param>
         /// <param name="e">An EventListener checking for when a key is pressed.</param>
@@ -530,56 +573,60 @@ namespace Pixel_Forgery
                     g.FillRectangle(Brushes.White, bg);
                 }
                 pictureBox.Image = BMP;
-                changes.clearStacks();
-                changes.addChange(pictureBox);
+                changes.ClearStacks();
+                changes.AddChange(pictureBox);
             }
             else if (e.KeyCode == Keys.S && (e.Control)) // Ctrl+S for Save
             {
                 FileExplorerDialog fd = new FileExplorerDialog();
-                fd.saveFile(this.pictureBox);
-                changes.clearStacks();
-                changes.addChange(pictureBox);
+                fd.SaveFile(this.pictureBox);
+                changes.ClearStacks();
+                changes.AddChange(pictureBox);
             }
             else if (e.KeyCode == Keys.O && (e.Control)) // Ctrl+O for Open
             {
                 FileExplorerDialog fd = new FileExplorerDialog();
-                fd.loadFile(this.pictureBox);
-                changes.clearStacks();
-                changes.addChange(pictureBox);
+                fd.OpenFile(this.pictureBox);
+                changes.ClearStacks();
+                changes.AddChange(pictureBox);
             }
             else if (e.KeyCode == Keys.Z && (e.Control)) // Ctrl+Z for Undo
             {
-                changes.undoChange(pictureBox);
+                changes.UndoChange(pictureBox);
             }
             else if (e.KeyCode == Keys.Y && (e.Control)) // Ctrl+Y for Redo
             {
-                changes.redoChange(pictureBox);
+                changes.RedoChange(pictureBox);
             }
         }
 
         /// <summary>
-        /// Date: 4/11/23
-        /// Programmer(s): Justin Reyes, Taylor Nastally
         /// Temporarily updates the canvas.
         /// Actively shows what the shape being drawn looks like.
+        /// <list type="bullet">
+        /// <item>Date: 4/11/23</item>
+        /// <item>Programmer(s): Justin Reyes, Taylor Nastally</item>
+        /// </list>
         /// </summary>
         /// <param name="sender">References the pictureBox object.</param>
         /// <param name="e">An EventListener checking for the Paint event.</param>
-        private void pictureBox_Paint(object sender, PaintEventArgs e)
+        private void PictureBox_Paint(object sender, PaintEventArgs e)
         {
             if(tool.isDrawing && tool == shapeTool)
             {
-                tool.drawOutline(e);
+                tool.DrawOutline(e);
             }
         }
 
         /// <summary>
-        /// Date: 4/16/23
-        /// Programmer(s): Justin Reyes
-        /// Changes the background color of buttons to indicate which tool is being currently used
+        /// Changes the background color of buttons to indicate which tool is being currently used.
+        /// <list type="bullet">
+        /// <item>Date: 4/16/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         /// <param name="i">References which tool object is in use.</param>
-        private void changeToolBackground(int i)
+        private void ChangeToolBackground(int i)
         {
             switch (i)
             {

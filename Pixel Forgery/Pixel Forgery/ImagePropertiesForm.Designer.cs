@@ -1,9 +1,13 @@
 ﻿namespace Pixel_Forgery
 {
     /// <summary>
-    /// Date: 4/16/23
-    /// Programmer(s): Justin Reyes
-    /// ImagePropertiesForm class which contains the GUI elements of this form.
+    /// ImagePropertiesForm class which contains the GUI elements of this form. Contains EventListeners for MouseEvents.
+    /// This form is shown to the user whenever they press the Image Properties button in the main application.
+    /// It is necessary for setting the width and height of the canvas.
+    /// <list type="bullet">
+    /// <item>Date: 4/16/23</item>
+    /// <item>Programmer(s): Justin Reyes</item>
+    /// </list>
     /// </summary>
     partial class ImagePropertiesForm
     {
@@ -32,10 +36,12 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        /// Date: 4/16/23
-        /// Programmer(s): Justin Reyes
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
+        /// <list type="bullet">
+        /// <item>Date: 4/16/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
         /// </summary>
         private void InitializeComponent()
         {
@@ -63,20 +69,20 @@
             // 
             resources.ApplyResources(this.widthTextBox, "widthTextBox");
             this.widthTextBox.Name = "widthTextBox";
-            this.widthTextBox.TextChanged += new System.EventHandler(this.widthTextBox_TextChanged);
+            this.widthTextBox.TextChanged += new System.EventHandler(this.WidthTextBox_TextChanged);
             // 
             // heightTextBox
             // 
             resources.ApplyResources(this.heightTextBox, "heightTextBox");
             this.heightTextBox.Name = "heightTextBox";
-            this.heightTextBox.TextChanged += new System.EventHandler(this.heightTextBox_TextChanged);
+            this.heightTextBox.TextChanged += new System.EventHandler(this.HeightTextBox_TextChanged);
             // 
             // acceptButton
             // 
             resources.ApplyResources(this.acceptButton, "acceptButton");
             this.acceptButton.Name = "acceptButton";
             this.acceptButton.UseVisualStyleBackColor = true;
-            this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
+            this.acceptButton.Click += new System.EventHandler(this.AcceptButton_Click);
             // 
             // cancelButton
             // 
@@ -84,14 +90,14 @@
             resources.ApplyResources(this.cancelButton, "cancelButton");
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // defaultButton
             // 
             resources.ApplyResources(this.defaultButton, "defaultButton");
             this.defaultButton.Name = "defaultButton";
             this.defaultButton.UseVisualStyleBackColor = true;
-            this.defaultButton.Click += new System.EventHandler(this.defaultButton_Click);
+            this.defaultButton.Click += new System.EventHandler(this.DefaultButton_Click);
             // 
             // ImagePropertiesForm
             // 
