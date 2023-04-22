@@ -25,7 +25,8 @@ namespace Pixel_Forgery
     public class ShapeTool : PixelForgeryTool
     {
         Rectangle r;
-        List<Point> pointsInTool = new List<Point>();
+        List<Point> pointsInTool; //= new List<Point>();
+        int iterator = 0;
         Point locationX1Y1;
         Point locationXY;
 
@@ -52,7 +53,10 @@ namespace Pixel_Forgery
                     g.DrawEllipse(p, GetRectangle());
                     break;
                 case 3:
-                    g.DrawPolygon(p, pointsInTool.ToArray());
+                    if (pointsInTool != null && pointsInTool.Count > 1 && e.Button == MouseButtons.Right)
+                        g.DrawLine(p, pointsInTool[pointsInTool.Count - 2], pointsInTool[pointsInTool.Count - 1]);
+                    else if (pointsInTool != null && pointsInTool.Count > 2 && e.Button == MouseButtons.Left)
+                        g.DrawLine(p, pointsInTool[pointsInTool.Count - 1], pointsInTool[0]);
                     break;
                 default:
                     g.DrawRectangle(p, GetRectangle());
@@ -84,7 +88,8 @@ namespace Pixel_Forgery
                     g.DrawEllipse(p, GetRectangle());
                     break;
                 case 3:
-                    g.DrawPolygon(p, pointsInTool.ToArray());
+                    if(pointsInTool != null && pointsInTool.Count > 2)
+                        g.DrawLine(p, pointsInTool[iterator], pointsInTool[iterator+1]);
                     break;
                 default:
                     g.DrawRectangle(p, GetRectangle());
@@ -105,7 +110,14 @@ namespace Pixel_Forgery
         /// <param name="points">is the list of points used to draw polygons</param>
         public override void points(List<Point> points)
         {
+            if (this.pointsInTool == null)
+                pointsInTool = new List<Point>();
             pointsInTool = points;
+            Console.WriteLine("\n");
+            foreach (var point in pointsInTool)
+            {
+                Console.WriteLine("{0}, ", point);
+            }
         }
 
         /// <summary>

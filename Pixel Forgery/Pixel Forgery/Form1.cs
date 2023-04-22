@@ -158,7 +158,7 @@ namespace Pixel_Forgery
             }
             catch(Exception ex)
             {
-                
+                Console.WriteLine(ex);
             }
         }
 
@@ -407,7 +407,12 @@ namespace Pixel_Forgery
                     tool.startX = e.X;
                     tool.startY = e.Y;
                     if (tool == fillTool) tool.UseTool(e, pictureBox);
-                    if (tool == shapeTool && tool.typeOfTool == 3) tool.points(points);
+                    if (tool == shapeTool && tool.typeOfTool == 3 && points.Count > 2)
+                    {
+                        points.Add(Location);
+                        tool.points(points);
+                        tool.UseTool(e, pictureBox);
+                    }
                     if (tool == colorPickerTool)
                     {
                         tool.currentColor = tool.pickedColor;
@@ -420,6 +425,11 @@ namespace Pixel_Forgery
                 case MouseButtons.Right:
                     tool.isDrawing = true;
                     points.Add(e.Location);
+                    if (points.Count > 1 && tool == shapeTool)
+                    {
+                        tool.points(points);
+                        tool.UseTool(e, pictureBox);
+                    }
                     break;
                 default:
                     Console.WriteLine("uhhhh... Eto..... Bleg?");
@@ -488,7 +498,11 @@ namespace Pixel_Forgery
                     tool.isDrawing = false;
                     tool.endX = e.X;
                     tool.endY = e.Y;
-                    if (tool == shapeTool) tool.UseTool(e, pictureBox);
+                    if (tool == shapeTool)
+                    {
+                        tool.UseTool(e, pictureBox);
+                        points.Clear();
+                    }
                     changes.addChange(pictureBox);
                     break;
                 case MouseButtons.Right:

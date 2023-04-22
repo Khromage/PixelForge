@@ -8,13 +8,16 @@ using System.Windows.Forms;
 namespace Pixel_Forgery
 {
     /// <summary>
-    /// Date: 3/13/23
-    /// Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally, Lilianna Rosales
+    /// <list type="bullet">
+    /// <item>Date: 3/13/23</item>
+    /// <item>Programmer(s): Justin Reyes, Gregory Khrom-Abramyan, Taylor Nastally, Lilianna Rosales</item>
+    /// </list>
     /// Provides basic functionality needed for the use of tools withing Pixel_Forgery 
-    /// Contains 3 method:
+    /// <list type="number">
     /// UseTool() overritten by BrushTool, EraserTool, FillTool
     /// drawOutline() overritten by ShapeTool
     /// points() overritten by ShapeTool
+    /// </list>
     /// </summary>
     public abstract class PixelForgeryTool
     {
@@ -27,8 +30,10 @@ namespace Pixel_Forgery
         public Pen p = new Pen(Color.Black, 5);
 
         /// <summary>
-        /// Date: 4/05/23
-        /// Programmer(s): Lilianna Rosales
+        /// <list type="bullet">
+        /// <item>Date: 4/05/23</item>
+        /// <item>Programmer(s): Lilianna Rosales</item>
+        /// </list>
         /// Property variable for setting and getting the 
         /// current pen color
         /// </summary>
