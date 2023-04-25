@@ -447,7 +447,7 @@ namespace Pixel_Forgery
                     if (tool == shapeTool && tool.typeOfTool == 3 && points.Count > 2)
                     {
                         points.Add(Location);
-                        tool.points(points);
+                        tool.Points(points);
                         tool.UseTool(e, pictureBox);
                     }
                     if (tool == colorPickerTool)
@@ -464,7 +464,7 @@ namespace Pixel_Forgery
                     points.Add(e.Location);
                     if (points.Count > 1 && tool == shapeTool)
                     {
-                        tool.points(points);
+                        tool.Points(points);
                         tool.UseTool(e, pictureBox);
                     }
                     break;
@@ -544,7 +544,7 @@ namespace Pixel_Forgery
                         tool.UseTool(e, pictureBox);
                         points.Clear();
                     }
-                    changes.addChange(pictureBox);
+                    changes.AddChange(pictureBox);
                     break;
                 case MouseButtons.Right:
                     break;
