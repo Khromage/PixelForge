@@ -23,6 +23,7 @@ namespace Pixel_Forgery
         private EraserTool eraserTool = new EraserTool();
         private ShapeTool shapeTool = new ShapeTool();
         private ColorPickerTool colorPickerTool = new ColorPickerTool();
+        private TextTool textTool = new TextTool();
         private FillTool fillTool = new FillTool();
         private List<Point> points = new List<Point>();
 
@@ -458,6 +459,8 @@ namespace Pixel_Forgery
                         fillTool.currentColor = tool.pickedColor;
                         colorChangeButton.BackColor = tool.pickedColor;
                     }
+                    if (tool == textTool)
+                        (tool as TextTool).SetStartPos(e.X, e.Y);
                     break;
                 case MouseButtons.Right:
                     tool.isDrawing = true;
@@ -536,6 +539,12 @@ namespace Pixel_Forgery
             switch (e.Button)
             {
                 case MouseButtons.Left:
+                    if (tool == textTool)
+                    {
+                        tool.UseTool(e, pictureBox);
+                        break;
+                    }
+
                     tool.isDrawing = false;
                     tool.endX = e.X;
                     tool.endY = e.Y;
@@ -683,6 +692,7 @@ namespace Pixel_Forgery
 
         private void TextBoxButton_Click(object sender, EventArgs e)
         {
+            tool = textTool;
             ChangeToolBackground(6);
         }
     }

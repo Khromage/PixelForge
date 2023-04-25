@@ -73,7 +73,6 @@ namespace Pixel_Forgery
             this.ellipseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.polygonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fillButton = new System.Windows.Forms.ToolStripButton();
-            this.TextBoxButton = new System.Windows.Forms.ToolStripButton();
             this.colorChangeButton = new System.Windows.Forms.ToolStripButton();
             this.colorPickerButton = new System.Windows.Forms.ToolStripButton();
             this.pickedcolordisplay = new System.Windows.Forms.ToolStripLabel();
@@ -81,6 +80,7 @@ namespace Pixel_Forgery
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.TextBoxButton = new System.Windows.Forms.ToolStripDropDownButton();
             this.menuBar.SuspendLayout();
             this.toolBar.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -324,17 +324,6 @@ namespace Pixel_Forgery
             this.fillButton.ToolTipText = "Fill";
             this.fillButton.Click += new System.EventHandler(this.FillButton_Click);
             // 
-            // TextBoxButton
-            // 
-            this.TextBoxButton.AutoSize = false;
-            this.TextBoxButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.TextBoxButton.Image = ((System.Drawing.Image)(resources.GetObject("TextBoxButton.Image")));
-            this.TextBoxButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TextBoxButton.Name = "TextBoxButton";
-            this.TextBoxButton.Size = new System.Drawing.Size(60, 50);
-            this.TextBoxButton.Text = "TextBoxButton";
-            this.TextBoxButton.Click += new System.EventHandler(this.TextBoxButton_Click);
-            // 
             // colorChangeButton
             // 
             this.colorChangeButton.AutoSize = false;
@@ -416,6 +405,17 @@ namespace Pixel_Forgery
             this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PictureBox_MouseMove);
             this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PictureBox_MouseUp);
             // 
+            // TextBoxButton
+            // 
+            this.TextBoxButton.AutoSize = false;
+            this.TextBoxButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TextBoxButton.Image = ((System.Drawing.Image)(resources.GetObject("TextBoxButton.Image")));
+            this.TextBoxButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TextBoxButton.Name = "TextBoxButton";
+            this.TextBoxButton.Size = new System.Drawing.Size(60, 50);
+            this.TextBoxButton.Text = "TextBoxButton";
+            this.TextBoxButton.Click += new System.EventHandler(this.TextBoxButton_Click);
+            // 
             // PixelForgeryGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -477,7 +477,7 @@ namespace Pixel_Forgery
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripLabel pickedcolordisplay;
         private System.Windows.Forms.ColorDialog colorDialog1;
-        private System.Windows.Forms.ToolStripButton TextBoxButton;
+        private System.Windows.Forms.ToolStripDropDownButton TextBoxButton;
     }
 }
 
