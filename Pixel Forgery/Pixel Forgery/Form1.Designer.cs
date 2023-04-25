@@ -73,6 +73,7 @@ namespace Pixel_Forgery
             this.ellipseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.polygonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fillButton = new System.Windows.Forms.ToolStripButton();
+            this.TextBoxButton = new System.Windows.Forms.ToolStripButton();
             this.colorChangeButton = new System.Windows.Forms.ToolStripButton();
             this.colorPickerButton = new System.Windows.Forms.ToolStripButton();
             this.pickedcolordisplay = new System.Windows.Forms.ToolStripLabel();
@@ -96,7 +97,7 @@ namespace Pixel_Forgery
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
             this.menuBar.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuBar.Size = new System.Drawing.Size(1470, 30);
+            this.menuBar.Size = new System.Drawing.Size(1470, 25);
             this.menuBar.TabIndex = 3;
             this.menuBar.Text = "menuStrip1";
             // 
@@ -192,10 +193,11 @@ namespace Pixel_Forgery
             this.eraserButton,
             this.shapeButton,
             this.fillButton,
+            this.TextBoxButton,
             this.colorChangeButton,
             this.colorPickerButton,
             this.pickedcolordisplay});
-            this.toolBar.Location = new System.Drawing.Point(0, 30);
+            this.toolBar.Location = new System.Drawing.Point(0, 25);
             this.toolBar.Name = "toolBar";
             this.toolBar.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.toolBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -322,6 +324,17 @@ namespace Pixel_Forgery
             this.fillButton.ToolTipText = "Fill";
             this.fillButton.Click += new System.EventHandler(this.FillButton_Click);
             // 
+            // TextBoxButton
+            // 
+            this.TextBoxButton.AutoSize = false;
+            this.TextBoxButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TextBoxButton.Image = ((System.Drawing.Image)(resources.GetObject("TextBoxButton.Image")));
+            this.TextBoxButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TextBoxButton.Name = "TextBoxButton";
+            this.TextBoxButton.Size = new System.Drawing.Size(60, 50);
+            this.TextBoxButton.Text = "TextBoxButton";
+            this.TextBoxButton.Click += new System.EventHandler(this.TextBoxButton_Click);
+            // 
             // colorChangeButton
             // 
             this.colorChangeButton.AutoSize = false;
@@ -369,10 +382,10 @@ namespace Pixel_Forgery
             this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel1.Controls.Add(this.panel1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 92);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 87);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1470, 752);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1470, 757);
             this.flowLayoutPanel1.TabIndex = 6;
             // 
             // panel1
@@ -382,7 +395,7 @@ namespace Pixel_Forgery
             this.panel1.Controls.Add(this.pictureBox);
             this.flowLayoutPanel1.SetFlowBreak(this.panel1, true);
             this.panel1.Location = new System.Drawing.Point(4, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(27, 25, 27, 25);
             this.panel1.Size = new System.Drawing.Size(1282, 786);
@@ -393,7 +406,7 @@ namespace Pixel_Forgery
             this.pictureBox.BackColor = System.Drawing.Color.White;
             this.pictureBox.Cursor = System.Windows.Forms.Cursors.Cross;
             this.pictureBox.Location = new System.Drawing.Point(27, 25);
-            this.pictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(1224, 732);
             this.pictureBox.TabIndex = 5;
@@ -414,7 +427,7 @@ namespace Pixel_Forgery
             this.Controls.Add(this.menuBar);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.MainMenuStrip = this.menuBar;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(1432, 868);
             this.Name = "PixelForgeryGUI";
             this.Text = "Pixel Forge";
@@ -464,6 +477,7 @@ namespace Pixel_Forgery
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripLabel pickedcolordisplay;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.ToolStripButton TextBoxButton;
     }
 }
 

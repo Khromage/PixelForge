@@ -25,11 +25,6 @@ namespace Pixel_Forgery
     /// </summary>
     public class EraserTool : PixelForgeryTool
     {
-        // Create the pen object only once. This makes it easier to 
-        // edit the pen width and color
-        private Pen p = new Pen(Color.White, 20);
-
-
         /// <summary>
         /// Property variable for setting and getting the 
         /// eraser pen width
@@ -42,6 +37,13 @@ namespace Pixel_Forgery
         {
             set { p.Width = value; }
             get { return p.Width; }
+        }
+
+        public EraserTool() : base()
+        {
+            // Create the pen object only once. This makes it easier to 
+            // edit the pen width and color
+            p = new Pen(Color.White, 20);
         }
 
         /// <summary>

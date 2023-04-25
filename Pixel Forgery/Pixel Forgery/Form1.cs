@@ -105,7 +105,7 @@ namespace Pixel_Forgery
         /// <param name="sender">References the openButton object.</param>
         /// <param name="e">An EventListener checking for when the Button is clicked.</param>
         private void OpenButton_Click(object sender, EventArgs e)               // Open File Button
-        {   
+        {
             FileExplorerDialog fd = new FileExplorerDialog();
             fd.OpenFile(this.pictureBox);
             BMP = (Bitmap)pictureBox.Image;
@@ -126,7 +126,7 @@ namespace Pixel_Forgery
         {
             try
             {
-                using(ImagePropertiesForm iForm = new ImagePropertiesForm())
+                using (ImagePropertiesForm iForm = new ImagePropertiesForm())
                 {
                     bool changeSize = false;
                     int newWidth = pictureBox.Width, newHeight = pictureBox.Height;
@@ -159,7 +159,7 @@ namespace Pixel_Forgery
                     pictureBox.Refresh();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex);
             }
@@ -447,7 +447,7 @@ namespace Pixel_Forgery
                     if (tool == shapeTool && tool.typeOfTool == 3 && points.Count > 2)
                     {
                         points.Add(Location);
-                        tool.points(points);
+                        tool.Points(points);
                         tool.UseTool(e, pictureBox);
                     }
                     if (tool == colorPickerTool)
@@ -464,7 +464,7 @@ namespace Pixel_Forgery
                     points.Add(e.Location);
                     if (points.Count > 1 && tool == shapeTool)
                     {
-                        tool.points(points);
+                        tool.Points(points);
                         tool.UseTool(e, pictureBox);
                     }
                     break;
@@ -472,7 +472,7 @@ namespace Pixel_Forgery
                     Console.WriteLine("uhhhh... Eto..... Bleg?");
                     break;
             }
-            
+
         }
 
         /// <summary>
@@ -487,7 +487,7 @@ namespace Pixel_Forgery
         /// <param name="e">An EventListener checking for when the pictureBox is clicked.</param>
         private void PictureBox_MouseMove(object sender, MouseEventArgs e)
         {
-            if(tool == colorPickerTool)
+            if (tool == colorPickerTool)
             {
                 try
                 {
@@ -544,7 +544,7 @@ namespace Pixel_Forgery
                         tool.UseTool(e, pictureBox);
                         points.Clear();
                     }
-                    changes.addChange(pictureBox);
+                    changes.AddChange(pictureBox);
                     break;
                 case MouseButtons.Right:
                     break;
@@ -612,7 +612,7 @@ namespace Pixel_Forgery
         /// <param name="e">An EventListener checking for the Paint event.</param>
         private void PictureBox_Paint(object sender, PaintEventArgs e)
         {
-            if(tool.isDrawing && tool == shapeTool)
+            if (tool.isDrawing && tool == shapeTool)
             {
                 tool.DrawOutline(e);
             }
@@ -636,6 +636,7 @@ namespace Pixel_Forgery
                     shapeButton.BackColor = Color.DimGray;
                     fillButton.BackColor = Color.DimGray;
                     colorPickerButton.BackColor = Color.DimGray;
+                    TextBoxButton.BackColor = Color.DimGray;
                     break;
                 case 2:                             // Eraser
                     brushButton.BackColor = Color.DimGray;
@@ -643,6 +644,7 @@ namespace Pixel_Forgery
                     shapeButton.BackColor = Color.DimGray;
                     fillButton.BackColor = Color.DimGray;
                     colorPickerButton.BackColor = Color.DimGray;
+                    TextBoxButton.BackColor = Color.DimGray;
                     break;
                 case 3:                             // Shape
                     brushButton.BackColor = Color.DimGray;
@@ -650,6 +652,7 @@ namespace Pixel_Forgery
                     shapeButton.BackColor = Color.DarkGray;
                     fillButton.BackColor = Color.DimGray;
                     colorPickerButton.BackColor = Color.DimGray;
+                    TextBoxButton.BackColor = Color.DimGray;
                     break;
                 case 4:                             // Fill
                     brushButton.BackColor = Color.DimGray;
@@ -657,6 +660,7 @@ namespace Pixel_Forgery
                     shapeButton.BackColor = Color.DimGray;
                     fillButton.BackColor = Color.DarkGray;
                     colorPickerButton.BackColor = Color.DimGray;
+                    TextBoxButton.BackColor = Color.DimGray;
                     break;
                 case 5:                             // Color Picker
                     brushButton.BackColor = Color.DimGray;
@@ -664,8 +668,22 @@ namespace Pixel_Forgery
                     shapeButton.BackColor = Color.DimGray;
                     fillButton.BackColor = Color.DimGray;
                     colorPickerButton.BackColor = Color.DarkGray;
+                    TextBoxButton.BackColor = Color.DimGray;
+                    break;
+                case 6:                             // Text Box Button
+                    brushButton.BackColor = Color.DimGray;
+                    eraserButton.BackColor = Color.DimGray;
+                    shapeButton.BackColor = Color.DimGray;
+                    fillButton.BackColor = Color.DimGray;
+                    colorPickerButton.BackColor = Color.DimGray;
+                    TextBoxButton.BackColor = Color.DarkGray;
                     break;
             }
+        }
+
+        private void TextBoxButton_Click(object sender, EventArgs e)
+        {
+            ChangeToolBackground(6);
         }
     }
 }

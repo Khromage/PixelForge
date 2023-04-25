@@ -26,9 +26,10 @@ namespace Pixel_Forgery
     /// </summary>
     public class BrushTool : PixelForgeryTool
     {
+        // Update (4/24): p variable not needed as it's defined in the base class
         // Create the pen object only once. This makes it easier to 
         // edit the pen width and color
-        private Pen p = new Pen(Color.Black, 5);
+        //private Pen p = new Pen(Color.Black, 5);
 
         /// <summary>
         /// Property variable for setting and getting the 
