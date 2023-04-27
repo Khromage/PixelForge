@@ -77,6 +77,7 @@ namespace Pixel_Forgery
             pictureBox.Image = BMP;
             changes.ClearStacks();
             changes.AddChange(pictureBox);
+            BMP = (Bitmap)pictureBox.Image;
         }
 
         /// <summary>
@@ -94,6 +95,7 @@ namespace Pixel_Forgery
             fd.SaveFile(this.pictureBox);
             changes.ClearStacks();
             changes.AddChange(pictureBox);
+            BMP = (Bitmap)pictureBox.Image;
         }
 
         /// <summary>
@@ -178,6 +180,7 @@ namespace Pixel_Forgery
         private void UndoButton_Click(object sender, EventArgs e)               // Undo Changes Button
         {
             changes.UndoChange(pictureBox);
+            BMP = (Bitmap)pictureBox.Image;
         }
 
         /// <summary>
@@ -192,6 +195,7 @@ namespace Pixel_Forgery
         private void RedoButton_Click(object sender, EventArgs e)               // Redo Changes Button
         {
             changes.RedoChange(pictureBox);
+            BMP = (Bitmap)pictureBox.Image;
         }
 
         /// <summary>
@@ -447,7 +451,6 @@ namespace Pixel_Forgery
                     if (tool == fillTool) tool.UseTool(e, pictureBox);
                     if (tool == shapeTool && tool.typeOfTool == 3 && points.Count > 2)
                     {
-                        points.Add(Location);
                         tool.Points(points);
                         tool.UseTool(e, pictureBox);
                     }
@@ -607,6 +610,8 @@ namespace Pixel_Forgery
             {
                 changes.RedoChange(pictureBox);
             }
+
+            BMP = (Bitmap)pictureBox.Image;
         }
 
         /// <summary>
