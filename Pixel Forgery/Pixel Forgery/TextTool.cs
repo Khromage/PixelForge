@@ -42,10 +42,10 @@ namespace Pixel_Forgery
         /// <param name="pictureBox1"></param>
         public override void UseTool(MouseEventArgs e, PictureBox pictureBox1)
         {
-            float x1 = _startX;
-            float y1 = _startY;
-            float x2 = e.X;
-            float y2 = e.Y;
+            float x1 = startX;
+            float y1 = startY;
+            float x2 = endX;
+            float y2 = endY;
             float width = Math.Abs(x2 - x1);
             float height = Math.Abs(y2 - y1);
 
@@ -64,7 +64,12 @@ namespace Pixel_Forgery
                 _startX = x2;
                 _startY = y2;
             }
-            
+            else
+            {
+                _startX = x1;
+                _startY = y1;
+            }
+
             RectangleF rec = new RectangleF(_startX, _startY, width, height);
 
             Graphics g = Graphics.FromImage(pictureBox1.Image);
@@ -77,23 +82,56 @@ namespace Pixel_Forgery
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="e"></param>
+        public override void DrawOutline(PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+
+            float x1 = startX;
+            float y1 = startY;
+            float x2 = endX;
+            float y2 = endY;
+            float width = Math.Abs(x2 - x1);
+            float height = Math.Abs(y2 - y1);
+
+            if ((y2 > y1) && (x1 > x2))
+            {
+                _startX = x2;
+                _startY = y1;
+            }
+            else if ((y1 > y2) && (x2 > x1))
+            {
+                _startX = x1;
+                _startY = y2;
+            }
+            else if ((y1 > y2) && (x1 > x2))
+            {
+                _startX = x2;
+                _startY = y2;
+            }
+            else
+            {
+                _startX = x1;
+                _startY = y1;
+            }
+
+            RectangleF rec = new RectangleF(_startX, _startY, width, height);
+
+            string str = StringToPrint + $"\n({x1},{y1}), ({x2}, {y2})";
+
+            g.DrawString(str, new Font(_font, _fontSize), Brushes.Black, rec, _format);
+            g.Flush();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="fontSize"></param>
         public void SetFontSize(float fontSize)
         {
             _fontSize = fontSize;
             if (fontSize < 0)
                 _fontSize = 10;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        public void SetStartPos(float x, float y)
-        {
-            _startX = x;
-            _startY = y;
         }
     }
 }
