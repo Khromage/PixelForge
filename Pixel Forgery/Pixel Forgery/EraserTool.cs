@@ -39,6 +39,13 @@ namespace Pixel_Forgery
             get { return p.Width; }
         }
 
+        /// <summary>
+        /// Constructor for creating an <see cref="EraserTool"/> object.
+        /// <list type="bullet">
+        /// <item>Date: 4/05/23</item>
+        /// <item>Programmer(s): Lilianna Rosales</item>
+        /// </list>
+        /// </summary>
         public EraserTool() : base()
         {
             // Create the pen object only once. This makes it easier to 

@@ -806,11 +806,29 @@ namespace Pixel_Forgery
                 textTool.StringToPrint = "";
         }
 
+        /// <summary>
+        /// Clears the font size text box when clicking inside the text box.
+        /// <list type="bullet">
+        /// <item>Date: 5/1/23</item>
+        /// <item>Programmer(s): Lilianna Rosales</item>
+        /// </list>
+        /// </summary>
+        /// <param name="sender">References the pictureBox object.</param>
+        /// <param name="e">An EventListener checking for when the text box is clicked.</param>
         private void textBoxFontSizeTextBox_Click(object sender, EventArgs e)
         {
             textBoxFontSizeTextBox.Clear();
         }
 
+        /// <summary>
+        /// Clears the value for the text box when clicking inside the text box.
+        /// <list type="bullet">
+        /// <item>Date: 5/1/23</item>
+        /// <item>Programmer(s): Lilianna Rosales</item>
+        /// </list>
+        /// </summary>
+        /// <param name="sender">References the pictureBox object.</param>
+        /// <param name="e">An EventListener checking for when the text box is clicked.</param>
         private void textBoxStringTextBox_Click(object sender, EventArgs e)
         {
             textBoxStringTextBox.Clear();
