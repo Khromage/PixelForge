@@ -459,7 +459,7 @@ namespace Pixel_Forgery
                     tool.isDrawing = true;
                     tool.startX = e.X;
                     tool.startY = e.Y;
-                    if (tool == fillTool) 
+                    if (tool == fillTool)
                         tool.UseTool(e, pictureBox);
 
                     if (tool == shapeTool && tool.typeOfTool == 3 && points.Count > 2)
@@ -526,7 +526,7 @@ namespace Pixel_Forgery
                     {
                         tool.endX = e.X;
                         tool.endY = e.Y;
-                        if (tool == brushTool || tool == eraserTool) 
+                        if (tool == brushTool || tool == eraserTool)
                             tool.UseTool(e, pictureBox);
                     }
                     break;
@@ -712,11 +712,21 @@ namespace Pixel_Forgery
             }
         }
 
+        /// <summary>
+        /// Changes the current tool to the Text Tool
+        /// <list type="bullet">
+        /// <item>Date: 5/1/23</item>
+        /// <item>Programmer(s): Lilianna Rosales</item>
+        /// </list>
+        /// </summary>
+        /// <param name="sender">References the pictureBox object.</param>
+        /// <param name="e">An EventListener checking for when the Button is clicked.</param>
         private void TextBoxButton_Click(object sender, EventArgs e)
         {
             tool = textTool;
             ChangeToolBackground(6);
             pictureBox.Cursor = Cursors.Cross;
+            textBoxFontSizeTextBox.Text = textTool.FontSize.ToString();
         }
 
         /// <summary>
@@ -755,6 +765,55 @@ namespace Pixel_Forgery
                 pictureBox.Cursor = new Cursor(cursorBMP.GetHicon());
                 pictureBox.Cursor.Draw(g, r);
             }
+        }
+
+        /// <summary>
+        /// Processes font size changes for the text tool. If an invalid value is entered,
+        /// the default font size of 10 pt is used.
+        /// <list type="bullet">
+        /// <item>Date: 5/1/23</item>
+        /// <item>Programmer(s): Lilianna Rosales</item>
+        /// </list>
+        /// </summary>
+        /// <param name="sender">References the pictureBox object.</param>
+        /// <param name="e">An EventListener checking for when the text box value is changed.</param>
+        private void textBoxFontSizeTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string s = textBoxFontSizeTextBox.Text;
+
+            if (float.TryParse(s, out float width) && width > 0)
+                textTool.FontSize = width;
+            else
+                textTool.FontSize = 10;
+        }
+
+        /// <summary>
+        /// Processes text changes for the text tool. This is the string that will be drawn 
+        /// when using the text tool. If an invalid value is entered, the value is set to an empty string
+        /// <list type="bullet">
+        /// <item>Date: 5/1/23</item>
+        /// <item>Programmer(s): Lilianna Rosales</item>
+        /// </list>
+        /// </summary>
+        /// <param name="sender">References the pictureBox object.</param>
+        /// <param name="e">An EventListener checking for when the text box value is changed.</param>
+        private void textBoxStringTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string s = textBoxStringTextBox.Text;
+            if (s.Length > 0)
+                textTool.StringToPrint = s;
+            else
+                textTool.StringToPrint = "";
+        }
+
+        private void textBoxFontSizeTextBox_Click(object sender, EventArgs e)
+        {
+            textBoxFontSizeTextBox.Clear();
+        }
+
+        private void textBoxStringTextBox_Click(object sender, EventArgs e)
+        {
+            textBoxStringTextBox.Clear();
         }
     }
 }

@@ -19,9 +19,10 @@ namespace Pixel_Forgery
 
         private StringFormat _format;
         private string _font = "Arial";
-        private float _fontSize = 10;
 
-        public string StringToPrint { set; get; } = "Work In Progress... Stay Tuned d^_^b";
+        public float FontSize { set; get; } = 10;
+
+        public string StringToPrint { set; get; } = "";
 
         /// <summary>
         /// 
@@ -73,7 +74,7 @@ namespace Pixel_Forgery
             RectangleF rec = new RectangleF(_startX, _startY, width, height);
 
             Graphics g = Graphics.FromImage(pictureBox1.Image);
-            g.DrawString(StringToPrint, new Font(_font, _fontSize), Brushes.Black, rec, _format);
+            g.DrawString(StringToPrint, new Font(_font, FontSize), Brushes.Black, rec, _format);
             g.Flush();
 
             pictureBox1.Refresh();
@@ -117,21 +118,8 @@ namespace Pixel_Forgery
 
             RectangleF rec = new RectangleF(_startX, _startY, width, height);
 
-            string str = StringToPrint + $"\n({x1},{y1}), ({x2}, {y2})";
-
-            g.DrawString(str, new Font(_font, _fontSize), Brushes.Black, rec, _format);
+            g.DrawString(StringToPrint, new Font(_font, FontSize), Brushes.Black, rec, _format);
             g.Flush();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="fontSize"></param>
-        public void SetFontSize(float fontSize)
-        {
-            _fontSize = fontSize;
-            if (fontSize < 0)
-                _fontSize = 10;
         }
     }
 }
