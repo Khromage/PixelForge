@@ -26,6 +26,8 @@ namespace Pixel_Forgery
         private TextTool textTool = new TextTool();
         private FillTool fillTool = new FillTool();
         private List<Point> points = new List<Point>();
+        private int scaleFactor = 15;
+        private float constant = 1.7f;
 
         /// <summary>
         /// Constructor for the PixelForgeryGUI class.
@@ -57,7 +59,7 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Creates a new canvas for the user to draw in, defaults to 918x595 pixels in size.
+        /// Creates a new canvas for the user to draw in, defaults to 1280x720 pixels in size.
         /// <list type="bullet">
         /// <item>Date: 4/16/23</item>
         /// <item>Programmer(s): Justin Reyes</item>
@@ -67,7 +69,7 @@ namespace Pixel_Forgery
         /// <param name="e">An EventListener checking for when the Button is clicked</param>
         private void NewButton_Click(object sender, EventArgs e)                // New Button
         {
-            BMP = new Bitmap(918, 595);
+            BMP = new Bitmap(1280, 720);
             using (Graphics g = Graphics.FromImage(BMP))
             {
                 Rectangle bg = new Rectangle(0, 0, BMP.Width, BMP.Height);
@@ -699,6 +701,18 @@ namespace Pixel_Forgery
         {
             tool = textTool;
             ChangeToolBackground(6);
+        }
+
+        private void zoomInButton_Click(object sender, EventArgs e)
+        {
+            pictureBox.Height += Convert.ToInt32(scaleFactor / constant);
+            pictureBox.Width += scaleFactor;
+        }
+
+        private void zoomOutButton_Click(object sender, EventArgs e)
+        {
+            pictureBox.Height -= Convert.ToInt32(scaleFactor / constant);
+            pictureBox.Width -= scaleFactor;
         }
     }
 }

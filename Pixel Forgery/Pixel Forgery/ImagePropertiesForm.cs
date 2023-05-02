@@ -124,8 +124,8 @@ namespace Pixel_Forgery
         /// <param name="e">Event listener for when the Button is clicked.</param>
         private void DefaultButton_Click(object sender, EventArgs e)
         {
-            canvasWidth = 918; 
-            canvasHeight = 595;
+            canvasWidth = 1280; 
+            canvasHeight = 720;
             widthTextBox.Text = canvasWidth.ToString();
             heightTextBox.Text = canvasHeight.ToString();
         }
