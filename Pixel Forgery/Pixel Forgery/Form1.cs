@@ -448,7 +448,9 @@ namespace Pixel_Forgery
                     tool.isDrawing = true;
                     tool.startX = e.X;
                     tool.startY = e.Y;
-                    if (tool == fillTool) tool.UseTool(e, pictureBox);
+                    if (tool == fillTool) 
+                        tool.UseTool(e, pictureBox);
+
                     if (tool == shapeTool && tool.typeOfTool == 3 && points.Count > 2)
                     {
                         tool.Points(points);
@@ -462,8 +464,6 @@ namespace Pixel_Forgery
                         fillTool.currentColor = tool.pickedColor;
                         colorChangeButton.BackColor = tool.pickedColor;
                     }
-                    if (tool == textTool)
-                        (tool as TextTool).SetStartPos(e.X, e.Y);
                     break;
                 case MouseButtons.Right:
                     tool.isDrawing = true;
@@ -515,7 +515,8 @@ namespace Pixel_Forgery
                     {
                         tool.endX = e.X;
                         tool.endY = e.Y;
-                        if (tool == brushTool || tool == eraserTool) tool.UseTool(e, pictureBox);
+                        if (tool == brushTool || tool == eraserTool) 
+                            tool.UseTool(e, pictureBox);
                     }
                     break;
                 case MouseButtons.Right:
@@ -542,20 +543,21 @@ namespace Pixel_Forgery
             switch (e.Button)
             {
                 case MouseButtons.Left:
-                    if (tool == textTool)
-                    {
-                        tool.UseTool(e, pictureBox);
-                        break;
-                    }
-
                     tool.isDrawing = false;
                     tool.endX = e.X;
                     tool.endY = e.Y;
+
                     if (tool == shapeTool)
                     {
                         tool.UseTool(e, pictureBox);
                         points.Clear();
                     }
+
+                    if (tool == textTool)
+                    {
+                        tool.UseTool(e, pictureBox);
+                    }
+
                     changes.AddChange(pictureBox);
                     break;
                 case MouseButtons.Right:
@@ -630,6 +632,9 @@ namespace Pixel_Forgery
             {
                 tool.DrawOutline(e);
             }
+
+            if (tool.isDrawing && tool == textTool)
+                tool.DrawOutline(e);
         }
 
         /// <summary>
