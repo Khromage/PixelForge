@@ -241,7 +241,6 @@ namespace Pixel_Forgery
             // 
             // brushSizeTextBox
             // 
-            this.brushSizeTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.brushSizeTextBox.Name = "brushSizeTextBox";
             this.brushSizeTextBox.Size = new System.Drawing.Size(100, 23);
             this.brushSizeTextBox.Click += new System.EventHandler(this.BrushSizeTextBox_Click);
@@ -272,7 +271,6 @@ namespace Pixel_Forgery
             // 
             // eraserSizeTextBox
             // 
-            this.eraserSizeTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.eraserSizeTextBox.Name = "eraserSizeTextBox";
             this.eraserSizeTextBox.Size = new System.Drawing.Size(100, 23);
             this.eraserSizeTextBox.Click += new System.EventHandler(this.EraserSizeTextBox_Click);
@@ -353,21 +351,20 @@ namespace Pixel_Forgery
             this.textBoxFontSizeLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.textBoxFontSizeLabel.Name = "textBoxFontSizeLabel";
             this.textBoxFontSizeLabel.ReadOnly = true;
-            this.textBoxFontSizeLabel.Size = new System.Drawing.Size(100, 20);
+            this.textBoxFontSizeLabel.Size = new System.Drawing.Size(100, 16);
             this.textBoxFontSizeLabel.Text = "Font Size:";
             // 
             // textBoxFontSizeTextBox
             // 
-            this.textBoxFontSizeTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxFontSizeTextBox.Name = "textBoxFontSizeTextBox";
-            this.textBoxFontSizeTextBox.Size = new System.Drawing.Size(150, 27);
+            this.textBoxFontSizeTextBox.Size = new System.Drawing.Size(150, 23);
             this.textBoxFontSizeTextBox.Click += new System.EventHandler(this.textBoxFontSizeTextBox_Click);
             this.textBoxFontSizeTextBox.TextChanged += new System.EventHandler(this.textBoxFontSizeTextBox_TextChanged);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(207, 6);
             // 
             // textBoxStringLabel
             // 
@@ -376,14 +373,13 @@ namespace Pixel_Forgery
             this.textBoxStringLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.textBoxStringLabel.Name = "textBoxStringLabel";
             this.textBoxStringLabel.ReadOnly = true;
-            this.textBoxStringLabel.Size = new System.Drawing.Size(100, 20);
+            this.textBoxStringLabel.Size = new System.Drawing.Size(100, 16);
             this.textBoxStringLabel.Text = "Enter Text:";
             // 
             // textBoxStringTextBox
             // 
-            this.textBoxStringTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxStringTextBox.Name = "textBoxStringTextBox";
-            this.textBoxStringTextBox.Size = new System.Drawing.Size(150, 27);
+            this.textBoxStringTextBox.Size = new System.Drawing.Size(150, 23);
             this.textBoxStringTextBox.Click += new System.EventHandler(this.textBoxStringTextBox_Click);
             this.textBoxStringTextBox.TextChanged += new System.EventHandler(this.textBoxStringTextBox_TextChanged);
             // 
@@ -447,7 +443,7 @@ namespace Pixel_Forgery
             this.flowLayoutPanel1.SetFlowBreak(this.panel1, true);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(20, 20, 20, 20);
+            this.panel1.Padding = new System.Windows.Forms.Padding(20);
             this.panel1.Size = new System.Drawing.Size(961, 638);
             this.panel1.TabIndex = 7;
             // 
@@ -475,6 +471,7 @@ namespace Pixel_Forgery
             this.Controls.Add(this.toolBar);
             this.Controls.Add(this.menuBar);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuBar;
             this.MinimumSize = new System.Drawing.Size(1078, 713);
             this.Name = "PixelForgeryGUI";
