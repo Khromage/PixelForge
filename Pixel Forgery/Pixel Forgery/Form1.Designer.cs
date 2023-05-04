@@ -74,6 +74,11 @@ namespace Pixel_Forgery
             this.polygonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fillButton = new System.Windows.Forms.ToolStripButton();
             this.TextBoxButton = new System.Windows.Forms.ToolStripDropDownButton();
+            this.textBoxFontSizeLabel = new System.Windows.Forms.ToolStripTextBox();
+            this.textBoxFontSizeTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.textBoxStringLabel = new System.Windows.Forms.ToolStripTextBox();
+            this.textBoxStringTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.colorChangeButton = new System.Windows.Forms.ToolStripButton();
             this.colorPickerButton = new System.Windows.Forms.ToolStripButton();
             this.pickedcolordisplay = new System.Windows.Forms.ToolStripLabel();
@@ -240,7 +245,6 @@ namespace Pixel_Forgery
             // 
             // brushSizeTextBox
             // 
-            this.brushSizeTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.brushSizeTextBox.Name = "brushSizeTextBox";
             this.brushSizeTextBox.Size = new System.Drawing.Size(100, 23);
             this.brushSizeTextBox.Click += new System.EventHandler(this.BrushSizeTextBox_Click);
@@ -271,7 +275,6 @@ namespace Pixel_Forgery
             // 
             // eraserSizeTextBox
             // 
-            this.eraserSizeTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.eraserSizeTextBox.Name = "eraserSizeTextBox";
             this.eraserSizeTextBox.Size = new System.Drawing.Size(100, 23);
             this.eraserSizeTextBox.Click += new System.EventHandler(this.EraserSizeTextBox_Click);
@@ -294,7 +297,7 @@ namespace Pixel_Forgery
             // 
             // rectangleToolStripMenuItem
             // 
-            this.rectangleToolStripMenuItem.Image = global::Pixel_Forgery.Properties.Resources.rectangle;
+            this.rectangleToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("rectangleToolStripMenuItem.Image")));
             this.rectangleToolStripMenuItem.Name = "rectangleToolStripMenuItem";
             this.rectangleToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.rectangleToolStripMenuItem.Text = "Rectangle";
@@ -302,7 +305,7 @@ namespace Pixel_Forgery
             // 
             // ellipseToolStripMenuItem
             // 
-            this.ellipseToolStripMenuItem.Image = global::Pixel_Forgery.Properties.Resources.ellipse;
+            this.ellipseToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("ellipseToolStripMenuItem.Image")));
             this.ellipseToolStripMenuItem.Name = "ellipseToolStripMenuItem";
             this.ellipseToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.ellipseToolStripMenuItem.Text = "Ellipse";
@@ -310,7 +313,7 @@ namespace Pixel_Forgery
             // 
             // polygonToolStripMenuItem
             // 
-            this.polygonToolStripMenuItem.Image = global::Pixel_Forgery.Properties.Resources.hexagon;
+            this.polygonToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("polygonToolStripMenuItem.Image")));
             this.polygonToolStripMenuItem.Name = "polygonToolStripMenuItem";
             this.polygonToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.polygonToolStripMenuItem.Text = "Polygon";
@@ -332,12 +335,57 @@ namespace Pixel_Forgery
             // 
             this.TextBoxButton.AutoSize = false;
             this.TextBoxButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TextBoxButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.textBoxFontSizeLabel,
+            this.textBoxFontSizeTextBox,
+            this.toolStripSeparator1,
+            this.textBoxStringLabel,
+            this.textBoxStringTextBox});
             this.TextBoxButton.Image = ((System.Drawing.Image)(resources.GetObject("TextBoxButton.Image")));
             this.TextBoxButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TextBoxButton.Name = "TextBoxButton";
             this.TextBoxButton.Size = new System.Drawing.Size(60, 50);
             this.TextBoxButton.Text = "TextBoxButton";
             this.TextBoxButton.Click += new System.EventHandler(this.TextBoxButton_Click);
+            // 
+            // textBoxFontSizeLabel
+            // 
+            this.textBoxFontSizeLabel.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxFontSizeLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxFontSizeLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.textBoxFontSizeLabel.Name = "textBoxFontSizeLabel";
+            this.textBoxFontSizeLabel.ReadOnly = true;
+            this.textBoxFontSizeLabel.Size = new System.Drawing.Size(100, 16);
+            this.textBoxFontSizeLabel.Text = "Font Size:";
+            // 
+            // textBoxFontSizeTextBox
+            // 
+            this.textBoxFontSizeTextBox.Name = "textBoxFontSizeTextBox";
+            this.textBoxFontSizeTextBox.Size = new System.Drawing.Size(150, 23);
+            this.textBoxFontSizeTextBox.Click += new System.EventHandler(this.textBoxFontSizeTextBox_Click);
+            this.textBoxFontSizeTextBox.TextChanged += new System.EventHandler(this.textBoxFontSizeTextBox_TextChanged);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(207, 6);
+            // 
+            // textBoxStringLabel
+            // 
+            this.textBoxStringLabel.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxStringLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxStringLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.textBoxStringLabel.Name = "textBoxStringLabel";
+            this.textBoxStringLabel.ReadOnly = true;
+            this.textBoxStringLabel.Size = new System.Drawing.Size(100, 16);
+            this.textBoxStringLabel.Text = "Enter Text:";
+            // 
+            // textBoxStringTextBox
+            // 
+            this.textBoxStringTextBox.Name = "textBoxStringTextBox";
+            this.textBoxStringTextBox.Size = new System.Drawing.Size(150, 23);
+            this.textBoxStringTextBox.Click += new System.EventHandler(this.textBoxStringTextBox_Click);
+            this.textBoxStringTextBox.TextChanged += new System.EventHandler(this.textBoxStringTextBox_TextChanged);
             // 
             // colorChangeButton
             // 
@@ -449,6 +497,7 @@ namespace Pixel_Forgery
             this.Controls.Add(this.toolBar);
             this.Controls.Add(this.menuBar);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuBar;
             this.MinimumSize = new System.Drawing.Size(1078, 713);
             this.Name = "PixelForgeryGUI";
@@ -500,6 +549,11 @@ namespace Pixel_Forgery
         private System.Windows.Forms.ToolStripLabel pickedcolordisplay;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.ToolStripDropDownButton TextBoxButton;
+        private System.Windows.Forms.ToolStripTextBox textBoxFontSizeTextBox;
+        private System.Windows.Forms.ToolStripTextBox textBoxStringTextBox;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripTextBox textBoxFontSizeLabel;
+        private System.Windows.Forms.ToolStripTextBox textBoxStringLabel;
         private System.Windows.Forms.ToolStripButton zoomInButton;
         private System.Windows.Forms.ToolStripButton zoomOutButton;
     }

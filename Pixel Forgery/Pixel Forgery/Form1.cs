@@ -27,8 +27,6 @@ namespace Pixel_Forgery
         private TextTool textTool = new TextTool();
         private FillTool fillTool = new FillTool();
         private List<Point> points = new List<Point>();
-        private int scaleFactor = 15;
-        private float constant = 1.7f;
 
         /// <summary>
         /// Constructor for the PixelForgeryGUI class.
@@ -61,7 +59,7 @@ namespace Pixel_Forgery
         }
 
         /// <summary>
-        /// Creates a new canvas for the user to draw in, defaults to 1280x720 pixels in size.
+        /// Creates a new canvas for the user to draw in, defaults to 918x595 pixels in size.
         /// <list type="bullet">
         /// <item>Date: 4/16/23</item>
         /// <item>Programmer(s): Justin Reyes</item>
@@ -71,7 +69,7 @@ namespace Pixel_Forgery
         /// <param name="e">An EventListener checking for when the Button is clicked</param>
         private void NewButton_Click(object sender, EventArgs e)                // New Button
         {
-            BMP = new Bitmap(1280, 720);
+            BMP = new Bitmap(918, 595);
             using (Graphics g = Graphics.FromImage(BMP))
             {
                 Rectangle bg = new Rectangle(0, 0, BMP.Width, BMP.Height);
@@ -461,7 +459,7 @@ namespace Pixel_Forgery
                     tool.isDrawing = true;
                     tool.startX = e.X;
                     tool.startY = e.Y;
-                    if (tool == fillTool) 
+                    if (tool == fillTool)
                         tool.UseTool(e, pictureBox);
 
                     if (tool == shapeTool && tool.typeOfTool == 3 && points.Count > 2)
@@ -528,7 +526,7 @@ namespace Pixel_Forgery
                     {
                         tool.endX = e.X;
                         tool.endY = e.Y;
-                        if (tool == brushTool || tool == eraserTool) 
+                        if (tool == brushTool || tool == eraserTool)
                             tool.UseTool(e, pictureBox);
                     }
                     break;
@@ -714,11 +712,21 @@ namespace Pixel_Forgery
             }
         }
 
+        /// <summary>
+        /// Changes the current tool to the Text Tool
+        /// <list type="bullet">
+        /// <item>Date: 5/1/23</item>
+        /// <item>Programmer(s): Lilianna Rosales</item>
+        /// </list>
+        /// </summary>
+        /// <param name="sender">References the pictureBox object.</param>
+        /// <param name="e">An EventListener checking for when the Button is clicked.</param>
         private void TextBoxButton_Click(object sender, EventArgs e)
         {
             tool = textTool;
             ChangeToolBackground(6);
             pictureBox.Cursor = Cursors.Cross;
+            textBoxFontSizeTextBox.Text = textTool.FontSize.ToString();
         }
 
         /// <summary>
@@ -759,16 +767,71 @@ namespace Pixel_Forgery
             }
         }
 
-        private void zoomInButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Processes font size changes for the text tool. If an invalid value is entered,
+        /// the default font size of 10 pt is used.
+        /// <list type="bullet">
+        /// <item>Date: 5/1/23</item>
+        /// <item>Programmer(s): Lilianna Rosales</item>
+        /// </list>
+        /// </summary>
+        /// <param name="sender">References the pictureBox object.</param>
+        /// <param name="e">An EventListener checking for when the text box value is changed.</param>
+        private void textBoxFontSizeTextBox_TextChanged(object sender, EventArgs e)
         {
-            pictureBox.Height += Convert.ToInt32(scaleFactor / constant);
-            pictureBox.Width += scaleFactor;
+            string s = textBoxFontSizeTextBox.Text;
+
+            if (float.TryParse(s, out float width) && width > 0)
+                textTool.FontSize = width;
+            else
+                textTool.FontSize = 10;
         }
 
-        private void zoomOutButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Processes text changes for the text tool. This is the string that will be drawn 
+        /// when using the text tool. If an invalid value is entered, the value is set to an empty string
+        /// <list type="bullet">
+        /// <item>Date: 5/1/23</item>
+        /// <item>Programmer(s): Lilianna Rosales</item>
+        /// </list>
+        /// </summary>
+        /// <param name="sender">References the pictureBox object.</param>
+        /// <param name="e">An EventListener checking for when the text box value is changed.</param>
+        private void textBoxStringTextBox_TextChanged(object sender, EventArgs e)
         {
-            pictureBox.Height -= Convert.ToInt32(scaleFactor / constant);
-            pictureBox.Width -= scaleFactor;
+            string s = textBoxStringTextBox.Text;
+            if (s.Length > 0)
+                textTool.StringToPrint = s;
+            else
+                textTool.StringToPrint = "";
+        }
+
+        /// <summary>
+        /// Clears the font size text box when clicking inside the text box.
+        /// <list type="bullet">
+        /// <item>Date: 5/1/23</item>
+        /// <item>Programmer(s): Lilianna Rosales</item>
+        /// </list>
+        /// </summary>
+        /// <param name="sender">References the pictureBox object.</param>
+        /// <param name="e">An EventListener checking for when the text box is clicked.</param>
+        private void textBoxFontSizeTextBox_Click(object sender, EventArgs e)
+        {
+            textBoxFontSizeTextBox.Clear();
+        }
+
+        /// <summary>
+        /// Clears the value for the text box when clicking inside the text box.
+        /// <list type="bullet">
+        /// <item>Date: 5/1/23</item>
+        /// <item>Programmer(s): Lilianna Rosales</item>
+        /// </list>
+        /// </summary>
+        /// <param name="sender">References the pictureBox object.</param>
+        /// <param name="e">An EventListener checking for when the text box is clicked.</param>
+        private void textBoxStringTextBox_Click(object sender, EventArgs e)
+        {
+            textBoxStringTextBox.Clear();
         }
     }
 }
