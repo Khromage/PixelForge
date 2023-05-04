@@ -17,6 +17,7 @@ namespace Pixel_Forgery
     public partial class PixelForgeryGUI : Form
     {
         private Bitmap BMP;
+        private Bitmap cursorBMP;
         private Changes changes;
         private PixelForgeryTool tool;
         private BrushTool brushTool = new BrushTool();
@@ -43,11 +44,13 @@ namespace Pixel_Forgery
             InitializeComponent();
             changes = new Changes();
             BMP = new Bitmap(pictureBox.Width, pictureBox.Height);
+            cursorBMP = new Bitmap(100, 100);
             pictureBox.Image = BMP;
             pictureBox.BackColor = Color.White;
             colorChangeButton.BackColor = Color.Black;
             tool = brushTool;
             ChangeToolBackground(1);
+            ChangeCursorSize(5);
 
             using (Graphics g = Graphics.FromImage(BMP))
             {
@@ -55,7 +58,6 @@ namespace Pixel_Forgery
                 g.FillRectangle(Brushes.White, bg);
             }
             changes.AddChange(pictureBox);
-
         }
 
         /// <summary>
@@ -213,6 +215,7 @@ namespace Pixel_Forgery
         {
             tool = brushTool;
             ChangeToolBackground(1);
+            ChangeCursorSize((int)brushTool.BrushWidth);
         }
 
         /// <summary>
@@ -228,6 +231,7 @@ namespace Pixel_Forgery
         {
             tool = eraserTool;
             ChangeToolBackground(2);
+            ChangeCursorSize((int)eraserTool.EraserWidth);
         }
 
         /// <summary>
@@ -277,6 +281,7 @@ namespace Pixel_Forgery
                 brushTool.BrushWidth = width;
             else
                 brushTool.BrushWidth = 5;
+            ChangeCursorSize((int)brushTool.BrushWidth);
         }
 
         /// <summary>
@@ -297,6 +302,7 @@ namespace Pixel_Forgery
                 eraserTool.EraserWidth = width;
             else
                 eraserTool.EraserWidth = 20;
+            ChangeCursorSize((int)eraserTool.EraserWidth);
         }
 
         /// <summary>
@@ -342,6 +348,7 @@ namespace Pixel_Forgery
             tool = shapeTool;
             tool.typeOfTool = 1;
             ChangeToolBackground(3);
+            pictureBox.Cursor = Cursors.Cross;
         }
 
         /// <summary>
@@ -359,6 +366,7 @@ namespace Pixel_Forgery
             tool = shapeTool;
             tool.typeOfTool = 2;
             ChangeToolBackground(3);
+            pictureBox.Cursor = Cursors.Cross;
         }
 
         /// <summary>
@@ -376,6 +384,7 @@ namespace Pixel_Forgery
             tool = shapeTool;
             tool.typeOfTool = 3;
             ChangeToolBackground(3);
+            pictureBox.Cursor = Cursors.Cross;
         }
 
         /// <summary>
@@ -391,6 +400,7 @@ namespace Pixel_Forgery
         {
             tool = fillTool;
             ChangeToolBackground(4);
+            pictureBox.Cursor = Cursors.Cross;
         }
 
         /// <summary>
@@ -430,6 +440,7 @@ namespace Pixel_Forgery
             tool = colorPickerTool;
             pickedcolordisplay.BackColor = tool.pickedColor;
             ChangeToolBackground(5);
+            pictureBox.Cursor = Cursors.Cross;
         }
 
         /// <summary>
@@ -450,7 +461,9 @@ namespace Pixel_Forgery
                     tool.isDrawing = true;
                     tool.startX = e.X;
                     tool.startY = e.Y;
-                    if (tool == fillTool) tool.UseTool(e, pictureBox);
+                    if (tool == fillTool) 
+                        tool.UseTool(e, pictureBox);
+
                     if (tool == shapeTool && tool.typeOfTool == 3 && points.Count > 2)
                     {
                         tool.Points(points);
@@ -464,8 +477,6 @@ namespace Pixel_Forgery
                         fillTool.currentColor = tool.pickedColor;
                         colorChangeButton.BackColor = tool.pickedColor;
                     }
-                    if (tool == textTool)
-                        (tool as TextTool).SetStartPos(e.X, e.Y);
                     break;
                 case MouseButtons.Right:
                     tool.isDrawing = true;
@@ -517,7 +528,8 @@ namespace Pixel_Forgery
                     {
                         tool.endX = e.X;
                         tool.endY = e.Y;
-                        if (tool == brushTool || tool == eraserTool) tool.UseTool(e, pictureBox);
+                        if (tool == brushTool || tool == eraserTool) 
+                            tool.UseTool(e, pictureBox);
                     }
                     break;
                 case MouseButtons.Right:
@@ -525,6 +537,7 @@ namespace Pixel_Forgery
                 default:
                     break;
             }
+
             pictureBox.Refresh();
         }
 
@@ -544,20 +557,21 @@ namespace Pixel_Forgery
             switch (e.Button)
             {
                 case MouseButtons.Left:
-                    if (tool == textTool)
-                    {
-                        tool.UseTool(e, pictureBox);
-                        break;
-                    }
-
                     tool.isDrawing = false;
                     tool.endX = e.X;
                     tool.endY = e.Y;
+
                     if (tool == shapeTool)
                     {
                         tool.UseTool(e, pictureBox);
                         points.Clear();
                     }
+
+                    if (tool == textTool)
+                    {
+                        tool.UseTool(e, pictureBox);
+                    }
+
                     changes.AddChange(pictureBox);
                     break;
                 case MouseButtons.Right:
@@ -632,6 +646,9 @@ namespace Pixel_Forgery
             {
                 tool.DrawOutline(e);
             }
+
+            if (tool.isDrawing && tool == textTool)
+                tool.DrawOutline(e);
         }
 
         /// <summary>
@@ -701,6 +718,45 @@ namespace Pixel_Forgery
         {
             tool = textTool;
             ChangeToolBackground(6);
+            pictureBox.Cursor = Cursors.Cross;
+        }
+
+        /// <summary>
+        /// Changes the size of the pictureBox cursor.
+        /// <list type="bullet">
+        /// <item>Date: 5/1/23</item>
+        /// <item>Programmer(s): Justin Reyes</item>
+        /// </list>
+        /// </summary>
+        /// <param name="size">Integer value containing the diameter of the cursor</param>
+        private void ChangeCursorSize(int size)
+        {
+            // If size is an odd number, turn it to an even number
+            if (size % 2 == 1) size++;
+
+            cursorBMP = new Bitmap(size + 20, size + 20);
+            using (Graphics g = Graphics.FromImage(cursorBMP))
+            {
+                int centerPoint = cursorBMP.Width / 2;
+
+                // Draw Circle
+                Rectangle r = new Rectangle(centerPoint - size / 2, centerPoint - size / 2, size, size);
+                Color c = Color.White;
+                c = Color.FromArgb(255 - c.R, 255 - c.G, 255 - c.B);
+                Pen p = new Pen(c, 1);
+                g.DrawEllipse(p, r);
+
+                // Draw middle cross
+                g.DrawLine(p, centerPoint, centerPoint, centerPoint, centerPoint - 10);
+                g.DrawLine(p, centerPoint, centerPoint, centerPoint, centerPoint + 10);
+                g.DrawLine(p, centerPoint, centerPoint, centerPoint - 10, centerPoint);
+                g.DrawLine(p, centerPoint, centerPoint, centerPoint + 10, centerPoint);
+
+                cursorBMP.MakeTransparent();
+
+                pictureBox.Cursor = new Cursor(cursorBMP.GetHicon());
+                pictureBox.Cursor.Draw(g, r);
+            }
         }
 
         private void zoomInButton_Click(object sender, EventArgs e)
