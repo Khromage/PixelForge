@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.4.33213.308
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33529.622
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pixel Forgery", "Pixel Forgery\Pixel Forgery.csproj", "{AA77C375-27A2-4266-BEA3-6B2854DCF89B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PixelForgeTests", "PixelForgeTests\PixelForgeTests.csproj", "{B3EDA42C-126B-4160-9733-A9B22A9A4D17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{AA77C375-27A2-4266-BEA3-6B2854DCF89B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA77C375-27A2-4266-BEA3-6B2854DCF89B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA77C375-27A2-4266-BEA3-6B2854DCF89B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3EDA42C-126B-4160-9733-A9B22A9A4D17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3EDA42C-126B-4160-9733-A9B22A9A4D17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3EDA42C-126B-4160-9733-A9B22A9A4D17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3EDA42C-126B-4160-9733-A9B22A9A4D17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

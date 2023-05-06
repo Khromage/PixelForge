@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 
 namespace Pixel_Forgery
@@ -114,8 +115,13 @@ namespace Pixel_Forgery
         private void OpenButton_Click(object sender, EventArgs e)               // Open File Button
         {
             FileExplorerDialog fd = new FileExplorerDialog();
-            fd.OpenFile(this.pictureBox);
-            BMP = (Bitmap)pictureBox.Image;
+            BMP = fd.OpenFile(BMP);
+
+            pictureBox.Width = BMP.Width;
+            pictureBox.Height = BMP.Height;
+            pictureBox.Image = BMP;
+            pictureBox.Refresh();
+
             changes.ClearStacks();
             changes.AddChange(pictureBox);
         }
@@ -614,7 +620,13 @@ namespace Pixel_Forgery
             else if (e.KeyCode == Keys.O && (e.Control)) // Ctrl+O for Open
             {
                 FileExplorerDialog fd = new FileExplorerDialog();
-                fd.OpenFile(this.pictureBox);
+                BMP = fd.OpenFile(BMP);
+
+                pictureBox.Width = BMP.Width;
+                pictureBox.Height = BMP.Height;
+                pictureBox.Image = BMP;
+                pictureBox.Refresh();
+
                 changes.ClearStacks();
                 changes.AddChange(pictureBox);
             }
