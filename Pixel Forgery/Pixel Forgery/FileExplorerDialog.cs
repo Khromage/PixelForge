@@ -62,6 +62,7 @@ namespace Pixel_Forgery
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
+                
                 System.Drawing.Image image = System.Drawing.Image.FromFile(ofd.FileName);
 
                 orig = (Bitmap)image;

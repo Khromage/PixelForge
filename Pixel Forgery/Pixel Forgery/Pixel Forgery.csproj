@@ -143,7 +143,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PixelForgeLogo_Final.ico" />
-    <None Include="Resources\PixelForgeLogo_Final.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
