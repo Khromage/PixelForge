@@ -773,12 +773,22 @@ namespace Pixel_Forgery
         {
             pictureBox.Height += Convert.ToInt32(scaleFactor / constant);
             pictureBox.Width += scaleFactor;
+
+            //pictureBox.Top = (int)(pictureBox.Top - (pictureBox.Height * 0.025));
+            //pictureBox.Left = (int)(pictureBox.Left - (pictureBox.Width * 0.025));
+            //pictureBox.Height = (int)(pictureBox.Height + (pictureBox.Height * 0.05));
+            //pictureBox.Width = (int)(pictureBox.Width + (pictureBox.Width * 0.05));
         }
 
         private void zoomOutButton_Click(object sender, EventArgs e)
         {
             pictureBox.Height -= Convert.ToInt32(scaleFactor / constant);
             pictureBox.Width -= scaleFactor;
+
+            //pictureBox.Top = (int)(pictureBox.Top + (pictureBox.Height * 0.025));
+            //pictureBox.Left = (int)(pictureBox.Left + (pictureBox.Width * 0.025));
+            //pictureBox.Height = (int)(pictureBox.Height - (pictureBox.Height * 0.05));
+            //pictureBox.Width = (int)(pictureBox.Width - (pictureBox.Width * 0.05));
         }
 
         /// <summary>
