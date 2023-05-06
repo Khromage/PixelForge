@@ -36,7 +36,8 @@ namespace PixelForgeTest
             Bitmap bmpTest = new Bitmap(1, 1);
             //bmpTest = dialog.OpenFile(bmpTest);
 
-            Image image = Image.FromFile("C:\\Users\\taylo\\source\\repos\\PixelForge\\Pixel Forgery\\PixelForgeTest\\PixelForgeLogo_Final.png");
+            var imageFile = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            Image image = Image.FromFile(Path.Combine(imageFile, "PixelForgeLogo_Final.png"));
             Bitmap bmpActual = new Bitmap(image);
 
             bmpTest = dialog.OpenFile(bmpActual);
