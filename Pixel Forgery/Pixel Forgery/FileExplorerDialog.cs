@@ -49,10 +49,11 @@ namespace Pixel_Forgery
         /// </list>
         /// </summary>
         /// <param name="orig">Reference to the original Bitmap.</param>
+        /// <returns>Bitmap object containing the opened image</returns>
         public Bitmap OpenFile(Bitmap orig)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            Bitmap bmp = new Bitmap(orig.Width, orig.Height);
+            Bitmap bmp = orig;
 
             ofd.FileName = "";
             ofd.Filter = "All Picture Files (*.png;*.jpg;*.jpeg;*.bmp;*.gif)|*.png;*.jpg;*.jpeg;*.bmp;*.gif|PNG (*.png)|*.png|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|BMP (*.bmp)|*.bmp|GIF (*.gif)|*.gif";
