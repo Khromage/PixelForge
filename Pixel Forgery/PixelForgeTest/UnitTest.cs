@@ -55,18 +55,17 @@ namespace PixelForgeTest
         {
             FillTool f = new FillTool();
             FileExplorerDialog dialog = new FileExplorerDialog();
-            Bitmap bmpTest = new Bitmap(1, 1);
 
             f.p.Color = Color.Blue;
 
-            Bitmap bmp = new Bitmap(100, 100);
-            bmp = f.DfsFill(50, 50, bmp);
+            Bitmap bmpTest = new Bitmap(100, 100);
+            bmpTest = f.DfsFill(50, 50, bmpTest);
 
             var imageFile = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
             Image image = Image.FromFile(Path.Combine(imageFile, "Testing2.png"));
             Bitmap bmpActual = new Bitmap(image);
 
-            bmp.Save(Path.Combine(imageFile, "Testing2.png"));
+            Assert.IsTrue(CompareBitmap(bmpTest, bmpActual));
         }
 
         [TestMethod]
@@ -85,20 +84,23 @@ namespace PixelForgeTest
             //else is different, !=
             //if same image == 
 
-            bool mismatch = false;
-            for (int x = 0; x < bmpActual.Width; x++)
+            Assert.IsTrue(CompareBitmap(bmpTest, bmpActual));
+        }
+
+        public Boolean CompareBitmap(Bitmap a, Bitmap b)
+        {
+            for (int x = 0; x < b.Width; x++)
             {
-                for (int y = 0; y < bmpActual.Height; y++)
+                for (int y = 0; y < b.Height; y++)
                 {
-                    if (bmpActual.GetPixel(x, y).ToArgb() != bmpTest.GetPixel(x, y).ToArgb())
+                    if (b.GetPixel(x, y).ToArgb() != a.GetPixel(x, y).ToArgb())
                     {
-                        mismatch = true;
-                        break;
+                        return false;
                     }
                 }
-                if (mismatch) break;
             }
-            Assert.IsFalse(mismatch);
+
+            return true;
         }
     }
 }
