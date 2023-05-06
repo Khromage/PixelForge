@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Drawing;
+using Pixel_Forgery;
 
 namespace PixelForgeTest
 {
@@ -10,7 +11,8 @@ namespace PixelForgeTest
         [TestMethod]
         public void TestMethod1()
         {
-            
+            PixelForgeryGUI test = new PixelForgeryGUI();
+            FileExplorerDialog dialog = new FileExplorerDialog();
         }
     }
 }
