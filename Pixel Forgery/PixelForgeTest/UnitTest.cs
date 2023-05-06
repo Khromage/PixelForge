@@ -55,13 +55,18 @@ namespace PixelForgeTest
         {
             FillTool f = new FillTool();
             FileExplorerDialog dialog = new FileExplorerDialog();
-            f.p.Color = Color.Red;
+            Bitmap bmpTest = new Bitmap(1, 1);
+
+            f.p.Color = Color.Blue;
 
             Bitmap bmp = new Bitmap(100, 100);
             bmp = f.DfsFill(50, 50, bmp);
 
             var imageFile = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-            bmp.Save(Path.Combine(imageFile, "Testing.png"));
+            Image image = Image.FromFile(Path.Combine(imageFile, "Testing2.png"));
+            Bitmap bmpActual = new Bitmap(image);
+
+            bmp.Save(Path.Combine(imageFile, "Testing2.png"));
         }
     }
 }
