@@ -50,23 +50,37 @@ namespace PixelForgeTest
             Assert.AreEqual(bmpActual, bmpTest, "Test Passed!");
         }
 
+
         [TestMethod]
-        public void DfsFillTest()
-        {
-            FillTool f = new FillTool();
+        public void TestBitmapCompare()
+        {//open image, open new image
             FileExplorerDialog dialog = new FileExplorerDialog();
             Bitmap bmpTest = new Bitmap(1, 1);
-
-            f.p.Color = Color.Blue;
-
-            Bitmap bmp = new Bitmap(100, 100);
-            bmp = f.DfsFill(50, 50, bmp);
+            //bmpTest = dialog.OpenFile(bmpTest);
 
             var imageFile = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-            Image image = Image.FromFile(Path.Combine(imageFile, "Testing2.png"));
+            Image image = Image.FromFile(Path.Combine(imageFile, "PixelForgeLogo_Final.png"));
             Bitmap bmpActual = new Bitmap(image);
 
-            bmp.Save(Path.Combine(imageFile, "Testing2.png"));
+            bmpTest = dialog.OpenFile(bmpActual);
+            //if press cancel, bmpTest == actual
+            //else is different, !=
+            //if same image == 
+
+            bool mismatch = false;
+            for (int x = 0; x < bmpActual.Width; x++)
+            {
+                for (int y = 0; y < bmpActual.Height; y++)
+                {
+                    if (bmpActual.GetPixel(x, y).ToArgb() != bmpTest.GetPixel(x, y).ToArgb())
+                    {
+                        mismatch = true;
+                        break;
+                    }
+                }
+                if (mismatch) break;
+            }
+            Assert.IsFalse(mismatch);
         }
     }
 }

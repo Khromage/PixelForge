@@ -25,7 +25,7 @@ namespace Pixel_Forgery
     public class ShapeTool : PixelForgeryTool
     {
         Rectangle r;
-        List<Point> pointsInTool; //= new List<Point>();
+        List<Point> pointsInTool;
         int iterator = 0;
         Point locationX1Y1;
         Point locationXY;
@@ -111,12 +111,6 @@ namespace Pixel_Forgery
             if (this.pointsInTool == null)
                 pointsInTool = new List<Point>();
             pointsInTool = points;
-
-            Console.WriteLine("\n");
-            foreach (var point in pointsInTool)
-            {
-                Console.WriteLine("{0}, ", point);
-            }
         }
 
         /// <summary>

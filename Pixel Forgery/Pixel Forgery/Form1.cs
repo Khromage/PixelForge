@@ -470,7 +470,7 @@ namespace Pixel_Forgery
                     if (tool == fillTool)
                         tool.UseTool(e, pictureBox);
 
-                    if (tool == shapeTool && tool.typeOfTool == 3 && points.Count > 2)
+                    if (tool == shapeTool && points.Count > 2)
                     {
                         tool.Points(points);
                         tool.UseTool(e, pictureBox);
