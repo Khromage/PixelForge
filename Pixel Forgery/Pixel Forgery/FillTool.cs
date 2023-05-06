@@ -41,7 +41,10 @@ namespace Pixel_Forgery
             // Do Fill algorithm
             Bitmap bmp = (Bitmap)pictureBox1.Image;
             if(bmp.GetPixel(e.X, e.Y).ToArgb() != currentColor.ToArgb())
-                DfsFill(e, pictureBox1);
+                bmp = DfsFill(e.X, e.Y, bmp);
+
+            pictureBox1.Image = bmp;
+            pictureBox1.Refresh();
 
             stopWatch.Stop();
             TimeSpan ts = stopWatch.Elapsed;
@@ -60,12 +63,18 @@ namespace Pixel_Forgery
         /// <item>Programmer(s): Justin Reyes</item>
         /// </list>
         /// </summary>
-        /// <param name="e">An EventListener used checking for Mouse location.</param>
-        /// <param name="pictureBox1">Reference to the canvas.</param>
-        public void DfsFill(MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
+        /// <param name="x">X Position for where the flood fill starts</param>
+        /// <param name="y">X Position for where the flood fill starts</param>
+        /// <param name="orig">Reference to the original bitmap</param>
+        public Bitmap DfsFill(int x, int y, Bitmap orig)
         {
-            Bitmap bmp = (Bitmap)pictureBox1.Image;
-            int x = e.X, y = e.Y, w = bmp.Width, h = bmp.Height;
+            Bitmap bmp = new Bitmap(orig.Width, orig.Height);
+            using(Graphics g = Graphics.FromImage(bmp))
+            {
+                g.DrawImage(orig, 0, 0);
+            }
+
+            int w = bmp.Width, h = bmp.Height;
             Rectangle r = new Rectangle(0, 0, w, h);
 
             // Lock Bits to optimize pixel setting
@@ -89,7 +98,7 @@ namespace Pixel_Forgery
             stack.Push(new Point(x, y));
             mask[x, y] = 1;
 
-            while (stack.Count != 0)
+            while (stack.Count > 0)
             {
                 Point current = stack.Pop();
                 SetColor(current.X, current.Y, w, rgbValues);
@@ -107,8 +116,7 @@ namespace Pixel_Forgery
             // Unlock the bits
             bmp.UnlockBits(bmpData);
 
-            pictureBox1.Image = bmp;
-            pictureBox1.Refresh();
+            return bmp;
         }
 
         /// <summary>

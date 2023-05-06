@@ -49,5 +49,19 @@ namespace PixelForgeTest
             //Testing image cancel
             Assert.AreEqual(bmpActual, bmpTest, "Test Passed!");
         }
+
+        [TestMethod]
+        public void DfsFillTest()
+        {
+            FillTool f = new FillTool();
+            FileExplorerDialog dialog = new FileExplorerDialog();
+            f.p.Color = Color.Red;
+
+            Bitmap bmp = new Bitmap(100, 100);
+            bmp = f.DfsFill(50, 50, bmp);
+
+            var imageFile = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            bmp.Save(Path.Combine(imageFile, "Testing.png"));
+        }
     }
 }
