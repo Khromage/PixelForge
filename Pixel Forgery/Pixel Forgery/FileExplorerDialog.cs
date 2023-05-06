@@ -48,10 +48,12 @@ namespace Pixel_Forgery
         /// <item>Programmer(s): Justin Reyes</item>
         /// </list>
         /// </summary>
-        /// <param name="pictureBox">Reference to the pictureBox.</param>
-        public void OpenFile(PictureBox pictureBox)
+        /// <param name="orig">Reference to the original Bitmap.</param>
+        public Bitmap OpenFile(Bitmap orig)
         {
             OpenFileDialog ofd = new OpenFileDialog();
+            Bitmap bmp = new Bitmap(orig.Width, orig.Height);
+
             ofd.FileName = "";
             ofd.Filter = "All Picture Files (*.png;*.jpg;*.jpeg;*.bmp;*.gif)|*.png;*.jpg;*.jpeg;*.bmp;*.gif|PNG (*.png)|*.png|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|BMP (*.bmp)|*.bmp|GIF (*.gif)|*.gif";
             ofd.FilterIndex = 1;
@@ -60,13 +62,9 @@ namespace Pixel_Forgery
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 System.Drawing.Image image = System.Drawing.Image.FromFile(ofd.FileName);
-                pictureBox.Width = image.Width;
-                pictureBox.Height = image.Height;
-                pictureBox.Image = image;
 
-                // Always convert bmp format to 32 bits per pixel to make lock bits consistent
-                Bitmap orig = (Bitmap)pictureBox.Image;
-                Bitmap bmp = new Bitmap(orig.Width, orig.Height,
+                orig = (Bitmap)image;
+                bmp = new Bitmap(image.Width, image.Height,
                     System.Drawing.Imaging.PixelFormat.Format32bppPArgb);
 
                 using (Graphics g = Graphics.FromImage(bmp))
@@ -74,10 +72,9 @@ namespace Pixel_Forgery
                     g.DrawImage(orig, new Rectangle(0, 0, bmp.Width, bmp.Height));
                     g.Dispose();
                 }
-
-                pictureBox.Image = bmp;
-                pictureBox.Refresh();
             }
+
+            return bmp;
         }
     }
 }

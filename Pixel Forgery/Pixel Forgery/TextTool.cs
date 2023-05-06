@@ -150,6 +150,7 @@ namespace Pixel_Forgery
 
             RectangleF rec = new RectangleF(_startX, _startY, width, height);
 
+            g.DrawRectangle(Pens.Blue, new Rectangle((int)_startX, (int)_startY, (int)width, (int)height));
             g.DrawString(StringToPrint, new Font(_font, FontSize), Brushes.Black, rec, _format);
             g.Flush();
         }

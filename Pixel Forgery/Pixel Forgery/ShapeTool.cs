@@ -111,6 +111,7 @@ namespace Pixel_Forgery
             if (this.pointsInTool == null)
                 pointsInTool = new List<Point>();
             pointsInTool = points;
+
             Console.WriteLine("\n");
             foreach (var point in pointsInTool)
             {
