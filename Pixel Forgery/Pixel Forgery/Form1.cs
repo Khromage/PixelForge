@@ -765,28 +765,26 @@ namespace Pixel_Forgery
 
                 // Draw Circle
                 Rectangle r = new Rectangle(centerPoint - size / 2, centerPoint - size / 2, size, size);
-                Color c = Color.FromArgb(190, 255, 255, 255);
+                Color c = Color.FromArgb(255, 255, 255, 255);
                 Pen p = new Pen(c, 1);
                 g.DrawEllipse(p, r);
 
-                // Draw middle cross
-                g.DrawLine(p, centerPoint, centerPoint - 8, centerPoint, centerPoint - 16);
-                g.DrawLine(p, centerPoint, centerPoint + 8, centerPoint, centerPoint + 16);
-                g.DrawLine(p, centerPoint - 8, centerPoint, centerPoint - 16, centerPoint);
-                g.DrawLine(p, centerPoint + 8, centerPoint, centerPoint + 16, centerPoint);
-
-                c = Color.FromArgb(190, 0, 0, 0);
-                p = new Pen(c, 1);
+                c = Color.FromArgb(255, 0, 0, 0);
                 size += 2;
+                p.Color = c;
                 r = new Rectangle(centerPoint - size / 2, centerPoint - size / 2, size, size);
                 g.DrawEllipse(p, r);
 
                 // Draw middle cross
-                g.DrawLine(p, centerPoint, centerPoint, centerPoint, centerPoint - 8);
-                g.DrawLine(p, centerPoint, centerPoint, centerPoint, centerPoint + 8);
-                g.DrawLine(p, centerPoint, centerPoint, centerPoint - 8, centerPoint);
-                g.DrawLine(p, centerPoint, centerPoint, centerPoint + 8, centerPoint);
-                
+                for (int i = 0; i < 20; i += 2)
+                {
+                    g.DrawLine(p, centerPoint, centerPoint - i, centerPoint, centerPoint - i - 2);
+                    g.DrawLine(p, centerPoint, centerPoint + i, centerPoint, centerPoint + i + 2);
+                    g.DrawLine(p, centerPoint - i, centerPoint, centerPoint - i - 2, centerPoint);
+                    g.DrawLine(p, centerPoint + i, centerPoint, centerPoint + i + 2, centerPoint);
+                    c = Color.FromArgb(255, 255 - c.R, 255 - c.G, 255 - c.B);
+                    p.Color = c;
+                }            
 
                 cursorBMP.MakeTransparent();
 
