@@ -677,52 +677,52 @@ namespace Pixel_Forgery
             switch (i)
             {
                 case 1:                             // Brush
-                    brushButton.BackColor = Color.DarkGray;
-                    eraserButton.BackColor = Color.DimGray;
-                    shapeButton.BackColor = Color.DimGray;
-                    fillButton.BackColor = Color.DimGray;
-                    colorPickerButton.BackColor = Color.DimGray;
-                    TextBoxButton.BackColor = Color.DimGray;
+                    brushButton.BackColor = Color.White;
+                    eraserButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    shapeButton.BackColor = Color.FromArgb(255, 255, 192, 128); ;
+                    fillButton.BackColor = Color.FromArgb(255, 255, 192, 128); ;
+                    colorPickerButton.BackColor = Color.FromArgb(255, 255, 192, 128); ;
+                    TextBoxButton.BackColor = Color.FromArgb(255, 255, 192, 128); ;
                     break;
                 case 2:                             // Eraser
-                    brushButton.BackColor = Color.DimGray;
-                    eraserButton.BackColor = Color.DarkGray;
-                    shapeButton.BackColor = Color.DimGray;
-                    fillButton.BackColor = Color.DimGray;
-                    colorPickerButton.BackColor = Color.DimGray;
-                    TextBoxButton.BackColor = Color.DimGray;
+                    brushButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    eraserButton.BackColor = Color.White;
+                    shapeButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    fillButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    colorPickerButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    TextBoxButton.BackColor = Color.FromArgb(255, 255, 192, 128);
                     break;
                 case 3:                             // Shape
-                    brushButton.BackColor = Color.DimGray;
-                    eraserButton.BackColor = Color.DimGray;
-                    shapeButton.BackColor = Color.DarkGray;
-                    fillButton.BackColor = Color.DimGray;
-                    colorPickerButton.BackColor = Color.DimGray;
-                    TextBoxButton.BackColor = Color.DimGray;
+                    brushButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    eraserButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    shapeButton.BackColor = Color.White;
+                    fillButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    colorPickerButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    TextBoxButton.BackColor = Color.FromArgb(255, 255, 192, 128);
                     break;
                 case 4:                             // Fill
-                    brushButton.BackColor = Color.DimGray;
-                    eraserButton.BackColor = Color.DimGray;
-                    shapeButton.BackColor = Color.DimGray;
-                    fillButton.BackColor = Color.DarkGray;
-                    colorPickerButton.BackColor = Color.DimGray;
-                    TextBoxButton.BackColor = Color.DimGray;
+                    brushButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    eraserButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    shapeButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    fillButton.BackColor = Color.White;
+                    colorPickerButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    TextBoxButton.BackColor = Color.FromArgb(255, 255, 192, 128);
                     break;
                 case 5:                             // Color Picker
-                    brushButton.BackColor = Color.DimGray;
-                    eraserButton.BackColor = Color.DimGray;
-                    shapeButton.BackColor = Color.DimGray;
-                    fillButton.BackColor = Color.DimGray;
-                    colorPickerButton.BackColor = Color.DarkGray;
-                    TextBoxButton.BackColor = Color.DimGray;
+                    brushButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    eraserButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    shapeButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    fillButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    colorPickerButton.BackColor = Color.White;
+                    TextBoxButton.BackColor = Color.FromArgb(255, 255, 192, 128);
                     break;
                 case 6:                             // Text Box Button
-                    brushButton.BackColor = Color.DimGray;
-                    eraserButton.BackColor = Color.DimGray;
-                    shapeButton.BackColor = Color.DimGray;
-                    fillButton.BackColor = Color.DimGray;
-                    colorPickerButton.BackColor = Color.DimGray;
-                    TextBoxButton.BackColor = Color.DarkGray;
+                    brushButton.BackColor = Color.FromArgb(255, 255, 192, 128);;
+                    eraserButton.BackColor = Color.FromArgb(255, 255, 192, 128);;
+                    shapeButton.BackColor = Color.FromArgb(255, 255, 192, 128);;
+                    fillButton.BackColor = Color.FromArgb(255, 255, 192, 128);;
+                    colorPickerButton.BackColor = Color.FromArgb(255, 255, 192, 128);;
+                    TextBoxButton.BackColor = Color.White;
                     break;
             }
         }
