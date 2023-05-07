@@ -124,38 +124,46 @@ namespace Pixel_Forgery
             // 
             // newButton
             // 
+            this.newButton.Image = ((System.Drawing.Image)(resources.GetObject("newButton.Image")));
+            this.newButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.newButton.Name = "newButton";
             this.newButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newButton.Size = new System.Drawing.Size(220, 22);
+            this.newButton.Size = new System.Drawing.Size(224, 26);
             this.newButton.Text = "New";
             this.newButton.Click += new System.EventHandler(this.NewButton_Click);
             // 
             // saveButton
             // 
+            this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
+            this.saveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.saveButton.Name = "saveButton";
             this.saveButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveButton.Size = new System.Drawing.Size(220, 22);
+            this.saveButton.Size = new System.Drawing.Size(224, 26);
             this.saveButton.Text = "Save";
             this.saveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // openButton
             // 
+            this.openButton.Image = ((System.Drawing.Image)(resources.GetObject("openButton.Image")));
+            this.openButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.openButton.Name = "openButton";
             this.openButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openButton.Size = new System.Drawing.Size(220, 22);
+            this.openButton.Size = new System.Drawing.Size(224, 26);
             this.openButton.Text = "Open";
             this.openButton.Click += new System.EventHandler(this.OpenButton_Click);
             // 
             // fileButtonSeparator
             // 
             this.fileButtonSeparator.Name = "fileButtonSeparator";
-            this.fileButtonSeparator.Size = new System.Drawing.Size(217, 6);
+            this.fileButtonSeparator.Size = new System.Drawing.Size(221, 6);
             // 
             // imagePropertiesButton
             // 
+            this.imagePropertiesButton.Image = ((System.Drawing.Image)(resources.GetObject("imagePropertiesButton.Image")));
+            this.imagePropertiesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.imagePropertiesButton.Name = "imagePropertiesButton";
             this.imagePropertiesButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.imagePropertiesButton.Size = new System.Drawing.Size(220, 22);
+            this.imagePropertiesButton.Size = new System.Drawing.Size(224, 26);
             this.imagePropertiesButton.Text = "Image Properties";
             this.imagePropertiesButton.Click += new System.EventHandler(this.ImagePropertiesButton_Click);
             // 
@@ -172,19 +180,23 @@ namespace Pixel_Forgery
             // 
             // undoButton
             // 
+            this.undoButton.Image = ((System.Drawing.Image)(resources.GetObject("undoButton.Image")));
+            this.undoButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.undoButton.Name = "undoButton";
             this.undoButton.ShortcutKeyDisplayString = "";
             this.undoButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoButton.Size = new System.Drawing.Size(152, 22);
+            this.undoButton.Size = new System.Drawing.Size(184, 26);
             this.undoButton.Text = "Undo";
             this.undoButton.Click += new System.EventHandler(this.UndoButton_Click);
             // 
             // redoButton
             // 
+            this.redoButton.Image = ((System.Drawing.Image)(resources.GetObject("redoButton.Image")));
+            this.redoButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.redoButton.Name = "redoButton";
             this.redoButton.ShortcutKeyDisplayString = "";
             this.redoButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.redoButton.Size = new System.Drawing.Size(152, 22);
+            this.redoButton.Size = new System.Drawing.Size(184, 26);
             this.redoButton.Text = "Redo";
             this.redoButton.Click += new System.EventHandler(this.RedoButton_Click);
             // 
@@ -217,7 +229,7 @@ namespace Pixel_Forgery
             // brushButton
             // 
             this.brushButton.AutoSize = false;
-            this.brushButton.BackColor = System.Drawing.Color.DimGray;
+            this.brushButton.BackColor = System.Drawing.Color.Transparent;
             this.brushButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.brushButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.brushButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -239,7 +251,7 @@ namespace Pixel_Forgery
             this.brushSizeTextBox});
             this.sizeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.sizeToolStripMenuItem.Name = "sizeToolStripMenuItem";
-            this.sizeToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.sizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sizeToolStripMenuItem.Text = "Change Size";
             this.sizeToolStripMenuItem.MouseHover += new System.EventHandler(this.BrushSizeToolStripMenuItem_MouseHover);
             // 
