@@ -76,5 +76,12 @@
       <FileName>ImagePropertiesForm.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Pixel_Forgery.TextTool">
+    <Position X="12.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAiIAAACAAAAAAADAAAAAAEA=</HashCode>
+      <FileName>TextTool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

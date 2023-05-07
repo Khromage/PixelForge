@@ -579,6 +579,7 @@ namespace Pixel_Forgery
                     }
 
                     changes.AddChange(pictureBox);
+                    BMP = (Bitmap)pictureBox.Image;
                     break;
                 case MouseButtons.Right:
                     break;
@@ -751,6 +752,7 @@ namespace Pixel_Forgery
         /// </list>
         /// </summary>
         /// <param name="size">Integer value containing the diameter of the cursor</param>
+        /// <param name="c">Color of the cursor</param>
         private void ChangeCursorSize(int size)
         {
             // If size is an odd number, turn it to an even number
@@ -763,16 +765,28 @@ namespace Pixel_Forgery
 
                 // Draw Circle
                 Rectangle r = new Rectangle(centerPoint - size / 2, centerPoint - size / 2, size, size);
-                Color c = Color.White;
-                c = Color.FromArgb(255 - c.R, 255 - c.G, 255 - c.B);
+                Color c = Color.FromArgb(190, 255, 255, 255);
                 Pen p = new Pen(c, 1);
                 g.DrawEllipse(p, r);
 
                 // Draw middle cross
-                g.DrawLine(p, centerPoint, centerPoint, centerPoint, centerPoint - 10);
-                g.DrawLine(p, centerPoint, centerPoint, centerPoint, centerPoint + 10);
-                g.DrawLine(p, centerPoint, centerPoint, centerPoint - 10, centerPoint);
-                g.DrawLine(p, centerPoint, centerPoint, centerPoint + 10, centerPoint);
+                g.DrawLine(p, centerPoint, centerPoint - 8, centerPoint, centerPoint - 16);
+                g.DrawLine(p, centerPoint, centerPoint + 8, centerPoint, centerPoint + 16);
+                g.DrawLine(p, centerPoint - 8, centerPoint, centerPoint - 16, centerPoint);
+                g.DrawLine(p, centerPoint + 8, centerPoint, centerPoint + 16, centerPoint);
+
+                c = Color.FromArgb(190, 0, 0, 0);
+                p = new Pen(c, 1);
+                size += 2;
+                r = new Rectangle(centerPoint - size / 2, centerPoint - size / 2, size, size);
+                g.DrawEllipse(p, r);
+
+                // Draw middle cross
+                g.DrawLine(p, centerPoint, centerPoint, centerPoint, centerPoint - 8);
+                g.DrawLine(p, centerPoint, centerPoint, centerPoint, centerPoint + 8);
+                g.DrawLine(p, centerPoint, centerPoint, centerPoint - 8, centerPoint);
+                g.DrawLine(p, centerPoint, centerPoint, centerPoint + 8, centerPoint);
+                
 
                 cursorBMP.MakeTransparent();
 
