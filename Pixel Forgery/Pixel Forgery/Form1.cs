@@ -53,6 +53,9 @@ namespace Pixel_Forgery
             ChangeToolBackground(1);
             ChangeCursorSize(5);
 
+            zoomInButton.Visible = false;
+            zoomOutButton.Visible = false;
+
             using (Graphics g = Graphics.FromImage(BMP))
             {
                 Rectangle bg = new Rectangle(0, 0, BMP.Width, BMP.Height);
