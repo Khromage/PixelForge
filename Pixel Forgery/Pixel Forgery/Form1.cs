@@ -53,6 +53,9 @@ namespace Pixel_Forgery
             ChangeToolBackground(1);
             ChangeCursorSize(5);
 
+            zoomInButton.Visible = false;
+            zoomOutButton.Visible = false;
+
             using (Graphics g = Graphics.FromImage(BMP))
             {
                 Rectangle bg = new Rectangle(0, 0, BMP.Width, BMP.Height);
@@ -579,6 +582,7 @@ namespace Pixel_Forgery
                     }
 
                     changes.AddChange(pictureBox);
+                    BMP = (Bitmap)pictureBox.Image;
                     break;
                 case MouseButtons.Right:
                     break;
@@ -676,52 +680,52 @@ namespace Pixel_Forgery
             switch (i)
             {
                 case 1:                             // Brush
-                    brushButton.BackColor = Color.DarkGray;
-                    eraserButton.BackColor = Color.DimGray;
-                    shapeButton.BackColor = Color.DimGray;
-                    fillButton.BackColor = Color.DimGray;
-                    colorPickerButton.BackColor = Color.DimGray;
-                    TextBoxButton.BackColor = Color.DimGray;
+                    brushButton.BackColor = Color.White;
+                    eraserButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    shapeButton.BackColor = Color.FromArgb(255, 255, 192, 128); ;
+                    fillButton.BackColor = Color.FromArgb(255, 255, 192, 128); ;
+                    colorPickerButton.BackColor = Color.FromArgb(255, 255, 192, 128); ;
+                    TextBoxButton.BackColor = Color.FromArgb(255, 255, 192, 128); ;
                     break;
                 case 2:                             // Eraser
-                    brushButton.BackColor = Color.DimGray;
-                    eraserButton.BackColor = Color.DarkGray;
-                    shapeButton.BackColor = Color.DimGray;
-                    fillButton.BackColor = Color.DimGray;
-                    colorPickerButton.BackColor = Color.DimGray;
-                    TextBoxButton.BackColor = Color.DimGray;
+                    brushButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    eraserButton.BackColor = Color.White;
+                    shapeButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    fillButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    colorPickerButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    TextBoxButton.BackColor = Color.FromArgb(255, 255, 192, 128);
                     break;
                 case 3:                             // Shape
-                    brushButton.BackColor = Color.DimGray;
-                    eraserButton.BackColor = Color.DimGray;
-                    shapeButton.BackColor = Color.DarkGray;
-                    fillButton.BackColor = Color.DimGray;
-                    colorPickerButton.BackColor = Color.DimGray;
-                    TextBoxButton.BackColor = Color.DimGray;
+                    brushButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    eraserButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    shapeButton.BackColor = Color.White;
+                    fillButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    colorPickerButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    TextBoxButton.BackColor = Color.FromArgb(255, 255, 192, 128);
                     break;
                 case 4:                             // Fill
-                    brushButton.BackColor = Color.DimGray;
-                    eraserButton.BackColor = Color.DimGray;
-                    shapeButton.BackColor = Color.DimGray;
-                    fillButton.BackColor = Color.DarkGray;
-                    colorPickerButton.BackColor = Color.DimGray;
-                    TextBoxButton.BackColor = Color.DimGray;
+                    brushButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    eraserButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    shapeButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    fillButton.BackColor = Color.White;
+                    colorPickerButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    TextBoxButton.BackColor = Color.FromArgb(255, 255, 192, 128);
                     break;
                 case 5:                             // Color Picker
-                    brushButton.BackColor = Color.DimGray;
-                    eraserButton.BackColor = Color.DimGray;
-                    shapeButton.BackColor = Color.DimGray;
-                    fillButton.BackColor = Color.DimGray;
-                    colorPickerButton.BackColor = Color.DarkGray;
-                    TextBoxButton.BackColor = Color.DimGray;
+                    brushButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    eraserButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    shapeButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    fillButton.BackColor = Color.FromArgb(255, 255, 192, 128);
+                    colorPickerButton.BackColor = Color.White;
+                    TextBoxButton.BackColor = Color.FromArgb(255, 255, 192, 128);
                     break;
                 case 6:                             // Text Box Button
-                    brushButton.BackColor = Color.DimGray;
-                    eraserButton.BackColor = Color.DimGray;
-                    shapeButton.BackColor = Color.DimGray;
-                    fillButton.BackColor = Color.DimGray;
-                    colorPickerButton.BackColor = Color.DimGray;
-                    TextBoxButton.BackColor = Color.DarkGray;
+                    brushButton.BackColor = Color.FromArgb(255, 255, 192, 128);;
+                    eraserButton.BackColor = Color.FromArgb(255, 255, 192, 128);;
+                    shapeButton.BackColor = Color.FromArgb(255, 255, 192, 128);;
+                    fillButton.BackColor = Color.FromArgb(255, 255, 192, 128);;
+                    colorPickerButton.BackColor = Color.FromArgb(255, 255, 192, 128);;
+                    TextBoxButton.BackColor = Color.White;
                     break;
             }
         }
@@ -751,6 +755,7 @@ namespace Pixel_Forgery
         /// </list>
         /// </summary>
         /// <param name="size">Integer value containing the diameter of the cursor</param>
+        /// <param name="c">Color of the cursor</param>
         private void ChangeCursorSize(int size)
         {
             // If size is an odd number, turn it to an even number
@@ -763,16 +768,26 @@ namespace Pixel_Forgery
 
                 // Draw Circle
                 Rectangle r = new Rectangle(centerPoint - size / 2, centerPoint - size / 2, size, size);
-                Color c = Color.White;
-                c = Color.FromArgb(255 - c.R, 255 - c.G, 255 - c.B);
+                Color c = Color.FromArgb(255, 255, 255, 255);
                 Pen p = new Pen(c, 1);
                 g.DrawEllipse(p, r);
 
+                c = Color.FromArgb(255, 0, 0, 0);
+                size += 2;
+                p.Color = c;
+                r = new Rectangle(centerPoint - size / 2, centerPoint - size / 2, size, size);
+                g.DrawEllipse(p, r);
+
                 // Draw middle cross
-                g.DrawLine(p, centerPoint, centerPoint, centerPoint, centerPoint - 10);
-                g.DrawLine(p, centerPoint, centerPoint, centerPoint, centerPoint + 10);
-                g.DrawLine(p, centerPoint, centerPoint, centerPoint - 10, centerPoint);
-                g.DrawLine(p, centerPoint, centerPoint, centerPoint + 10, centerPoint);
+                for (int i = 0; i < 20; i += 2)
+                {
+                    g.DrawLine(p, centerPoint, centerPoint - i, centerPoint, centerPoint - i - 2);
+                    g.DrawLine(p, centerPoint, centerPoint + i, centerPoint, centerPoint + i + 2);
+                    g.DrawLine(p, centerPoint - i, centerPoint, centerPoint - i - 2, centerPoint);
+                    g.DrawLine(p, centerPoint + i, centerPoint, centerPoint + i + 2, centerPoint);
+                    c = Color.FromArgb(255, 255 - c.R, 255 - c.G, 255 - c.B);
+                    p.Color = c;
+                }            
 
                 cursorBMP.MakeTransparent();
 
