@@ -869,5 +869,10 @@ namespace Pixel_Forgery
         {
             textBoxStringTextBox.Clear();
         }
+
+        private void PixelForgeryGUI_Load(object sender, EventArgs e)
+        {
+            ToolTip polyDrawTip = new ToolTip();
+        }
     }
 }

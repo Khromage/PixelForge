@@ -82,12 +82,12 @@ namespace Pixel_Forgery
             this.colorChangeButton = new System.Windows.Forms.ToolStripButton();
             this.colorPickerButton = new System.Windows.Forms.ToolStripButton();
             this.pickedcolordisplay = new System.Windows.Forms.ToolStripLabel();
+            this.zoomInButton = new System.Windows.Forms.ToolStripButton();
+            this.zoomOutButton = new System.Windows.Forms.ToolStripButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.zoomOutButton = new System.Windows.Forms.ToolStripButton();
-            this.zoomInButton = new System.Windows.Forms.ToolStripButton();
             this.menuBar.SuspendLayout();
             this.toolBar.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -245,6 +245,7 @@ namespace Pixel_Forgery
             // 
             // brushSizeTextBox
             // 
+            this.brushSizeTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.brushSizeTextBox.Name = "brushSizeTextBox";
             this.brushSizeTextBox.Size = new System.Drawing.Size(100, 23);
             this.brushSizeTextBox.Click += new System.EventHandler(this.BrushSizeTextBox_Click);
@@ -275,6 +276,7 @@ namespace Pixel_Forgery
             // 
             // eraserSizeTextBox
             // 
+            this.eraserSizeTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.eraserSizeTextBox.Name = "eraserSizeTextBox";
             this.eraserSizeTextBox.Size = new System.Drawing.Size(100, 23);
             this.eraserSizeTextBox.Click += new System.EventHandler(this.EraserSizeTextBox_Click);
@@ -315,8 +317,10 @@ namespace Pixel_Forgery
             // 
             this.polygonToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("polygonToolStripMenuItem.Image")));
             this.polygonToolStripMenuItem.Name = "polygonToolStripMenuItem";
-            this.polygonToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.polygonToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.polygonToolStripMenuItem.Text = "Polygon";
+            this.polygonToolStripMenuItem.ToolTipText = "Right click to set a polygon vertex and left click to complete the polygon by con" +
+    "necting the last placed point to the first placed point";
             this.polygonToolStripMenuItem.Click += new System.EventHandler(this.PolygonToolStripMenuItem_Click);
             // 
             // fillButton
@@ -360,6 +364,7 @@ namespace Pixel_Forgery
             // 
             // textBoxFontSizeTextBox
             // 
+            this.textBoxFontSizeTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxFontSizeTextBox.Name = "textBoxFontSizeTextBox";
             this.textBoxFontSizeTextBox.Size = new System.Drawing.Size(150, 23);
             this.textBoxFontSizeTextBox.Click += new System.EventHandler(this.textBoxFontSizeTextBox_Click);
@@ -382,6 +387,7 @@ namespace Pixel_Forgery
             // 
             // textBoxStringTextBox
             // 
+            this.textBoxStringTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.textBoxStringTextBox.Name = "textBoxStringTextBox";
             this.textBoxStringTextBox.Size = new System.Drawing.Size(150, 23);
             this.textBoxStringTextBox.Click += new System.EventHandler(this.textBoxStringTextBox_Click);
@@ -428,6 +434,28 @@ namespace Pixel_Forgery
             this.pickedcolordisplay.Name = "pickedcolordisplay";
             this.pickedcolordisplay.Size = new System.Drawing.Size(25, 25);
             // 
+            // zoomInButton
+            // 
+            this.zoomInButton.AutoSize = false;
+            this.zoomInButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.zoomInButton.Image = ((System.Drawing.Image)(resources.GetObject("zoomInButton.Image")));
+            this.zoomInButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.zoomInButton.Name = "zoomInButton";
+            this.zoomInButton.Size = new System.Drawing.Size(47, 47);
+            this.zoomInButton.Text = "zoomInButton";
+            this.zoomInButton.Click += new System.EventHandler(this.zoomInButton_Click);
+            // 
+            // zoomOutButton
+            // 
+            this.zoomOutButton.AutoSize = false;
+            this.zoomOutButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.zoomOutButton.Image = ((System.Drawing.Image)(resources.GetObject("zoomOutButton.Image")));
+            this.zoomOutButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.zoomOutButton.Name = "zoomOutButton";
+            this.zoomOutButton.Size = new System.Drawing.Size(47, 47);
+            this.zoomOutButton.Text = "zoomOutButton";
+            this.zoomOutButton.Click += new System.EventHandler(this.zoomOutButton_Click);
+            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
@@ -465,28 +493,6 @@ namespace Pixel_Forgery
             this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PictureBox_MouseMove);
             this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PictureBox_MouseUp);
             // 
-            // zoomOutButton
-            // 
-            this.zoomOutButton.AutoSize = false;
-            this.zoomOutButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.zoomOutButton.Image = ((System.Drawing.Image)(resources.GetObject("zoomOutButton.Image")));
-            this.zoomOutButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.zoomOutButton.Name = "zoomOutButton";
-            this.zoomOutButton.Size = new System.Drawing.Size(47, 47);
-            this.zoomOutButton.Text = "zoomOutButton";
-            this.zoomOutButton.Click += new System.EventHandler(this.zoomOutButton_Click);
-            // 
-            // zoomInButton
-            // 
-            this.zoomInButton.AutoSize = false;
-            this.zoomInButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.zoomInButton.Image = ((System.Drawing.Image)(resources.GetObject("zoomInButton.Image")));
-            this.zoomInButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.zoomInButton.Name = "zoomInButton";
-            this.zoomInButton.Size = new System.Drawing.Size(47, 47);
-            this.zoomInButton.Text = "zoomInButton";
-            this.zoomInButton.Click += new System.EventHandler(this.zoomInButton_Click);
-            // 
             // PixelForgeryGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -502,6 +508,7 @@ namespace Pixel_Forgery
             this.MinimumSize = new System.Drawing.Size(1078, 713);
             this.Name = "PixelForgeryGUI";
             this.Text = "Pixel Forge";
+            this.Load += new System.EventHandler(this.PixelForgeryGUI_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PixelForgeryGUI_KeyDown);
             this.menuBar.ResumeLayout(false);
             this.menuBar.PerformLayout();

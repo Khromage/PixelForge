@@ -3,6 +3,7 @@ using System;
 using System.Drawing;
 using Pixel_Forgery;
 using System.IO;
+using System.Windows.Forms;
 
 namespace PixelForgeTest
 {
