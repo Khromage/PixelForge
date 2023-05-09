@@ -329,8 +329,10 @@ namespace Pixel_Forgery
             // 
             this.polygonToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("polygonToolStripMenuItem.Image")));
             this.polygonToolStripMenuItem.Name = "polygonToolStripMenuItem";
-            this.polygonToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.polygonToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.polygonToolStripMenuItem.Text = "Polygon";
+            this.polygonToolStripMenuItem.ToolTipText = "Right click to set a polygon vertex and left click to complete the polygon by con" +
+    "necting the last placed point to the first placed point";
             this.polygonToolStripMenuItem.Click += new System.EventHandler(this.PolygonToolStripMenuItem_Click);
             // 
             // fillButton
@@ -520,6 +522,7 @@ namespace Pixel_Forgery
             this.MinimumSize = new System.Drawing.Size(1078, 713);
             this.Name = "PixelForgeryGUI";
             this.Text = "Pixel Forge";
+            this.Load += new System.EventHandler(this.PixelForgeryGUI_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PixelForgeryGUI_KeyDown);
             this.menuBar.ResumeLayout(false);
             this.menuBar.PerformLayout();
