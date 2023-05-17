@@ -57,7 +57,7 @@ namespace PixelForgeTest
             FillTool f = new FillTool();
             FileExplorerDialog dialog = new FileExplorerDialog();
 
-            f.p.Color = Color.Blue;
+            f.pen.Color = Color.Blue;
 
             Bitmap bmpTest = new Bitmap(100, 100);
             bmpTest = f.DfsFill(50, 50, bmpTest);

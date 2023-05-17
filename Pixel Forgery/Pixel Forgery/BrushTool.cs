@@ -26,10 +26,10 @@ namespace Pixel_Forgery
     /// </summary>
     public class BrushTool : PixelForgeryTool
     {
-        // Update (4/24): p variable not needed as it's defined in the base class
+        // Update (4/24): pen variable not needed as it's defined in the base class
         // Create the pen object only once. This makes it easier to 
         // edit the pen width and color
-        //private Pen p = new Pen(Color.Black, 5);
+        //private Pen pen = new Pen(Color.Black, 5);
 
         /// <summary>
         /// Property variable for setting and getting the 
@@ -41,8 +41,8 @@ namespace Pixel_Forgery
         /// </summary>
         public float BrushWidth
         {
-            set { p.Width = value; }
-            get { return p.Width; }
+            set { pen.Width = value; }
+            get { return pen.Width; }
         }
 
         /// <summary>
@@ -58,14 +58,14 @@ namespace Pixel_Forgery
         {
             Graphics g = Graphics.FromImage(pictureBox1.Image);
             g.SmoothingMode = SmoothingMode.HighQuality;
-            p.StartCap = System.Drawing.Drawing2D.LineCap.Round;
-            p.EndCap = System.Drawing.Drawing2D.LineCap.Round;
+            pen.StartCap = System.Drawing.Drawing2D.LineCap.Round;
+            pen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
             Point point1 = new Point(startX, startY);
             Point point2 = new Point(e.X, e.Y);
-            p.Color = currentColor;
+            pen.Color = currentColor;
             if (isDrawing == true)
             {
-                g.DrawLine(p, point1, point2);
+                g.DrawLine(pen, point1, point2);
                 startX = e.X;
                 startY = e.Y;
             }
