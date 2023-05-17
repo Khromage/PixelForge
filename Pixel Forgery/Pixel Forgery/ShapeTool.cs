@@ -43,23 +43,23 @@ namespace Pixel_Forgery
         public override void UseTool(MouseEventArgs e, System.Windows.Forms.PictureBox pictureBox1)
         {
             Graphics g = Graphics.FromImage(pictureBox1.Image);
-            p.Color = currentColor;
+            pen.Color = currentColor;
             switch (typeOfTool)
             {
                 case 1:
-                    g.DrawRectangle(p, GetRectangle());
+                    g.DrawRectangle(pen, GetRectangle());
                     break;
                 case 2:
-                    g.DrawEllipse(p, GetRectangle());
+                    g.DrawEllipse(pen, GetRectangle());
                     break;
                 case 3:
                     if (pointsInTool != null && pointsInTool.Count > 1 && e.Button == MouseButtons.Right)
-                        g.DrawLine(p, pointsInTool[pointsInTool.Count - 2], pointsInTool[pointsInTool.Count - 1]);
+                        g.DrawLine(pen, pointsInTool[pointsInTool.Count - 2], pointsInTool[pointsInTool.Count - 1]);
                     else if (pointsInTool != null && pointsInTool.Count > 2 && e.Button == MouseButtons.Left)
-                        g.DrawLine(p, pointsInTool[pointsInTool.Count - 1], pointsInTool[0]);
+                        g.DrawLine(pen, pointsInTool[pointsInTool.Count - 1], pointsInTool[0]);
                     break;
                 default:
-                    g.DrawRectangle(p, GetRectangle());
+                    g.DrawRectangle(pen, GetRectangle());
                     break;
             }
             pictureBox1.Refresh();
@@ -81,17 +81,17 @@ namespace Pixel_Forgery
             switch (typeOfTool)
             {
                 case 1:
-                    g.DrawRectangle(p, GetRectangle());
+                    g.DrawRectangle(pen, GetRectangle());
                     break;
                 case 2:
-                    g.DrawEllipse(p, GetRectangle());
+                    g.DrawEllipse(pen, GetRectangle());
                     break;
                 case 3:
                     if(pointsInTool != null && pointsInTool.Count > 2)
-                        g.DrawLine(p, pointsInTool[iterator], pointsInTool[iterator+1]);
+                        g.DrawLine(pen, pointsInTool[iterator], pointsInTool[iterator+1]);
                     break;
                 default:
-                    g.DrawRectangle(p, GetRectangle());
+                    g.DrawRectangle(pen, GetRectangle());
                     break;
             }
             // Don't do g.Dispose for this one; it removes the PaintEvent's graphics object which leads to an error

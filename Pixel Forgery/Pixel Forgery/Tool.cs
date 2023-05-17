@@ -28,7 +28,7 @@ namespace Pixel_Forgery
         public int endY;
         public int typeOfTool;
         public Boolean isDrawing = false;
-        public Pen p = new Pen(Color.Black, 5);
+        public Pen pen = new Pen(Color.Black, 5);
 
         /// <summary>
         /// Property variable for setting and getting the 
@@ -40,8 +40,8 @@ namespace Pixel_Forgery
         /// </summary>
         public Color currentColor 
         {
-            set { p.Color = value; }
-            get { return p.Color; }
+            set { pen.Color = value; }
+            get { return pen.Color; }
         }
         /// <summary>
         /// Property variable for setting the color that the color picker hovers over

@@ -419,7 +419,7 @@ namespace Pixel_Forgery
         /// <item>Programmer(s): Gregory Khrom-Abramyan</item>
         /// </list>
         /// </summary>
-        /// <param name="sender">References the colorTool object.</param>
+        /// <param name="sender">References the colorTool button object.</param>
         /// <param name="e">An EventListener checking for when the Button is clicked.</param>
         private void ColorTool_Click(object sender, EventArgs e)
         {

@@ -68,7 +68,6 @@
     <Compile Include="BrushTool.cs" />
     <Compile Include="Changes.cs" />
     <Compile Include="ColorPickerTool.cs" />
-    <Compile Include="ColorTool.cs" />
     <Compile Include="FillTool.cs" />
     <Compile Include="ImagePropertiesForm.cs">
       <SubType>Form</SubType>
