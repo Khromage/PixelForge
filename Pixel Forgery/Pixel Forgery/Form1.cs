@@ -28,8 +28,6 @@ namespace Pixel_Forgery
         private TextTool textTool = new TextTool();
         private FillTool fillTool = new FillTool();
         private List<Point> points = new List<Point>();
-        private int scaleFactor = 15;
-        private float constant = 1.7f;
 
         /// <summary>
         /// Constructor for the PixelForgeryGUI class.
@@ -52,10 +50,6 @@ namespace Pixel_Forgery
             tool = brushTool;
             ChangeToolBackground(1);
             ChangeCursorSize(5);
-
-            zoomInButton.Visible = false;
-            zoomOutButton.Visible = false;
-
             using (Graphics g = Graphics.FromImage(BMP))
             {
                 Rectangle bg = new Rectangle(0, 0, BMP.Width, BMP.Height);
@@ -796,26 +790,38 @@ namespace Pixel_Forgery
             }
         }
 
+        /// <summary>
+        /// Zooms the canvas in on the image.
+        /// <list type="bullet">
+        /// <item>Date: 5/17/23</item>
+        /// <item>Programmer(s): Gregory Khrom-Abramyan</item>
+        /// </list>
+        /// </summary>
+        /// <param name="sender">References the pictureBox object.</param>
+        /// <param name="e">An EventListener checking for when the Button is clicked.</param>
         private void zoomInButton_Click(object sender, EventArgs e)
         {
-            pictureBox.Height += Convert.ToInt32(scaleFactor / constant);
-            pictureBox.Width += scaleFactor;
-
-            //pictureBox.Top = (int)(pictureBox.Top - (pictureBox.Height * 0.025));
-            //pictureBox.Left = (int)(pictureBox.Left - (pictureBox.Width * 0.025));
-            //pictureBox.Height = (int)(pictureBox.Height + (pictureBox.Height * 0.05));
-            //pictureBox.Width = (int)(pictureBox.Width + (pictureBox.Width * 0.05));
+            pictureBox.Top = (int)(pictureBox.Top - (pictureBox.Height * 0.025));
+            pictureBox.Left = (int)(pictureBox.Left - (pictureBox.Width * 0.025));
+            pictureBox.Height = (int)(pictureBox.Height + (pictureBox.Height * 0.05));
+            pictureBox.Width = (int)(pictureBox.Width + (pictureBox.Width * 0.05));
         }
 
+        /// <summary>
+        /// Zooms the canvas out of the image.
+        /// <list type="bullet">
+        /// <item>Date: 5/17/23</item>
+        /// <item>Programmer(s): Gregory Khrom-Abramyan</item>
+        /// </list>
+        /// </summary>
+        /// <param name="sender">References the pictureBox object.</param>
+        /// <param name="e">An EventListener checking for when the Button is clicked.</param>
         private void zoomOutButton_Click(object sender, EventArgs e)
         {
-            pictureBox.Height -= Convert.ToInt32(scaleFactor / constant);
-            pictureBox.Width -= scaleFactor;
-
-            //pictureBox.Top = (int)(pictureBox.Top + (pictureBox.Height * 0.025));
-            //pictureBox.Left = (int)(pictureBox.Left + (pictureBox.Width * 0.025));
-            //pictureBox.Height = (int)(pictureBox.Height - (pictureBox.Height * 0.05));
-            //pictureBox.Width = (int)(pictureBox.Width - (pictureBox.Width * 0.05));
+            pictureBox.Top = (int)(pictureBox.Top + (pictureBox.Height * 0.025));
+            pictureBox.Left = (int)(pictureBox.Left + (pictureBox.Width * 0.025));
+            pictureBox.Height = (int)(pictureBox.Height - (pictureBox.Height * 0.05));
+            pictureBox.Width = (int)(pictureBox.Width - (pictureBox.Width * 0.05));
         }
 
         /// <summary>

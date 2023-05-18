@@ -8,25 +8,25 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Pixel_Forgery.PixelForgeryTool">
-    <Position X="4.25" Y="1.5" Width="2" />
+    <Position X="13" Y="1.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAEAhAMgABgAACIAgAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Tool.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Pixel_Forgery.BrushTool">
-    <Position X="12" Y="1.25" Width="1.5" />
+    <Position X="14.25" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>BrushTool.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Pixel_Forgery.EraserTool">
-    <Position X="8.75" Y="3.75" Width="1.5" />
+    <Position X="17.75" Y="3.75" Width="1.5" />
     <InheritanceLine Type="Pixel_Forgery.PixelForgeryTool" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="6.25" Y="3.938" />
-        <Point X="8.75" Y="3.938" />
+        <Point X="15" Y="3.938" />
+        <Point X="17.75" Y="3.938" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -35,56 +35,53 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Pixel_Forgery.FileExplorerDialog">
-    <Position X="4.25" Y="5.5" Width="1.5" />
+    <Position X="7.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAABAAAAAAAAAA=</HashCode>
       <FileName>FileExplorerDialog.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Pixel_Forgery.Changes">
-    <Position X="4.25" Y="7" Width="1.5" />
+    <Position X="8" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACAAgAAAAAAAAAAAAAAAAACAAAggAAACAAAAAAAAAg=</HashCode>
       <FileName>Changes.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Pixel_Forgery.ShapeTool">
-    <Position X="6.75" Y="1.5" Width="1.5" />
+    <Position X="16.25" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAABAIAAggAAAAAAAICIAAAAAAAAAAAABAAAAAAE=</HashCode>
       <FileName>ShapeTool.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Pixel_Forgery.FillTool">
-    <Position X="7.5" Y="5.25" Width="1.5" />
+    <Position X="10.25" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAQAAAAAAAAAGgAAAAAAAAAAAgAAAAAAAA=</HashCode>
       <FileName>FillTool.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Pixel_Forgery.ColorPickerTool">
-    <Position X="10.75" Y="5.75" Width="1.5" />
+    <Position X="12.25" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ColorPickerTool.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Pixel_Forgery.ImagePropertiesForm">
-    <Position X="6.25" Y="6.5" Width="2" />
+    <Position X="10.25" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>ARAAIAAAACYAAAAAAAKAAAACBAAoAAgAkAAAgBAgAAA=</HashCode>
       <FileName>ImagePropertiesForm.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Pixel_Forgery.TextTool">
-    <Position X="10.25" Y="1.5" Width="1.5" />
+    <Position X="19.75" Y="1.25" Width="1.5" />
     <InheritanceLine Type="Pixel_Forgery.PixelForgeryTool" FixedFromPoint="true">
       <Path>
-        <Point X="6.25" Y="2" />
-        <Point X="6.49" Y="2" />
-        <Point X="6.49" Y="0.875" />
-        <Point X="11" Y="0.875" />
-        <Point X="11" Y="1.5" />
+        <Point X="15" Y="2" />
+        <Point X="19.75" Y="2" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>

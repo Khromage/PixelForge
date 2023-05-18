@@ -82,12 +82,12 @@ namespace Pixel_Forgery
             this.colorChangeButton = new System.Windows.Forms.ToolStripButton();
             this.colorPickerButton = new System.Windows.Forms.ToolStripButton();
             this.pickedcolordisplay = new System.Windows.Forms.ToolStripLabel();
+            this.zoomInButton = new System.Windows.Forms.ToolStripButton();
+            this.zoomOutButton = new System.Windows.Forms.ToolStripButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.zoomOutButton = new System.Windows.Forms.ToolStripButton();
-            this.zoomInButton = new System.Windows.Forms.ToolStripButton();
             this.menuBar.SuspendLayout();
             this.toolBar.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -128,7 +128,7 @@ namespace Pixel_Forgery
             this.newButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.newButton.Name = "newButton";
             this.newButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newButton.Size = new System.Drawing.Size(224, 26);
+            this.newButton.Size = new System.Drawing.Size(220, 22);
             this.newButton.Text = "New";
             this.newButton.Click += new System.EventHandler(this.NewButton_Click);
             // 
@@ -138,7 +138,7 @@ namespace Pixel_Forgery
             this.saveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.saveButton.Name = "saveButton";
             this.saveButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveButton.Size = new System.Drawing.Size(224, 26);
+            this.saveButton.Size = new System.Drawing.Size(220, 22);
             this.saveButton.Text = "Save";
             this.saveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
@@ -148,14 +148,14 @@ namespace Pixel_Forgery
             this.openButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.openButton.Name = "openButton";
             this.openButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openButton.Size = new System.Drawing.Size(224, 26);
+            this.openButton.Size = new System.Drawing.Size(220, 22);
             this.openButton.Text = "Open";
             this.openButton.Click += new System.EventHandler(this.OpenButton_Click);
             // 
             // fileButtonSeparator
             // 
             this.fileButtonSeparator.Name = "fileButtonSeparator";
-            this.fileButtonSeparator.Size = new System.Drawing.Size(221, 6);
+            this.fileButtonSeparator.Size = new System.Drawing.Size(217, 6);
             // 
             // imagePropertiesButton
             // 
@@ -163,7 +163,7 @@ namespace Pixel_Forgery
             this.imagePropertiesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.imagePropertiesButton.Name = "imagePropertiesButton";
             this.imagePropertiesButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.imagePropertiesButton.Size = new System.Drawing.Size(224, 26);
+            this.imagePropertiesButton.Size = new System.Drawing.Size(220, 22);
             this.imagePropertiesButton.Text = "Image Properties";
             this.imagePropertiesButton.Click += new System.EventHandler(this.ImagePropertiesButton_Click);
             // 
@@ -185,7 +185,7 @@ namespace Pixel_Forgery
             this.undoButton.Name = "undoButton";
             this.undoButton.ShortcutKeyDisplayString = "";
             this.undoButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoButton.Size = new System.Drawing.Size(184, 26);
+            this.undoButton.Size = new System.Drawing.Size(152, 22);
             this.undoButton.Text = "Undo";
             this.undoButton.Click += new System.EventHandler(this.UndoButton_Click);
             // 
@@ -196,7 +196,7 @@ namespace Pixel_Forgery
             this.redoButton.Name = "redoButton";
             this.redoButton.ShortcutKeyDisplayString = "";
             this.redoButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.redoButton.Size = new System.Drawing.Size(184, 26);
+            this.redoButton.Size = new System.Drawing.Size(152, 22);
             this.redoButton.Text = "Redo";
             this.redoButton.Click += new System.EventHandler(this.RedoButton_Click);
             // 
@@ -251,7 +251,7 @@ namespace Pixel_Forgery
             this.brushSizeTextBox});
             this.sizeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.sizeToolStripMenuItem.Name = "sizeToolStripMenuItem";
-            this.sizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sizeToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.sizeToolStripMenuItem.Text = "Change Size";
             this.sizeToolStripMenuItem.MouseHover += new System.EventHandler(this.BrushSizeToolStripMenuItem_MouseHover);
             // 
@@ -329,7 +329,7 @@ namespace Pixel_Forgery
             // 
             this.polygonToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("polygonToolStripMenuItem.Image")));
             this.polygonToolStripMenuItem.Name = "polygonToolStripMenuItem";
-            this.polygonToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.polygonToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.polygonToolStripMenuItem.Text = "Polygon";
             this.polygonToolStripMenuItem.ToolTipText = "Right click to set a polygon vertex and left click to complete the polygon by con" +
     "necting the last placed point to the first placed point";
@@ -446,6 +446,28 @@ namespace Pixel_Forgery
             this.pickedcolordisplay.Name = "pickedcolordisplay";
             this.pickedcolordisplay.Size = new System.Drawing.Size(25, 25);
             // 
+            // zoomInButton
+            // 
+            this.zoomInButton.AutoSize = false;
+            this.zoomInButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.zoomInButton.Image = ((System.Drawing.Image)(resources.GetObject("zoomInButton.Image")));
+            this.zoomInButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.zoomInButton.Name = "zoomInButton";
+            this.zoomInButton.Size = new System.Drawing.Size(47, 47);
+            this.zoomInButton.Text = "zoomInButton";
+            this.zoomInButton.Click += new System.EventHandler(this.zoomInButton_Click);
+            // 
+            // zoomOutButton
+            // 
+            this.zoomOutButton.AutoSize = false;
+            this.zoomOutButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.zoomOutButton.Image = ((System.Drawing.Image)(resources.GetObject("zoomOutButton.Image")));
+            this.zoomOutButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.zoomOutButton.Name = "zoomOutButton";
+            this.zoomOutButton.Size = new System.Drawing.Size(47, 47);
+            this.zoomOutButton.Text = "zoomOutButton";
+            this.zoomOutButton.Click += new System.EventHandler(this.zoomOutButton_Click);
+            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
@@ -459,6 +481,7 @@ namespace Pixel_Forgery
             // 
             // panel1
             // 
+            this.panel1.AutoScroll = true;
             this.panel1.AutoSize = true;
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.Controls.Add(this.pictureBox);
@@ -476,36 +499,13 @@ namespace Pixel_Forgery
             this.pictureBox.Location = new System.Drawing.Point(20, 20);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(1280, 720);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox.TabIndex = 5;
             this.pictureBox.TabStop = false;
             this.pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBox_Paint);
             this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureBox_MouseDown);
             this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PictureBox_MouseMove);
             this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PictureBox_MouseUp);
-            // 
-            // zoomOutButton
-            // 
-            this.zoomOutButton.AutoSize = false;
-            this.zoomOutButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.zoomOutButton.Image = ((System.Drawing.Image)(resources.GetObject("zoomOutButton.Image")));
-            this.zoomOutButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.zoomOutButton.Name = "zoomOutButton";
-            this.zoomOutButton.Size = new System.Drawing.Size(47, 47);
-            this.zoomOutButton.Text = "zoomOutButton";
-            this.zoomOutButton.Visible = false;
-            this.zoomOutButton.Click += new System.EventHandler(this.zoomOutButton_Click);
-            // 
-            // zoomInButton
-            // 
-            this.zoomInButton.AutoSize = false;
-            this.zoomInButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.zoomInButton.Image = ((System.Drawing.Image)(resources.GetObject("zoomInButton.Image")));
-            this.zoomInButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.zoomInButton.Name = "zoomInButton";
-            this.zoomInButton.Size = new System.Drawing.Size(47, 47);
-            this.zoomInButton.Text = "zoomInButton";
-            this.zoomInButton.Visible = false;
-            this.zoomInButton.Click += new System.EventHandler(this.zoomInButton_Click);
             // 
             // PixelForgeryGUI
             // 
